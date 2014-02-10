@@ -7,8 +7,9 @@ service and provides health recommendations.
 Getting Started
 ---------------
 
-pip install virtualenv
-virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
-./health-engine.py
+    pip install virtualenv
+    virtualenv env
+    source env/bin/activate
+    pip install -r requirements.txt
+    foreman start
+
