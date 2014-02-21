@@ -1,34 +1,30 @@
 #!/usr/bin/env python
 
+""" A Flask wrapper around the Recommender to create a simple web API endpoint """
+
 import os
 import json
+from StringIO import StringIO
 from flask import Flask
 from flask import request
+import recommender
 
 app = Flask(__name__)
-recommendations = {203:'Prehypertention Symptoms found! Please check your BP again after 6 hrs.', 
-                   318:'Sleep at least 8 hrs, take rest, your bones and joints needs extra care that have arthiritis problem'}
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def recommend():
-    print request
-    response = {
-        'id': 0,
-        'recommendation': 'Hello, Welcome to our search engine!'
-    }
-    return json.dumps(response)
-
-@app.route('/', methods = ['POST'])
-def recommend_post():
-    response = [];
     
-    if not request.json or not 'sleep' in request.json:
-       abort(400);
-       
-    if int(request.json['sleep']) < 8:
-       response.append({'id':318, 'recommendation': recommendations.get(318)})
+    try:
+        import pdb
+        pdb.set_trace()
+        inputs = json.loads(request.data)
+    except ValueError:
+        return "Unable to parse input data", 400
+        
+    response = recommender.recommend(inputs)
+    return json.dumps(response)
+        
 
-    else:
-        response.append({'id':0, 'recommendation':'Congratulations,You have a good sleep!'})
-    return json.dumps(response[0])
-
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
