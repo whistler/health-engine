@@ -14,16 +14,16 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def recommend():
     
-    try:
-        import pdb
-        pdb.set_trace()
-        inputs = json.loads(request.data)
-    except ValueError:
-        return "Unable to parse input data", 400
-        
-    response = recommender.recommend(inputs)
-    return json.dumps(response)
-        
+     try:
+#          import pdb
+#          pdb.set_trace()
+         inputs = json.loads(request.data)
+         return val
+     except ValueError:
+         return "Unable to parse input data", 400
+          
+     response = recommender.recommend(inputs)
+     return json.dumps(response)
 
 if __name__ == "__main__":
     app.debug = True

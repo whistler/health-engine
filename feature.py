@@ -17,4 +17,26 @@ class Features(object):
         self.activity_min = activity_min
         self.activity_max = activity_max
         self.age_min = age_min
-        self.age_max = age_max
+        self.age_max = age_max  
+        
+        def __hash__(self):
+            return hash((self.bp_systolic_min, self.bp_systolic_max, 
+                         self.bp_diastolic_min, self.bp_diastolic_max,
+                         self.heartbeat_min, self.heartbeat_max, 
+                         self.sleep_min, self.sleep_max, 
+                         self.activity_min, self.activity_max,
+                         self.age_min, self.age_max))
+
+        def __eq__(self, other):
+            return (self.bp_systolic_min, self.bp_systolic_max, 
+                    self.bp_diastolic_min, self.bp_diastolic_max,
+                    self.heartbeat_min, self.heartbeat_max, 
+                    self.sleep_min, self.sleep_max, 
+                    self.activity_min, self.activity_max,
+                    self.age_min, self.age_max) == (
+                    other.bp_systolic_min, other.bp_systolic_max, 
+                    other.bp_diastolic_min, other.bp_diastolic_max,
+                    other.heartbeat_min, other.heartbeat_max, 
+                    other.sleep_min, other.sleep_max, 
+                    other.activity_min, other.activity_max,
+                    other.age_min, other.age_max)
