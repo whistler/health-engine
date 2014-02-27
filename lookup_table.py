@@ -2,11 +2,18 @@
 described in the features"""
 
 table = None # Stores all the recommendations
+from features import Features
 
 def lookup(features):
     
     recommendations = []
     
+    #Some data of feature, For testing
+    feature=[]
+    feature[0]=Features(100, 120, 60, 80, None, None, None, None, 0, 105, 65, 200)
+    feature[1]=Features(120, 139, 80, 89, None, None, None, None, 0, 105, 19, 65)
+    feature[2]=Features(140, 159, 90, 99, None, None, None, None, None, None, None, None)
+   
     # check if table is already loaded
     if 'table' in vars() or 'table' in globals():
         table = load_recommendations()
@@ -14,7 +21,7 @@ def lookup(features):
     #TODO: Loop over the recommendations table and append the ones the meet the criteria in features
     # to recommendations list
     
-    stub = {'id': 1, 'recommendation': "Test recommendation" }
+    stub = {'feature': feature, 'recommendation': "Test recommendation" }
     recommendations.append(stub)
     
     return recommendations
