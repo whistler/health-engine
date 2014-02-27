@@ -2,6 +2,7 @@
 described in the features"""
 
 table = None # Stores all the recommendations
+
 from features import Features
 
 def lookup(features):
@@ -14,6 +15,7 @@ def lookup(features):
     feature[1]=Features(120, 139, 80, 89, None, None, None, None, 0, 105, 19, 65)
     feature[2]=Features(140, 159, 90, 99, None, None, None, None, None, None, None, None)
    
+
     # check if table is already loaded
     if 'table' in vars() or 'table' in globals():
         table = load_recommendations()
@@ -21,7 +23,10 @@ def lookup(features):
     #TODO: Loop over the recommendations table and append the ones the meet the criteria in features
     # to recommendations list
     
-    stub = {'feature': feature, 'recommendation': "Test recommendation" }
+    stub = {'feature0': feature[0], 'recommendation0': "Test recommendation" }
+    stub = {'feature1': feature[1], 'recommendation1': "Test recommendation" }
+    stub = {'feature2': feature[2], 'recommendation2': "Test recommendation" }
+
     recommendations.append(stub)
     
     return recommendations
@@ -29,4 +34,16 @@ def lookup(features):
 
 def load_recommendations():
     """ Reads the recommendations table from disk and returns it """
-    pass
+    import gspread
+    # Login with your Google account
+    gc = gspread.login('account', 'password')
+    
+    # Open a worksheet from spreadsheet with one shot
+    wks = gc.open("Medical Research").sheet1
+    
+    # Get all values from the first row
+    # With label
+    val = wks.acell('B1').value
+    
+    return val
+
