@@ -21,4 +21,6 @@ def preprocess(inputs):
     features = Features(bp_systolic_min, bp_systolic_max, bp_diastolic_min, bp_diastolic_max,
             heartbeat_min, heartbeat_max, sleep_min, sleep_max, activity_min, activity_max,
             age_min, age_max)
+
     return features
+
