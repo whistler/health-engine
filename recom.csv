@@ -1,0 +1,8 @@
+1,,,,,,,,,0,150,65,,"After getting medical clearance, exercise more than 150 minutes / week.",
+2,,,,,,,,,0,150,19,64,Exercise more than 150 minutes / week.,
+5,100,120,60,80,,,,,,,,,Congratulations! Your B.P. is normal,
+6,120,139,80,89,,,,,,,,,Prehypertention Symptoms found! Please check your BP again after 6 hrs. Prehypertension,
+7,140,159,90,99,,,,,,,,,High Blood Pressure Symptoms found! You may have forgot to take your pills.;  (Hypertension) Stage 1,
+8,160,179,100,109,,,,,,,,,High Blood Pressure Symptoms found! Please see your doctor immediately! (Hypertension) Stage 2,
+9,180,,110,,,,,,,,,,Emergency! Get Hospitalized right now!,
+10,,,,,100,,,,,,,,Heart Rate abnormal! You may have not taken your pills.,
