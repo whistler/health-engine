@@ -5,9 +5,9 @@ table = None # Stores all the recommendations
 
 from features import Features
 
-#def lookup(features):
-def lookup():
+def lookup(features):
     
+    keys = []
     recommendations = []
     
     # check if table is already loaded
@@ -15,8 +15,9 @@ def lookup():
         table = load_recommendations()
         for k in table.keys():
             print table[k]
-     
-    return recommendations    
+    
+    keys = make_keys(features)
+    
     #TODO: Loop over the recommendations table and append the ones the meet the criteria in features
     # to recommendations list   
     '''    
@@ -26,8 +27,21 @@ def lookup():
 
     recommendations.append(stub)
     '''
+     
+    return recommendations    
+
   
 
+def make_keys(features):
+    keys_temp = []
+    bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
+                      features.bp_diastolic_max, None, None, None, None, None, None,
+                 features.age_min, features.age_max)
+    keys_temp.append(bp_key)
+    
+    #Todo: add more keys
+    
+    return keys_temp
 
 def load_recommendations():
     table_temp = {};
@@ -46,4 +60,5 @@ def load_recommendations():
             table_temp[key] = row[13];
         #return "hello"
         return table_temp;
-
+    
+lookup();
