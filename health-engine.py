@@ -8,20 +8,19 @@ from StringIO import StringIO
 from flask import Flask
 from flask import request
 import recommender
+import lookup_table
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def recommend():
 
-
      try:
 #          import pdb
 #          pdb.set_trace()
          inputs = json.loads(request.data)
-         return val
      except ValueError:
-         return "Unable to parse input data", 400
+         return "Unable to parse input dat", 400
           
      response = recommender.recommend(inputs)
      return json.dumps(response)

@@ -9,7 +9,7 @@ def lookup(features):
     
     keys = []
     recommendations = []
-    
+    stub = {}
     # check if table is already loaded
     if 'table' in vars() or 'table' in globals():
         table = load_recommendations()
@@ -18,15 +18,14 @@ def lookup(features):
     
     keys = make_keys(features)
     
-    #TODO: Loop over the recommendations table and append the ones the meet the criteria in features
+    #TODO: check whether keys is empty
+    for key in keys:
+    # Loop over the recommendations table and append the ones the meet the criteria in features
     # to recommendations list   
-    '''    
-    stub = {'feature0': feature[0], 'recommendation0': "Test recommendation" }
-    stub = {'feature1': feature[1], 'recommendation1': "Test recommendation" }
-    stub = {'feature2': feature[2], 'recommendation2': "Test recommendation" }
-
-    recommendations.append(stub)
-    '''
+        if(table[key] != None):
+            print table[key]
+            stub = {'id':features.id, 'recommendation': table[key]}  
+            recommendations.append(stub)
      
     return recommendations    
 
@@ -35,6 +34,7 @@ def lookup(features):
 def make_keys(features):
     keys_temp = []
     
+    '''
     # check if table is already loaded
     if 'table' in vars() or 'table' in globals():
         table = load_recommendations()
@@ -65,12 +65,24 @@ def make_keys(features):
             if k.age_max != features.age_max and features.age_max != None:
                 match=False
             if match==True:
-                    bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
-                       features.bp_diastolic_max, features.heartbeat_min, features.heartbeat_max, None, None, None, None,
-                       features.age_min, features.age_max)
-                    keys_temp.append(bp_key)
-    #Todo: add more keys
+    '''    
+    #making blood pressure key    
+    bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
+            features.bp_diastolic_max, None, None, None, None, None, None,
+            None, None)
+    #makng heart beat key
+    hb_key = Features(None, None, None,None,
+            features.heartbeat_min, features.heartbeat_mine, None, None, None, None, None,
+            None, None)
+    #making activity key
+    activity_key = Features(None, None, None,None,
+            None, None, None, None, features.activity_min,features.activity_max,
+            features.age_min, features.age_max)
     
+    #add key to the key list
+    keys_temp.append(bp_key)
+    keys_temp.append(hb_key)
+    keys_temp.append(activity_key)    
     return keys_temp
 
 def load_recommendations():
@@ -91,5 +103,3 @@ def load_recommendations():
         #return "hello"
         return table_temp;
     
-load_recommendations();
-make_keys();

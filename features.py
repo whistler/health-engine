@@ -6,6 +6,7 @@ class Features(object):
     def __init__(self, bp_systolic_min, bp_systolic_max, bp_diastolic_min, bp_diastolic_max,
                  heartbeat_min, heartbeat_max, sleep_min, sleep_max, activity_min, activity_max,
                  age_min, age_max):
+
         self.bp_systolic_min = bp_systolic_min
         self.bp_systolic_max = bp_systolic_max
         self.bp_diastolic_min = bp_diastolic_min
@@ -19,7 +20,7 @@ class Features(object):
         self.age_min = age_min
         self.age_max = age_max  
         
-        def __hash__(self):
+    def __hash__(self):
             return hash((self.bp_systolic_min, self.bp_systolic_max, 
                          self.bp_diastolic_min, self.bp_diastolic_max,
                          self.heartbeat_min, self.heartbeat_max, 
@@ -27,7 +28,7 @@ class Features(object):
                          self.activity_min, self.activity_max,
                          self.age_min, self.age_max))
 
-        def __eq__(self, other):
+    def __eq__(self, other):
             return (self.bp_systolic_min, self.bp_systolic_max, 
                     self.bp_diastolic_min, self.bp_diastolic_max,
                     self.heartbeat_min, self.heartbeat_max, 
@@ -40,3 +41,29 @@ class Features(object):
                     other.sleep_min, other.sleep_max, 
                     other.activity_min, other.activity_max,
                     other.age_min, other.age_max)
+    
+    def print_features(self):
+        print 'bp_systolic_min: ' 
+        print self.bp_systolic_min 
+        print 'bp_systolic_max: ' 
+        print self.bp_systolic_max
+        print 'bp_diastolic_min: ' 
+        print self.bp_diastolic_min 
+        print 'bp_diastolic_max: ' 
+        print self.bp_diastolic_max
+        print 'heartbeat_min: ' 
+        print self.heartbeat_min 
+        print 'heartbeat_max: ' 
+        print self.heartbeat_max 
+        print 'sleep_min: ' 
+        print self.sleep_min 
+        print 'sleep_max: ' 
+        print self.sleep_max 
+        print 'activity_min: '
+        print self.activity_min 
+        print 'activity_max: '
+        print self.activity_max 
+        print 'age_min: ' 
+        print self.age_min 
+        print 'age_max: ' 
+        print self.age_max 

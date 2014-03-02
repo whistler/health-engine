@@ -13,6 +13,8 @@ def preprocess(inputs):
     heartbeat_max = None
     sleep_min = None
     sleep_max = None
+    bp_systolic_min = None
+    bp_systolic_max = None
     activity_min = None
     activity_max = None
     age_min = None
@@ -32,38 +34,39 @@ def preprocess(inputs):
         heartbeat_max = 100
         
     if inputs["bloodPressures"]["systolic"]>=100 and inputs["bloodPressures"]["systolic"]<=120:
-        activity_min = 100
-        activity_max = 120
+        bp_systolic_min = 100
+        bp_systolic_max = 120
     if inputs["bloodPressures"]["systolic"]>=120 and inputs["bloodPressures"]["systolic"]<=139:
-        activity_min = 120
-        activity_max = 139
+        bp_systolic_min = 120
+        bp_systolic_max = 139
     if inputs["bloodPressures"]["systolic"]>=140 and inputs["bloodPressures"]["systolic"]<=159:
-        activity_min = 140
-        activity_max = 159 
+        bp_systolic_min = 140
+        bp_systolic_max = 159 
     if inputs["bloodPressures"]["systolic"]>=160 and inputs["bloodPressures"]["systolic"]<=179:
-        activity_min = 160
-        activity_max = 179
+        bp_systolic_min = 160
+        bp_systolic_max = 179
     if inputs["bloodPressures"]["systolic"]>=180:
-        activity_min = 180
+        bp_systolic_min = 180
 
     if inputs["bloodPressures"]["diastolic"]>=60 and inputs["bloodPressures"]["diastolic"]<=79:
-        activity_min = 60
-        activity_max = 79
+        bp_diastolic_min = 60
+        bp_diastolic_max = 79
     if inputs["bloodPressures"]["diastolic"]>=80 and inputs["bloodPressures"]["diastolic"]<=89:
-        activity_min = 80
-        activity_max = 89
+        bp_diastolic_min = 80
+        bp_diastolic_max = 89
     if inputs["bloodPressures"]["diastolic"]>=90 and inputs["bloodPressures"]["diastolic"]<=99:
-        activity_min = 90
-        activity_max = 99 
+        bp_diastolic_min = 90
+        bp_diastolic_max = 99 
     if inputs["bloodPressures"]["diastolic"]>=100 and inputs["bloodPressures"]["diastolic"]<=109:
-        activity_min = 100
-        activity_max = 109
+        bp_diastolic_min = 100
+        bp_diastolic_max = 109
     if inputs["bloodPressures"]["diastolic"]>=110:
-        activity_min = 110
+        bp_diastolic_min = 110
     
     features = Features(bp_systolic_min, bp_systolic_max, bp_diastolic_min, bp_diastolic_max,
             heartbeat_min, heartbeat_max, sleep_min, sleep_max, activity_min, activity_max,
             age_min, age_max)
 
+    features.print_features()
     return features
 
