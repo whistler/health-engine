@@ -18,17 +18,20 @@ def lookup(features):
     
     keys = make_keys(features)
     
+
     #TODO: check whether keys is empty
     for key in keys:
     # Loop over the recommendations table and append the ones the meet the criteria in features
-    # to recommendations list   
+    # to recommendations list
+        print key
+    '''   
         if(table[key] != None):
             print table[key]
             stub = {'id':features.id, 'recommendation': table[key]}  
             recommendations.append(stub)
-     
+     '''
     return recommendations    
-
+    
   
 
 def make_keys(features):
@@ -70,14 +73,18 @@ def make_keys(features):
     bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
             features.bp_diastolic_max, None, None, None, None, None, None,
             None, None)
+#     bp_key.print_features()
     #makng heart beat key
     hb_key = Features(None, None, None,None,
-            features.heartbeat_min, features.heartbeat_mine, None, None, None, None, None,
+            features.heartbeat_min, features.heartbeat_max, None, None, None, None, 
             None, None)
+#     hb_key.print_features()
     #making activity key
     activity_key = Features(None, None, None,None,
             None, None, None, None, features.activity_min,features.activity_max,
             features.age_min, features.age_max)
+#     activity_key.print_features()
+    
     
     #add key to the key list
     keys_temp.append(bp_key)
