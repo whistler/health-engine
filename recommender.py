@@ -8,4 +8,5 @@ import lookup_table
 def recommend(inputs):
     features = preprocessor.preprocess(inputs)
     recommendations = lookup_table.lookup(features)
-    return recommendations
+#     return recommendations
+    return "test preprocess"

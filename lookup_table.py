@@ -24,14 +24,15 @@ def lookup(features):
     # Loop over the recommendations table and append the ones the meet the criteria in features
     # to recommendations list
         print key
+        print table[key]
     '''   
         if(table[key] != None):
             print table[key]
             stub = {'id':features.id, 'recommendation': table[key]}  
             recommendations.append(stub)
      '''
-    return recommendations    
-    
+#     return recommendations    
+
   
 
 def make_keys(features):
@@ -71,17 +72,18 @@ def make_keys(features):
     '''    
     #making blood pressure key    
     bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
-            features.bp_diastolic_max, None, None, None, None, None, None,
-            None, None)
-#     bp_key.print_features()
+            features.bp_diastolic_max, '', '', '', '', '', '',
+            '', '')
+    print "bp_key"
+    bp_key.print_features()
     #makng heart beat key
-    hb_key = Features(None, None, None,None,
-            features.heartbeat_min, features.heartbeat_max, None, None, None, None, 
-            None, None)
+    hb_key = Features('', '', '','',
+            features.heartbeat_min, features.heartbeat_max, '', '', '', '', 
+            '', '')
 #     hb_key.print_features()
     #making activity key
-    activity_key = Features(None, None, None,None,
-            None, None, None, None, features.activity_min,features.activity_max,
+    activity_key = Features('', '', '','',
+            '', '', '', '', features.activity_min,features.activity_max,
             features.age_min, features.age_max)
 #     activity_key.print_features()
     
@@ -102,10 +104,13 @@ def load_recommendations():
         reader = csv.reader(f)
         #Todo: Check how many roles there 
         for row in reader:
-          #  print row
+            print "row"
+            print row
             key = Features(row[1], row[2], row[3], row[4],
                  row[5], row[6], row[7], row[8], row[9], row[10],
                  row[11], row[12])
+            print "key in table"    
+            print key.print_features()
             table_temp[key] = row[13];
         #return "hello"
         return table_temp;
