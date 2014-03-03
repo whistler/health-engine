@@ -20,7 +20,7 @@ def recommend():
 #          pdb.set_trace()
          inputs = json.loads(request.data)
      except ValueError:
-         return "Unable to parse input date", 400
+         return "Unable to parse input data", 400
           
      response = recommender.recommend(inputs)
      return json.dumps(response)

@@ -10,32 +10,23 @@ def lookup(features):
     keys = []
     recommendations = []
     stub = {}
+    id = 0
     # check if table is already loaded
     if 'table' in vars() or 'table' in globals():
         table = load_recommendations()
-        for k in table.keys():
-            print table[k]
-    
+            
+    # generate keys from input features object
     keys = make_keys(features)
-    
-
-    #TODO: check whether keys is empty
-    for key in keys:
-    # Loop over the recommendations table and append the ones the meet the criteria in features
-    # to recommendations list
-        if key in table.keys():
-            print "found key!"
-            print table[key]
-            stub = { 'recommendation': table[key]}
-            recommendations.append(stub)  
-        else:
-            print "no key!"
-    '''   
-        if(table[key] != None):
-            print table[key]
-            stub = {'id':features.id, 'recommendation': table[key]}  
-            recommendations.append(stub)
-     '''
+    if(keys):
+        for key in keys:
+            # Loop over the recommendations table and append the ones the meet the criteria in features
+            # to recommendations list
+            if table.has_key(key):
+                stub = { 'id': id, 'recommendation':table[key][0], "url":table[key][1]}
+                recommendations.append(stub)  
+                id = id+1
+            else:
+                print "not found"
     return recommendations    
 
   
@@ -47,22 +38,15 @@ def make_keys(features):
     bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
             features.bp_diastolic_max, '', '', '', '', '', '',
             '', '')
-    print "bp_key"
-    bp_key.print_features()
     #makng heart beat key
     hb_key = Features('', '', '','',
             features.heartbeat_min, features.heartbeat_max, '', '', '', '', 
             '', '')
-    print "hb_key"
-    hb_key.print_features()
     
     #making activity key
     activity_key = Features('', '', '','',
             '', '', '', '', features.activity_min,features.activity_max,
             features.age_min, features.age_max)
-    print "activity_key"
-    activity_key.print_features()
-    
     
     #add key to the key list
     keys_temp.append(bp_key)
@@ -72,22 +56,22 @@ def make_keys(features):
 
 def load_recommendations():
     table_temp = {};
+    
     """ Reads the recommendations table from disk and returns it """
     import csv
     
     #Todo: add try block
-    with open('recom.csv', 'rb') as f:
+    with open('recom_v1.csv', 'rb') as f:
         reader = csv.reader(f)
-        #Todo: Check how many roles there 
+        # skip the first line
+        # Todo: Check how many roles there 
         for row in reader:
-            print "row: "
-            print row
+            value_temp =['',''];
             key = Features(row[1], row[2], row[3], row[4],
                  row[5], row[6], row[7], row[8], row[9], row[10],
                  row[11], row[12])
-            print "key in table"    
-            print key.print_features()
-            table_temp[key] = row[13];
-        #return "hello"
+            value_temp[0] =row[13] 
+            value_temp[1]=row[14] 
+            table_temp[key] = value_temp;
         return table_temp;
     
