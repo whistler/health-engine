@@ -12,7 +12,8 @@ def lookup(features):
     stub = {}
     id = 0
     # check if table is already loaded
-    if 'table' in vars() or 'table' in globals():
+    if 'table' in globals():
+        global table
         table = load_recommendations()
             
     # generate keys from input features object
