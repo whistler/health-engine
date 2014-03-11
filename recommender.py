@@ -2,10 +2,15 @@
 http://docs.healthengine.apiary.io/ and returns a python object with recommendations in the 
 format described by the API. """ 
 
-import preprocessor
+import analyzer
 import lookup_table
+import preprocessor
+
 
 def recommend(inputs):
+    recommendation_list = []
+    all_recommendation = analyzer.recommend_start(inputs)
     features = preprocessor.preprocess(inputs)
     recommendations = lookup_table.lookup(features)
-    return recommendations
+    recommendations.append(all_recommendation)
+    return all_recommendation
