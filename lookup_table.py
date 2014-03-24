@@ -35,25 +35,27 @@ def lookup(features):
 def make_keys(features):
     keys_temp = []
     
-    #making blood pressure key    
-    bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
-            features.bp_diastolic_max, '', '', '', '', '', '',
-            '', '')
-    #makng heart beat key
-    hb_key = Features('', '', '','',
-            features.heartbeat_min, features.heartbeat_max, '', '', '', '', 
-            '', '')
+    if(features != None):
+        #making blood pressure key    
+        bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
+                features.bp_diastolic_max, '', '', '', '', '', '',
+                '', '')
+        #makng heart beat key
+        hb_key = Features('', '', '','',
+                features.heartbeat_min, features.heartbeat_max, '', '', '', '', 
+                '', '')
+        
+        #making activity key
+        activity_key = Features('', '', '','',
+                '', '', '', '', features.activity_min,features.activity_max,
+                features.age_min, features.age_max)
+        
+        #add key to the key list
+        keys_temp.append(bp_key)
+        keys_temp.append(hb_key)
+        keys_temp.append(activity_key)    
+        return keys_temp
     
-    #making activity key
-    activity_key = Features('', '', '','',
-            '', '', '', '', features.activity_min,features.activity_max,
-            features.age_min, features.age_max)
-    
-    #add key to the key list
-    keys_temp.append(bp_key)
-    keys_temp.append(hb_key)
-    keys_temp.append(activity_key)    
-    return keys_temp
 
 def load_recommendations():
     table_temp = {};
