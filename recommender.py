@@ -1,6 +1,6 @@
-""" Recommendation engine. Takes input as a python object of the format described in the API at 
-http://docs.healthengine.apiary.io/ and returns a python object with recommendations in the 
-format described by the API. """ 
+""" Recommendation engine. Takes input as a python object of the format 
+described in the API at http://docs.healthengine.apiary.io/ and returns a python
+object with recommendations in the format described by the API. """ 
 
 import analyzer
 import lookup_table

@@ -14,10 +14,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def recommend():
-
+""" API point for the recommendtion engine """
      try:
-#          import pdb
-#          pdb.set_trace()
          inputs = json.loads(request.data)
      except ValueError:
          return "Unable to parse input data", 400

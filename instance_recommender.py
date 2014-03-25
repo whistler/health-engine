@@ -5,12 +5,16 @@ table = None # Stores all the recommendations
 
 from features import Features
 
+def recommend(inputs):
+    return None
+
 def lookup(features):
     
     keys = []
     recommendations = []
     stub = {}
     id = 0
+    
     # check if table is already loaded
     if 'table' in globals():
         global table
@@ -28,34 +32,7 @@ def lookup(features):
                 id = id+1
             else:
                 print "not found"
-    return recommendations    
-
-  
-
-def make_keys(features):
-    keys_temp = []
-    
-    if(features != None):
-        #making blood pressure key    
-        bp_key = Features(features.bp_systolic_min, features.bp_systolic_max, features.bp_diastolic_min, 
-                features.bp_diastolic_max, '', '', '', '', '', '',
-                '', '')
-        #makng heart beat key
-        hb_key = Features('', '', '','',
-                features.heartbeat_min, features.heartbeat_max, '', '', '', '', 
-                '', '')
-        
-        #making activity key
-        activity_key = Features('', '', '','',
-                '', '', '', '', features.activity_min,features.activity_max,
-                features.age_min, features.age_max)
-        
-        #add key to the key list
-        keys_temp.append(bp_key)
-        keys_temp.append(hb_key)
-        keys_temp.append(activity_key)    
-        return keys_temp
-    
+    return recommendations
 
 def load_recommendations():
     table_temp = {};
@@ -64,7 +41,7 @@ def load_recommendations():
     import csv
     
     #Todo: add try block
-    with open('recom_v1.csv', 'rb') as f:
+    with open('db/instance_recommendations.csv', 'rb') as f:
         reader = csv.reader(f)
         # skip the first line
         # Todo: Check how many roles there 
