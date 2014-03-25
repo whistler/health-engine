@@ -1,16 +1,16 @@
 """ Recommendation engine. Takes input as a python object of the format 
-described in the API at http://docs.healthengine.apiary.io/ and returns a python
+described in the API in the docs/api.md file and returns a python
 object with recommendations in the format described by the API. """ 
 
-import analyzer
-import lookup_table
-import preprocessor
-
+import instance_recommender
+import timeseries_recommender
+import postprocessor
 
 def recommend(inputs):
-    recommendation_list = []
-    all_recommendation = analyzer.recommend_start(inputs)
-    features = preprocessor.preprocess(inputs)
-    recommendations = lookup_table.lookup(features)
-    recommendations.append(all_recommendation)
-    return all_recommendation
+    """ Takes as input a python object similar to the JSON input defined in the 
+    API and returns a python structure containing the recommendations """
+    instance_recommendations = instance_recommender.recommend(inputs)
+    ts_recommendations = timeseries_recommender.recommend(inputs)
+    recommendations = postprocessor.process(instance_recommendations, 
+            ts_recommendations)
+    return recommendations
