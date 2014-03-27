@@ -188,11 +188,11 @@ def evaluateActivities(activitiesList):
     activitiesEvaluation=[]
     for i in range(len(activitiesList)):
         activities=activitiesList[i]
-        if(activities>60 and activities<=90):
+        if(activities>1000 and activities<=2000):
             activitiesEvaluation.append(0)
               
-        elif(activities>100 and activities<=110):
-            activitiesEvaluation.append(10)
+        elif(activities>500 and activities<=1000):
+            activitiesEvaluation.append(-10)
               
     print activitiesEvaluation
     return activitiesEvaluation
@@ -217,14 +217,14 @@ def evaluateBloodPressures(bloodPressuresList):
 def preprocess(inputs):
     
     sleepList=getSleepList(inputs)
-#     heartBeatsList=getHeartBeatsList(inputs)
-#     activitiesList=getActivitiesList(inputs)
+    heartBeatsList=getHeartBeatsList(inputs)
+    activitiesList=getActivitiesList(inputs)
 #     bloodPressuresList=getBloodPressuresList(inputs)
-    
+     
     evaluateSleep(sleepList)
-#     getActivitiesList(activitiesList)
-#     getHeartBeatsList(heartBeatsList)
-#     getBloodPressuresList(bloodPressuresList)
+    evaluateActivities(activitiesList)
+    evaluateHeartBeats(heartBeatsList)
+#     evaluateBloodPressures(bloodPressuresList)
     
     featureList=[]
       
@@ -280,7 +280,7 @@ def preprocess(inputs):
             activity_max = eachLine.activity_max
         else:
             toBeSelected=False
-            
+             
         if (((eachLine.age_min=='')and(eachLine.age_max=='')) or checkAge(inputs, eachLine)):
             age_min = eachLine.age_min
             age_max = eachLine.age_max
