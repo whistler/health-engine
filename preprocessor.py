@@ -53,13 +53,181 @@ def checkAge(feature, eachLine):
     else:
         return False
 
+#Get the array of Sleep List
+def getSleepList(feature):
+    sleepData = feature["sleep"]
+    sleepList=[]
+    for i in range(len(sleepData)):
+        sleepList.append(sleepData[i]["minutesAsleep"])
+    print sleepList
+    return sleepList
 
+#Get the array of Activities List
+def getActivitiesList(feature):
+    activitiesData = feature["activities"] 
+    activitiesList=[]
+    for i in range(len(activitiesData)):
+        activitiesList.append(activitiesData[i]["duration"])
+    print activitiesList
+    return activitiesList
+
+#Get the array of HeartBeats List
+def getHeartBeatsList(feature):
+    heartBeatsData = feature["heartBeats"]
+    heartBeatsList=[]
+    for i in range(len(heartBeatsData)):
+        heartBeatsList.append(heartBeatsData[i]["count"])
+    print heartBeatsList
+    return heartBeatsList
+ 
+#Get the array of BloodPressures List
+def getBloodPressuresList(feature):
+    sleepData = feature["bloodPressures"]
+    sleepList=[]
+    for i in range(len(sleepData)):
+        sleepList.append((sleepData[i]["systolic"], sleepData[i]["diastolic"]))
+    print sleepList
+    return sleepList
+
+def evaluateSleep(sleepList):
+    hour=60 
+    sleepEvaluation=[]
+    for i in range(len(sleepList)):
+        sleepTime=sleepList[i]
+        if(sleepTime>6*hour and sleepTime<=8*hour):
+            sleepEvaluation.append(0)
+        elif(sleepTime>5.5*hour and sleepTime<=6*hour):
+            sleepEvaluation.append(-10)
+        elif(sleepTime>4.5*hour and sleepTime<=5.5*hour):
+            sleepEvaluation.append(-25)
+        elif(sleepTime>3.5*hour and sleepTime<=4.5*hour):
+            sleepEvaluation.append(-45)
+        elif(sleepTime>2.5*hour and sleepTime<=3.5*hour):
+            sleepEvaluation.append(-50)
+        elif(sleepTime>2*hour and sleepTime<=2.5*hour):
+            sleepEvaluation.append(-60)
+        elif(sleepTime>1.5*hour and sleepTime<=2*hour):
+            sleepEvaluation.append(-70)
+        elif(sleepTime>1*hour and sleepTime<=1.5*hour):
+            sleepEvaluation.append(-80)
+        elif(sleepTime>0.5*hour and sleepTime<=1*hour):
+            sleepEvaluation.append(-90)
+        elif(sleepTime>0*hour and sleepTime<=0.5*hour):
+            sleepEvaluation.append(-100)
+            
+        elif(sleepTime>8*hour and sleepTime<=10*hour):
+            sleepEvaluation.append(10)
+        elif(sleepTime>10*hour and sleepTime<=12*hour):
+            sleepEvaluation.append(20)
+        elif(sleepTime>12*hour and sleepTime<=14*hour):
+            sleepEvaluation.append(30)
+        elif(sleepTime>14*hour and sleepTime<=16*hour):
+            sleepEvaluation.append(40)
+        elif(sleepTime>16*hour and sleepTime<=18*hour):
+            sleepEvaluation.append(55)
+        elif(sleepTime>18*hour and sleepTime<=20*hour):
+            sleepEvaluation.append(70)
+        elif(sleepTime>20*hour and sleepTime<=22*hour):
+            sleepEvaluation.append(75)
+        elif(sleepTime>22*hour and sleepTime<=24*hour):
+            sleepEvaluation.append(100)
+             
+    print sleepEvaluation
+
+    return sleepEvaluation
+      
+def evaluateHeartBeats(heartBeatsList):
+    hour=60 
+    heartBeatsEvaluation=[]
+    for i in range(len(heartBeatsList)):
+        heartBeats=heartBeatsList[i]
+        if(heartBeats>60 and heartBeats<=90):
+            heartBeatsEvaluation.append(0)
+        elif(heartBeats>55 and heartBeats<=60):
+            heartBeatsEvaluation.append(-10)
+        elif(heartBeats>50 and heartBeats<=55):
+            heartBeatsEvaluation.append(-20)
+        elif(heartBeats>45 and heartBeats<=50):
+            heartBeatsEvaluation.append(-30)
+        elif(heartBeats>40 and heartBeats<=45):
+            heartBeatsEvaluation.append(-50)
+        elif(heartBeats>30 and heartBeats<=40):
+            heartBeatsEvaluation.append(-70)
+        elif(heartBeats>20 and heartBeats<=30):
+            heartBeatsEvaluation.append(-80)
+        elif(heartBeats>10 and heartBeats<=20):
+            heartBeatsEvaluation.append(-90)
+        elif(heartBeats<10):
+            heartBeatsEvaluation.append(-100)
+         
+        
+        elif(heartBeats>100 and heartBeats<=110):
+            heartBeatsEvaluation.append(10)
+        elif(heartBeats>110 and heartBeats<=120):
+            heartBeatsEvaluation.append(20)
+        elif(heartBeats>120 and heartBeats<=130):
+            heartBeatsEvaluation.append(30)
+        elif(heartBeats>130 and heartBeats<=140):
+            heartBeatsEvaluation.append(40)
+        elif(heartBeats>140 and heartBeats<=150):
+            heartBeatsEvaluation.append(50)
+        elif(heartBeats>150 and heartBeats<=160):
+            heartBeatsEvaluation.append(60)
+        elif(heartBeats>160 and heartBeats<=170):
+            heartBeatsEvaluation.append(80)
+        elif(heartBeats>170 and heartBeats<=180):
+            heartBeatsEvaluation.append(90)
+        elif(heartBeats>180):
+            heartBeatsEvaluation.append(100)
+            
+    print heartBeatsEvaluation
+    return heartBeatsEvaluation
+
+      
+def evaluateActivities(activitiesList):
+    activitiesEvaluation=[]
+    for i in range(len(activitiesList)):
+        activities=activitiesList[i]
+        if(activities>60 and activities<=90):
+            activitiesEvaluation.append(0)
+              
+        elif(activities>100 and activities<=110):
+            activitiesEvaluation.append(10)
+              
+    print activitiesEvaluation
+    return activitiesEvaluation
+            
+def evaluateBloodPressures(bloodPressuresList):
+    bloodPressuresEvaluation=[]
+    for i in range(len(bloodPressuresList)):
+        bloodPressures=bloodPressuresList[i]
+        if(bloodPressures>60 and bloodPressures<=90):
+            bloodPressuresEvaluation.append(0)
+        elif(bloodPressures>55 and bloodPressures<=60):
+            bloodPressuresEvaluation.append(-10)
+        
+        elif(bloodPressures>100 and bloodPressures<=110):
+            bloodPressuresEvaluation.append(10)
+          
+    print bloodPressuresEvaluation
+    return bloodPressuresEvaluation
+      
 
 # TODO: find the following values from inputs
 def preprocess(inputs):
     
-    featureList=[]
+    sleepList=getSleepList(inputs)
+#     heartBeatsList=getHeartBeatsList(inputs)
+#     activitiesList=getActivitiesList(inputs)
+#     bloodPressuresList=getBloodPressuresList(inputs)
     
+    evaluateSleep(sleepList)
+#     getActivitiesList(activitiesList)
+#     getHeartBeatsList(heartBeatsList)
+#     getBloodPressuresList(bloodPressuresList)
+    
+    featureList=[]
+      
     for eachLine in tableContent:
         bp_diastolic_min = ''
         bp_diastolic_max = ''
@@ -73,15 +241,15 @@ def preprocess(inputs):
         activity_max = ''
         age_min = ''
         age_max = ''
-        
+         
         toBeSelected=True
          
-        print "-------- ----"
-        print eachLine.bp_systolic_min
-        print eachLine.bp_systolic_max
-        print (inputs["bloodPressures"][dailydata]["systolic"]>=eachLine.bp_systolic_min and inputs["bloodPressures"][dailydata]["systolic"]<=eachLine.bp_systolic_max)or((eachLine.bp_systolic_min=='')and(eachLine.bp_systolic_max==''))
-        print inputs["bloodPressures"][dailydata]["systolic"]
-        print "------------"
+#         print "-------- ----"
+#         print eachLine.bp_systolic_min
+#         print eachLine.bp_systolic_max
+#         print (inputs["bloodPressures"][dailydata]["systolic"]>=eachLine.bp_systolic_min and inputs["bloodPressures"][dailydata]["systolic"]<=eachLine.bp_systolic_max)or((eachLine.bp_systolic_min=='')and(eachLine.bp_systolic_max==''))
+#         print inputs["bloodPressures"][dailydata]["systolic"]
+#         print "------------"
         
         if (((eachLine.bp_systolic_min=='')and(eachLine.bp_systolic_max=='')) or checkSystolic(inputs, eachLine)):
             bp_systolic_min = eachLine.bp_systolic_min
