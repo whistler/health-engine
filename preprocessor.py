@@ -31,21 +31,20 @@ def checkHeartBeats(feature, eachLine):
     else:
         return False
     
-#Check to see if the given distance is in the range
+#Check to see if the given sleep is in the range
 def checkSleep(feature, eachLine):
     if (int)(feature["sleep"][dailydata]["efficiency"])>=(int)(eachLine.sleep_min) and (int)(feature["sleep"][dailydata]["efficiency"])<=(int)(eachLine.sleep_max):
         return True
     else:
         return False
     
-    
-#Check to see if the given distance is in the range
+#Check to see if the given activity is in the range
 def checkActivity(feature, eachLine):
-    if (int)(feature["activities"][dailydata]["distance"])>=(int)(eachLine.activity_min) and (int)(feature["activities"][dailydata]["distance"])<=(int)(eachLine.activity_max):
+    if (int)(feature["activities"][dailydata]["duration"])>=(int)(eachLine.activity_min) and (int)(feature["activities"][dailydata]["duration"])<=(int)(eachLine.activity_max):
         return True
     else:
         return False
-
+ 
 #Check to see if the given age is in the range
 def checkAge(feature, eachLine):
     if (int)(feature["userinfo"]["age"])>=(int)(eachLine.age_min) and (int)(feature["userinfo"]["age"])<=(int)(eachLine.age_max):
@@ -55,37 +54,57 @@ def checkAge(feature, eachLine):
 
 #Get the array of Activities List
 def getActivitiesList(feature):
+    
+    if not(feature.has_key("activities")):
+        return []
+    
     activitiesData = feature["activities"] 
     activitiesList=[]
     for i in range(len(activitiesData)):
-        activitiesList.append([activitiesData[i]["date"], activitiesData[i]["duration"]])
+        if (activitiesData[i].has_key("date") and activitiesData[i].has_key("duration")):
+            activitiesList.append([activitiesData[i]["date"], activitiesData[i]["duration"]])
     print activitiesList
     return activitiesList
 
 #Get the array of Sleep List
 def getSleepList(feature):
+    
+    if not(feature.has_key("sleep")):
+        return []
+    
     sleepData = feature["sleep"]
     sleepList=[]
     for i in range(len(sleepData)):
-        sleepList.append([sleepData[i]["date"], sleepData[i]["minutesAsleep"]])
+        if (sleepData[i].has_key("date") and sleepData[i].has_key("minutesAsleep")):
+            sleepList.append([sleepData[i]["date"], sleepData[i]["minutesAsleep"]])
     print sleepList
     return sleepList
  
 #Get the array of HeartBeats List
 def getHeartBeatsList(feature):
+    
+    if not(feature.has_key("heartBeats")):
+        return []
+    
     heartBeatsData = feature["heartBeats"]
     heartBeatsList=[]
     for i in range(len(heartBeatsData)):
-        heartBeatsList.append([heartBeatsData[i]["date"], heartBeatsData[i]["count"]])
+        if (heartBeatsData[i].has_key("date") and heartBeatsData[i].has_key("count")):
+            heartBeatsList.append([heartBeatsData[i]["date"], heartBeatsData[i]["count"]])
     print heartBeatsList
     return heartBeatsList
  
 #Get the array of BloodPressures List
 def getBloodPressuresList(feature):
+    
+    if not(feature.has_key("bloodPressures")):
+        return []
+    
     bloodPressuresData = feature["bloodPressures"]
     bloodPressuresList=[]
     for i in range(len(bloodPressuresData)):
-        bloodPressuresList.append([bloodPressuresData[i]["date"], bloodPressuresData[i]["systolic"], bloodPressuresData[i]["diastolic"]])
+        if (bloodPressuresData[i].has_key("date") and bloodPressuresData[i].has_key("systolic") and bloodPressuresData[i].has_key("diastolic")):
+            bloodPressuresList.append([bloodPressuresData[i]["date"], bloodPressuresData[i]["systolic"], bloodPressuresData[i]["diastolic"]])
     print bloodPressuresList
     return bloodPressuresList
  
