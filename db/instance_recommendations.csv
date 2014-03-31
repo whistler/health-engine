@@ -1,0 +1,70 @@
+ID,bp systolic min,bp systolic max,bp diastolic min,bp diastolic max,heartbeat min,heartbeat max,sleep min,sleep max,activity day min,activity day max,activity week min,activity week max,step min,step max,age min,age max,bmi min,bmi max,gender,disease,recommendation,source,severity
+1,,,,,,,,,,,,149,,,66,999,,,,,"After getting medical clearance, exercise more than 150 minutes / week.","www.cahealthcenter.net/‎
+
+",1
+2,,,,,,,,,,,,149,,,19,65,,,,,Exercise more than 150 minutes / week.,www.cahealthcenter.net/‎,1
+3,,,,,,,,,,59,,,,,,18,,,,,Exercise 60 minutes / day,www.cahealthcenter.net/‎,1
+5,0,119,0,79,,,,,,,,,,,,,,,,,Congratulations! Your B.P. is normal,www.cahealthcenter.net/‎,0
+6,120,139,80,89,,,,,,,,,,,,,,,,,Prehypertention Symptoms found! Please check your BP again after 6 hrs. Prehypertension,www.cahealthcenter.net/‎,2
+7,140,159,90,99,,,,,,,,,,,,,,,,,High Blood Pressure Symptoms found! You may have forgot to take your pills.;  (Hypertension) Stage 1,www.cahealthcenter.net/‎,2
+8,160,179,100,109,,,,,,,,,,,,,,,,,High Blood Pressure Symptoms found! Please see your doctor immediately! (Hypertension) Stage 2,www.cahealthcenter.net/‎,3
+9,180,,110,,,,,,,,,,,,,,,,,,Emergency! Get Hospitalized right now!,www.cahealthcenter.net/‎,3
+10,,,,,100,,,,,,,,,,,,,,,,Heart Rate abnormal! You may have not taken your pills.,www.cahealthcenter.net/‎,2
+16,130,159,90,99,,,,,,,,,,,,,,,,diabetic,High Blood Pressure Symptoms found!,www.cahealthcenter.net/‎,2
+19,,,,,90,,,,,,,,,,,,,,,,"Are you exersising? If yes, take rest, your bones and joints needs extra care that have arthiritis problem",www.cahealthcenter.net/‎,3
+21,,,,,,,,7.99,,,,,,,,,,,,,"Sleep at least 8 hrs, take rest, your bones and joints needs extra care that have arthiritis problem",www.cahealthcenter.net/‎,2
+24,,,,,,,,,,,,149,,,66,,,,,,"After getting medical clearance, exercise more than 150 minutes / week.",www.cahealthcenter.net/‎,0
+25,,,,,,,,,,,,149,,,19,65,,,,,Exercise more than 150 minutes / week.,www.cahealthcenter.net/‎,1
+27,,,,,,,,,,59,,,,,,18,,,,,Exercise 60 minutes / day,www.cahealthcenter.net/‎,1
+32,,,,,,,,,31,,,,,,,,,,,asthma,Exercise < 30 minutes / day,www.cahealthcenter.net/‎,1
+35,,,,,,,,,,,,,,,45,,,,,,Please check your BP at regular intervals.,www.cahealthcenter.net/‎,0
+37,,,,,,,,,,,,,,,,,30.01,,,,Losing as little as 10 to 20 pounds can help lower your blood pressure and your heart disease risk,www.cahealthcenter.net/‎,0
+38,,,,,,74,,,,,,,,,2,12,,,,,Your Heartbeat is below normal.,www.cahealthcenter.net/‎,2
+39,,,,,,59,,,,,,,,,18,,,,,,"Your Heartbeat is below normal. 
+If you are athletic then your resting heartbeat may be as low as 40.",www.cahealthcenter.net/‎,2
+40,,,,,121,,,,,,,,,,2,6,,,,,Your Heartbeat is above normal.,www.cahealthcenter.net/‎,2
+41,,,,,111,,,,,,,,,,7,12,,,,,Your Heartbeat is above normal.,www.cahealthcenter.net/‎,2
+42,,,,,111,,,,,,,,,,18,,,,,,Your Heartbeat is above normal.,www.cahealthcenter.net/‎,2
+43,,,,,75,120,,,,,,,,,2,6,,,,,Your Heart is Beating normally,www.cahealthcenter.net/‎,0
+44,,,,,75,110,,,,,,,,,7,12,,,,,Your Heart is Beating normally,www.cahealthcenter.net/‎,0
+45,,,,,60,100,,,,,,,,,18,,,,,,Your Heart is Beating normally,www.cahealthcenter.net/‎,0
+46,,,,,,,,,,,,,,,20,29,,,female,,The Average/Median BMI is 24.4.,www.cahealthcenter.net/‎,0
+47,,,,,,,,,,,,,,,30,39,,,female,,The Average/Median BMI is 26.4.,www.cahealthcenter.net/‎,0
+48,,,,,,,,,,,,,,,40,49,,,female,,The Average/Median BMI is 27.8,www.cahealthcenter.net/‎,0
+49,,,,,,,,,,,,,,,50,59,,,female,,The Average/Median BMI is 28.4,www.cahealthcenter.net/‎,0
+50,,,,,,,,,,,,,,,60,69,,,female,,The Average/Median BMI is 27.5,www.cahealthcenter.net/‎,0
+51,,,,,,,,,,,,,,,20,29,,,male,,The Average/Median BMI is 24.5.,www.cahealthcenter.net/‎,0
+52,,,,,,,,,,,,,,,30,39,,,male,,The Average/Median BMI is 25.9.,www.cahealthcenter.net/‎,0
+53,,,,,,,,,,,,,,,40,49,,,male,,The Average/Median BMI is 26.8.,www.cahealthcenter.net/‎,0
+54,,,,,,,,,,,,,,,50,59,,,male,,The Average/Median BMI is 27.2.,www.cahealthcenter.net/‎,0
+55,,,,,,,,,,,,,,,60,69,,,male,,The Average/Median BMI is 27.,www.cahealthcenter.net/‎,0
+56,,,,,,,,,,,,,,,,,,18.49,,,Underweight,www.cahealthcenter.net/‎,0
+57,,,,,,,,,,,,,,,,,18.5,24.99,,,BMI within normal range,www.cahealthcenter.net/‎,0
+58,,,,,,,,,,,,,,,,,25,29.99,,,Overweight.,www.cahealthcenter.net/‎,0
+59,,,,,,,,,,,,,,,,,30,,,,Obese.,www.cahealthcenter.net/‎,0
+68,,,,,,,,,,59,,,,,5,17,,,,,"Increase the levels of physical activity for the prevention of chronic diseases such as cardiovascular diseases, stroke and hypertension!",www.cahealthcenter.net/‎,1
+69,,,,,,,,,,,,149,,,18,,,,,,"Increase the levels of physical activity for the prevention of chronic diseases such as cardiovascular diseases, stroke and hypertension!",www.cahealthcenter.net/‎,1
+70,,,,,,,,3.99,,,,,,,23,48,,,,,Increase your sleep hours to reduce the chances of hypertention.,www.cahealthcenter.net/‎,1
+71,,,,,,,,6.89,,,,,,,10,20,,,male,,"Prone to depression, chances of Obesity is up 30%, doubles the risk of cardio-vascular disease",www.cahealthcenter.net/‎,0
+72,,,,,,,,5.99,,,,,,,21,,,,male,,"Prone to depression, chances of Obesity is up 30%, doubles the risk of cardio-vascular disease",www.cahealthcenter.net/‎,0
+73,,,,,,,,7.24,,,,,,,10,20,,,female,,"Prone to depression, chances of Obesity is up 30%, doubles the risk of cardio-vascular disease",www.cahealthcenter.net/‎,0
+74,,,,,,,,6.3,,,,,,,21,,,,female,,"Prone to depression, chances of Obesity is up 30%, doubles the risk of cardio-vascular disease",www.cahealthcenter.net/‎,0
+75,,,,,,,,5.74,,,,,,,10,20,,,male,,Increases the risk of diabetes by 30%,www.cahealthcenter.net/‎,0
+76,,,,,,,,4.99,,,,,,,21,,,,male,,Increases the risk of diabetes by 30%,www.cahealthcenter.net/‎,0
+77,,,,,,,,6.03,,,,,,,10,20,,,female,,Increases the risk of diabetes by 30%,www.cahealthcenter.net/‎,0
+78,,,,49,,,,5.24,,,,,,,21,,,,female,,Increases the risk of diabetes by 30%,www.cahealthcenter.net/‎,0
+79,,,101,,,,,,,,,,,,,,,,,sleep_apnea,High Risk of Atrial Fibrillation,www.cahealthcenter.net/‎,0
+80,,,,,,,,,,,,,,,,,,,,sleep_apnea,High Risk of Atrial Fibrillation,www.cahealthcenter.net/‎,0
+81,,,,,,,,,,,,,,4999,50,,,,female,cardiac_problem,Sedantary - Compare with base (Active) and inform user of number of steps required to stay active,www.cahealthcenter.net/‎,0
+82,,,,,,,,,,,,,5000,7499,50,,,,female,cardiac_problem,Low Activity --Compare with base (Active) and inform user of number of steps required to stay active,www.cahealthcenter.net/‎,0
+83,,,,,,,,implementing v2.,,,,,7500,9999,50,,,,female,cardiac_problem,Somewhat Active -Compare with base (Active) and inform user of number of steps required to stay active,www.cahealthcenter.net/‎,0
+84,,,,,,,,,,,,,10000,12499,50,,,,female,cardiac_problem,Active- Healthy Lifestyle!,www.cahealthcenter.net/‎,0
+85,,,,,,,,,,,,,12500,,50,,,,female,cardiac_problem,Highly Active. Way to go,www.cahealthcenter.net/‎,0
+86,,,,,,,,,,19,,,,,41,,35.01,,,cardiac_problem,Increases risk of Myocardial Infarction,www.cahealthcenter.net/‎,0
+87,,,,,,,,5.99,,19,,,,,61,,,,female,"cardiac_problem, high_bp",Increases risk of depression,www.cahealthcenter.net/‎,0
+88,,,,,,,,5.99,,19,,,,,,,,,,,High risk of dementia,www.cahealthcenter.net/‎,0
+89,,,,,,,,5.99,,,,,,,61,,,,,sleep_apnea,High risk of Alzhemir's,www.cahealthcenter.net/‎,0
+90,,,,,,,,,,,,,,,,,,,,"high_bp,sleep_apnea",Lack of focus (Get some sleep),www.cahealthcenter.net/‎,0
+91,,,,,,,,,,,,,,,,,,,male,"high_bp,sleep_apnea",High risk of peptic ulcer,www.cahealthcenter.net/‎,0
+92,,,,,,,,,,19,,,,,51,,,,male,"high_bp,sleep_apnea",High risk of glaucoma,www.cahealthcenter.net/‎,0
+93,,,,,,,,5.99,,19,,,,,,,35.01,,,high_bp,Higher risk of digestive disorders,www.cahealthcenter.net/‎,0

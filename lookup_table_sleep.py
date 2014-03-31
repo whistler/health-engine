@@ -1,3 +1,5 @@
+# TODO: To be deleted
+
 '''
 Created on 05-Mar-2014
 
@@ -6,7 +8,7 @@ Created on 05-Mar-2014
 def load_recommendations():
     import csv
     temp_table = {}
-    with open('lookup_sleep.csv','rb') as line:
+    with open('db/lookup_sleep.csv','rb') as line:
         reader = csv.reader(line)
         
         
