@@ -3,7 +3,7 @@ described in the API and returns a python object with recommendations in the
 format described by the API. """
 
 import analyzer
-import lookup_table
+import instance_recommendations
 import preprocessor
 
 
@@ -11,6 +11,6 @@ def recommend(inputs):
     recommendation_list = []
     all_recommendation = analyzer.recommend_start(inputs)
     features = preprocessor.preprocess(inputs)
-    recommendations = lookup_table.lookup(features)
+    recommendations = instance_recommendations.process(features)
     recommendations.append(all_recommendation)
     return all_recommendation
