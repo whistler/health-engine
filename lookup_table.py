@@ -1,5 +1,5 @@
-""" Reads recommendation table from disk and returns recommendations which meet the criteria 
-described in the features"""
+""" Reads recommendation table from disk and returns recommendations which meet
+the criteria described in the features"""
 
 table = None # Stores all the recommendations
 
@@ -64,7 +64,7 @@ def load_recommendations():
     import csv
     
     #Todo: add try block
-    with open('recom_v1.csv', 'rb') as f:
+    with open('db/recom_v1.csv', 'rb') as f:
         reader = csv.reader(f)
         # skip the first line
         # Todo: Check how many roles there 
