@@ -1,5 +1,5 @@
 MONOTONIC_INCREASING = 1
-MONOTONIC_DECREASING = 1
+MONOTONIC_DECREASING = -1
 MONOTONIC_NONE = 0
 
 DIRECTION_POSITIVE = 1
@@ -11,8 +11,9 @@ NO_RESULT = -1
 
 import datetime
 
-def main_analysis(score_list):
+def main_analysis(score_list, data_list):
     sorted_score_list = sort_list_bytime(score_list)
+    sorted_data_list = sort_list_bytime(score_list)
     
     threeday_score = threeday_consecutive_score(sorted_score_list)
     fiveday_score = fiveday_consecutive_score(sorted_score_list)
@@ -24,17 +25,17 @@ def main_analysis(score_list):
         return (0, MONOTONIC_NONE, DIRECTION_NONE, False, NO_RESULT)
     
     if sevenday_score == worst_score:
-        monotonic = sevenday_consecutive_monotonic(sorted_score_list)
+        monotonic = sevenday_consecutive_monotonic(sorted_data_list)
         direction = sevenday_consecutive_direction(sorted_score_list)
         fluctuation = sevenday_consecutive_fluctuation(sorted_score_list)
         return [7, monotonic, direction, fluctuation, worst_score]
     elif fiveday_score == worst_score:
-        monotonic = fiveday_consecutive_monotonic(sorted_score_list)
+        monotonic = fiveday_consecutive_monotonic(sorted_data_list)
         direction = fiveday_consecutive_direction(sorted_score_list)
         fluctuation = fiveday_consecutive_fluctuation(sorted_score_list)
         return [5, monotonic, direction, fluctuation, worst_score]
     else:
-        monotonic = threeday_consecutive_monotonic(sorted_score_list)
+        monotonic = threeday_consecutive_monotonic(sorted_data_list)
         direction = threeday_consecutive_direction(sorted_score_list)
         fluctuation = threeday_consecutive_fluctuation(sorted_score_list)
         return [3, monotonic, direction, fluctuation, worst_score]
@@ -114,96 +115,145 @@ def sevenday_consecutive_score(sorted_score_list):
     
     return avg_score
 
-def threeday_consecutive_monotonic(sorted_score_list):
+def threeday_consecutive_monotonic(sorted_data_list):
     
-    date_list = [x[0] for x in sorted_score_list]
-    score_only_list = [x[1] for x in sorted_score_list]
+    date_list = [x[0] for x in sorted_data_list]
+    data_only_list = [x[1] for x in sorted_data_list]
     
-    today = sorted_score_list[0][0]
+    today = sorted_data_list[0][0]
     prev_day_list = [today - datetime.timedelta(days = i) for i in range(3)]
     
-    if len(sorted_score_list) >= 3 and date_list[2] == prev_day_list[2]:
+    if len(sorted_data_list) >= 3 and date_list[2] == prev_day_list[2]:
         size = 3
     else:
         size = 2
     
     monotonic = MONOTONIC_NONE
     
-    for x in range(1, size):
-        if score_only_list[x] > score_only_list[x-1]:
-            if monotonic == MONOTONIC_NONE:
-                monotonic = MONOTONIC_INCREASING
-            elif monotonic == MONOTONIC_DECREASING:
+    if not isinstance(data_only_list[0], list):
+        for x in range(1, size):
+            if data_only_list[x] > data_only_list[x-1]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_INCREASING
+                elif monotonic == MONOTONIC_DECREASING:
+                    return MONOTONIC_NONE
+            elif data_only_list[x] < data_only_list[x-1]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_DECREASING
+                elif monotonic == MONOTONIC_INCREASING:
+                    return MONOTONIC_NONE
+            else:
                 return MONOTONIC_NONE
-        elif score_only_list[x] < score_only_list[x-1]:
-            if monotonic == MONOTONIC_NONE:
-                monotonic = MONOTONIC_DECREASING
-            elif monotonic == MONOTONIC_INCREASING:
+    else:
+        for x in range(1, size):
+            zipped = zip(data_only_list[x-1], data_only_list[x])
+            if not False in [z[0] < z[1] for z in zipped]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_INCREASING
+                elif monotonic == MONOTONIC_DECREASING:
+                    return MONOTONIC_NONE
+            elif not False in [z[0] > z[1] for z in zipped]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_DECREASING
+                elif monotonic == MONOTONIC_INCREASING:
+                    return MONOTONIC_NONE
+            else:
                 return MONOTONIC_NONE
-        else:
-            return MONOTONIC_NONE
     
     return monotonic
+        
 
-def fiveday_consecutive_monotonic(sorted_score_list):
+def fiveday_consecutive_monotonic(sorted_data_list):
     
-    date_list = [x[0] for x in sorted_score_list]
-    score_only_list = [x[1] for x in sorted_score_list]
+    date_list = [x[0] for x in sorted_data_list]
+    data_only_list = [x[1] for x in sorted_data_list]
     
-    today = sorted_score_list[0][0]
+    today = sorted_data_list[0][0]
     prev_day_list = [today - datetime.timedelta(days = i) for i in range(5)]
     
-    if len(sorted_score_list) >= 5 and date_list[4] == prev_day_list[4]:
+    if len(sorted_data_list) >= 5 and date_list[4] == prev_day_list[4]:
         size = 5
     else:
         size = 4
     
     monotonic = MONOTONIC_NONE
     
-    for x in range(1, size):
-        if score_only_list[x] > score_only_list[x-1]:
-            if monotonic == MONOTONIC_NONE:
-                monotonic = MONOTONIC_INCREASING
-            elif monotonic == MONOTONIC_DECREASING:
+    if not isinstance(data_only_list[0], list):
+        for x in range(1, size):
+            if data_only_list[x] > data_only_list[x-1]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_INCREASING
+                elif monotonic == MONOTONIC_DECREASING:
+                    return MONOTONIC_NONE
+            elif data_only_list[x] < data_only_list[x-1]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_DECREASING
+                elif monotonic == MONOTONIC_INCREASING:
+                    return MONOTONIC_NONE
+            else:
                 return MONOTONIC_NONE
-        elif score_only_list[x] < score_only_list[x-1]:
-            if monotonic == MONOTONIC_NONE:
-                monotonic = MONOTONIC_DECREASING
-            elif monotonic == MONOTONIC_INCREASING:
+    else:
+        for x in range(1, size):
+            zipped = zip(data_only_list[x-1], data_only_list[x])
+            if not False in [z[0] < z[1] for z in zipped]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_INCREASING
+                elif monotonic == MONOTONIC_DECREASING:
+                    return MONOTONIC_NONE
+            elif not False in [z[0] > z[1] for z in zipped]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_DECREASING
+                elif monotonic == MONOTONIC_INCREASING:
+                    return MONOTONIC_NONE
+            else:
                 return MONOTONIC_NONE
-        else:
-            return MONOTONIC_NONE
     
     return monotonic
     
-def sevenday_consecutive_monotonic(sorted_score_list):
+def sevenday_consecutive_monotonic(sorted_data_list):
     
-    date_list = [x[0] for x in sorted_score_list]
-    score_only_list = [x[1] for x in sorted_score_list]
+    date_list = [x[0] for x in sorted_data_list]
+    data_only_list = [x[1] for x in sorted_data_list]
     
-    today = sorted_score_list[0][0]
+    today = sorted_data_list[0][0]
     prev_day_list = [today - datetime.timedelta(days = i) for i in range(7)]
     
-    if len(sorted_score_list) >= 7 and date_list[6] == prev_day_list[6]:
+    if len(sorted_data_list) >= 7 and date_list[6] == prev_day_list[6]:
         size = 7
     else:
         size = 6
     
     monotonic = MONOTONIC_NONE
     
-    for x in range(1, size):
-        if score_only_list[x] > score_only_list[x-1]:
-            if monotonic == MONOTONIC_NONE:
-                monotonic = MONOTONIC_INCREASING
-            elif monotonic == MONOTONIC_DECREASING:
+    if not isinstance(data_only_list[0], list):
+        for x in range(1, size):
+            if data_only_list[x] > data_only_list[x-1]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_INCREASING
+                elif monotonic == MONOTONIC_DECREASING:
+                    return MONOTONIC_NONE
+            elif data_only_list[x] < data_only_list[x-1]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_DECREASING
+                elif monotonic == MONOTONIC_INCREASING:
+                    return MONOTONIC_NONE
+            else:
                 return MONOTONIC_NONE
-        elif score_only_list[x] < score_only_list[x-1]:
-            if monotonic == MONOTONIC_NONE:
-                monotonic = MONOTONIC_DECREASING
-            elif monotonic == MONOTONIC_INCREASING:
+    else:
+        for x in range(1, size):
+            zipped = zip(data_only_list[x-1], data_only_list[x])
+            if not False in [z[0] < z[1] for z in zipped]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_INCREASING
+                elif monotonic == MONOTONIC_DECREASING:
+                    return MONOTONIC_NONE
+            elif not False in [z[0] > z[1] for z in zipped]:
+                if monotonic == MONOTONIC_NONE:
+                    monotonic = MONOTONIC_DECREASING
+                elif monotonic == MONOTONIC_INCREASING:
+                    return MONOTONIC_NONE
+            else:
                 return MONOTONIC_NONE
-        else:
-            return MONOTONIC_NONE
     
     return monotonic
     
