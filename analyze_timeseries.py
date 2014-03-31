@@ -4,6 +4,9 @@
 3xx heart beat rate
 4xx sleep
 
+x0x less severe
+x1x more
+
 SCORE syntax [0357, monotonic, direction, fluctuation, result]
 
 '''
@@ -50,7 +53,12 @@ def getRecommendations(inputs):
     recoms.append(makeRecommendations(BLOODPRESSURE_INDEX, bloodPressuresScores, bloodPressuresList, bloodPressuresEvaluation))
     recoms.append(makeRecommendations(HEARTBEAT_INDEX, heartBeatScores, heartBeatsList, heartBeatsEvaluation))
     recoms.append(makeRecommendations(SLEEP_INDEX, sleepScores, sleepList, sleepEvaluation))
-    return recoms
+    
+    for recom in recoms:
+        if int(recom["id"]) % 100 == 0:
+            recoms.remove(recom)
+    
+    return recoms 
     
 def makeRecommendations(index, score, list, evalue):
     fobj = file("db/recommendationTemplates.json")
@@ -58,6 +66,7 @@ def makeRecommendations(index, score, list, evalue):
     
     recom = {}
     recom["id"] = (index+1) * 100
+    # massage the ids
     
     if score[DIRECTION] == 0:
         if index == ACTIVITY_INDEX or index == SLEEP_INDEX:
