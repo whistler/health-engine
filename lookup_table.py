@@ -20,8 +20,8 @@ def lookup(features):
     keys = make_keys(features)
     if(keys):
         for key in keys:
-            # Loop over the recommendations table and append the ones the meet the criteria in features
-            # to recommendations list
+            # Loop over the recommendations table and 
+            # append the ones the meet the criteria to recommendations list
             if table.has_key(key):
                 stub = { 'id': id, 'recommendation':table[key][0], "url":table[key][1]}
                 recommendations.append(stub)  
@@ -31,7 +31,8 @@ def lookup(features):
     return recommendations    
 
   
-
+#Extract keys for various input
+#Return a list of features(keys)
 def make_keys(features):
     keys_temp = []
     
@@ -57,16 +58,18 @@ def make_keys(features):
         return keys_temp
     
 
+
+#Load the recommendation table from csv file
+#Return: a dictionary {features(key): recommendation(value)}
+
 def load_recommendations():
     table_temp = {};
-    
-    """ Reads the recommendations table from disk and returns it """
     import csv
     
     #Todo: add try block
     with open('db/recom_v1.csv', 'rb') as f:
         reader = csv.reader(f)
-        # skip the first line
+        # Todo: skip the first line
         # Todo: Check how many roles there 
         for row in reader:
             value_temp =['',''];
