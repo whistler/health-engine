@@ -1,0 +1,45 @@
+[
+    {
+        "consecutive_positive_template" : "In the past %s days you had more than %s minutes activity per day in a row. The recommended activity is 30 minutes a day." ,
+        "consecutive_negative_template" : "In the past %s days you had less than %s minutes activity per day in a row. The recommended activity is 30 minutes a day." ,    
+        "consecutive_positive_avg_template" : "In the past %s days you had as many as %s minutes activity per day on average. The recommended activity is 30 minutes a day." ,
+        "consecutive_negative_avg_template" : "In the past %s days you had as few as %s minutes activity per day on average. The recommended activity is 30 minutes a day." ,
+        "fluctuating_template" : "You seemed not to work out regularly in the past %s days. The recommended activity is 30 minutes a day." ,
+        "url_template" : "http://csep.ca/english/view.asp?x=804" ,
+        "normal_template" : "Your activity is in the normal level."
+    },
+        
+    {
+        "consecutive_positive_template" : "In the past %s days your blood pressure was above %s-%s mmHg in a row. The recommended blood pressure is 80-120 mmHg." ,
+        "consecutive_negative_template" : "In the past %s days your blood pressure was below %s-%s mmHg in a row. The recommended blood pressure is 80-120 mmHg." ,
+        "consecutive_positive_avg_template" : "In the past %s days your blood pressure was as high as %s-%s mmHg on average. The recommended blood pressure is 80-120 mmHg." ,
+        "consecutive_negative_avg_template" : "In the past %s days your blood pressure was as low as %s-%s mmHg on average. The recommended blood pressure is 80-120 mmHg." ,
+        "increasing_template" : "In the past %s days your blood pressure was increasing from %s-%s to %s-%s mmHg." ,
+        "decreasing_template" : "In the past %s days your blood pressure was decreasing from %s-%s to %s-%s mmHg." ,
+        "fluctuating_template" : "In the past %s days you blood pressure fluctuated quite a bit. The recommended blood pressure is 80-120 mmHg." ,
+        "url_template" : "http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding-Blood-Pressure-Readings_UCM_301764_Article.jsp" ,
+        "normal_template" : "Your blood pressure is in the normal range."
+    },
+    
+    {
+        "consecutive_positive_template" : "In the past %s days your heartbeat rate was above %s bpm in a row. The recommended heartbeat rate is 60-90 bpm." ,
+        "consecutive_negative_template" : "In the past %s days your heartbeat rate was below %s bpm in a row. The recommended heartbeat rate is 60-90 bpm." ,
+        "consecutive_positive_avg_template" : "In the past %s days your heartbeat rate was as high as %s bpm on average. The recommended heartbeat rate is 60-90 bpm." ,
+        "consecutive_negative_avg_template" : "In the past %s days your heartbeat rate was as low as %s bpm on average. The recommended heartbeat rate is 60-90 bpm." ,
+        "increasing_template" : "In the past %s days your heartbeat rate was increasing from %s to %s bpm." ,
+        "decreasing_template" : "In the past %s days your heartbeat rate was decreasing from %s to %s bpm." ,
+        "fluctuating_template" : "In the past %s days you heartbeat fluctuated quite a bit. The recommended heartbeat rate is 60-90 bpm." ,
+        "url_template" : "http://www.medicalnewstoday.com/articles/235710.php" ,
+        "normal_template" : "Your heart beat rate is in the normal range."
+    },
+
+    {
+        "consecutive_positive_template" : "In the past %s days you had more than %s hours sleep per day in a row. The recommended sleep is 7-8 hours a day." ,
+        "consecutive_negative_template" : "In the past %s days you had less than %s hours sleep per day in a row. The recommended sleep is 7-8 hours a day." ,
+        "consecutive_positive_avg_template" : "In the past %s days you had as many as %s hours sleep per day on average. The recommended sleep is 7-8 hours a day." ,
+        "consecutive_negative_avg_template" : "In the past %s days you had as few as %s hours sleep per day on average. The recommended sleep is 7-8 hours a day." ,
+        "fluctuating_template" : "You seemed not to sleep regularly in the past %s days. The recommended sleep is 7-8 hours a day." ,
+        "url_template" : "http://www.albertahealthservices.ca/apple/6602.asp" ,
+        "normal_template" : "Your sleep is in the normal range."
+    }
+]
