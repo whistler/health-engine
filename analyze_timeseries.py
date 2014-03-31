@@ -53,7 +53,7 @@ def getRecommendations(inputs):
     return recoms
     
 def makeRecommendations(index, score, list, evalue):
-    fobj = file("recommendationTemplates.json")
+    fobj = file("db/recommendationTemplates.json")
     template = json.load(fobj)
     
     recom = {}

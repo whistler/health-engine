@@ -2,18 +2,12 @@
 described in the API and returns a python object with recommendations in the 
 format described by the API. """
 
-import analyzer
 import instance_recommendations
-import preprocessor
 import analyze_timeseries
 
-def recommend(inputs):
-
-    recommendations = analyze_timeseries.getRecommendations(inputs)
+def recommend(input):
+    i_recommendations = instance_recommendations.process(input)
+    ts_recommendations = analyze_timeseries.getRecommendations(input)
+    recommendations = i_recommendations + ts_recommendations
+    print recommendations
     return recommendations
-#     recommendation_list = []
-#     all_recommendation = analyzer.recommend_start(inputs)
-#     features = preprocessor.preprocess(inputs)
-#     recommendations = instance_recommendations.process(features)
-#     recommendations.append(all_recommendation)
-#     return all_recommendation

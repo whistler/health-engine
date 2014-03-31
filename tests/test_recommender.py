@@ -1,9 +1,9 @@
 import unittest
 import fixtures
+import recommender
 
 
 class TestRecommender(unittest.TestCase):
     
     def test_recommender(self):
-        import instance_recommendations
-        print instance_recommendations.process(fixtures.input)
+        print recommender.recommend(fixtures.input)
