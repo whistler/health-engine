@@ -2,6 +2,7 @@
 
 from features import Features
 import lookup_table
+from datetime import datetime
 
 dailydata=0
 weeklydata=1
@@ -62,8 +63,8 @@ def getActivitiesList(feature):
     activitiesList=[]
     for i in range(len(activitiesData)):
         if (activitiesData[i].has_key("date") and activitiesData[i].has_key("duration")):
-            activitiesList.append([activitiesData[i]["date"], activitiesData[i]["duration"]])
-    print activitiesList
+            activitiesList.append([datetime.strptime(activitiesData[i]["date"],"%Y-%m-%d"), activitiesData[i]["duration"]])
+#     print activitiesList
     return activitiesList
 
 #Get the array of Sleep List
@@ -76,8 +77,8 @@ def getSleepList(feature):
     sleepList=[]
     for i in range(len(sleepData)):
         if (sleepData[i].has_key("date") and sleepData[i].has_key("minutesAsleep")):
-            sleepList.append([sleepData[i]["date"], sleepData[i]["minutesAsleep"]])
-    print sleepList
+            sleepList.append([datetime.strptime(sleepData[i]["date"],"%Y-%m-%d"), sleepData[i]["minutesAsleep"]])
+#     print sleepList
     return sleepList
  
 #Get the array of HeartBeats List
@@ -90,8 +91,8 @@ def getHeartBeatsList(feature):
     heartBeatsList=[]
     for i in range(len(heartBeatsData)):
         if (heartBeatsData[i].has_key("date") and heartBeatsData[i].has_key("count")):
-            heartBeatsList.append([heartBeatsData[i]["date"], heartBeatsData[i]["count"]])
-    print heartBeatsList
+            heartBeatsList.append([datetime.strptime(heartBeatsData[i]["date"],"%Y-%m-%d"), heartBeatsData[i]["count"]])
+#     print heartBeatsList
     return heartBeatsList
  
 #Get the array of BloodPressures List
@@ -104,8 +105,8 @@ def getBloodPressuresList(feature):
     bloodPressuresList=[]
     for i in range(len(bloodPressuresData)):
         if (bloodPressuresData[i].has_key("date") and bloodPressuresData[i].has_key("systolic") and bloodPressuresData[i].has_key("diastolic")):
-            bloodPressuresList.append([bloodPressuresData[i]["date"], bloodPressuresData[i]["systolic"], bloodPressuresData[i]["diastolic"]])
-    print bloodPressuresList
+            bloodPressuresList.append([datetime.strptime(bloodPressuresData[i]["date"],"%Y-%m-%d"), bloodPressuresData[i]["systolic"], bloodPressuresData[i]["diastolic"]])
+#     print bloodPressuresList
     return bloodPressuresList
  
       
@@ -156,7 +157,7 @@ def evaluateActivities(activitiesList):
         elif(activities>22*hour):
             activitiesEvaluation.append([date, 100])
             
-    print activitiesEvaluation
+#     print activitiesEvaluation
     return activitiesEvaluation
             
  
@@ -204,7 +205,7 @@ def evaluateSleep(sleepList):
         elif(sleepTime>22*hour and sleepTime<=24*hour):
             sleepEvaluation.append([date, 100])
              
-    print sleepEvaluation
+#     print sleepEvaluation
 
     return sleepEvaluation
       
@@ -252,7 +253,7 @@ def evaluateHeartBeats(heartBeatsList):
         elif(heartBeats>180):
             heartBeatsEvaluation.append([date, 100])
             
-    print heartBeatsEvaluation
+#     print heartBeatsEvaluation
     return heartBeatsEvaluation
 
 
@@ -312,9 +313,22 @@ def evaluateBloodPressures(bloodPressuresList):
     for i in range(len(diastolicEvaluation)):
         overallEvaluation.append([diastolicEvaluation[i][0], (diastolicEvaluation[i][1]+systolicEvaluation[i][1])/2])
     
-    print overallEvaluation
+#     print overallEvaluation
     return overallEvaluation 
-      
+
+
+def getAllLists(inputs):      
+    bloodPressuresList = getBloodPressuresList(inputs)
+    heartBeatsList = getHeartBeatsList(inputs)
+    activitiesList = getActivitiesList(inputs)
+    sleepList = getSleepList(inputs)
+    bloodPressuresEvaluation = evaluateBloodPressures(bloodPressuresList)
+    heartBeatsEvaluation = evaluateHeartBeats(heartBeatsList)
+    activitiesEvaluation = evaluateActivities(activitiesList)
+    sleepEvaluation = evaluateSleep(sleepList)
+    
+    return activitiesList, bloodPressuresList, heartBeatsList, sleepList, activitiesEvaluation, bloodPressuresEvaluation, heartBeatsEvaluation, sleepEvaluation
+
 
 # TODO: find the following values from inputs
 def preprocess(inputs):
