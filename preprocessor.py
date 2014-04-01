@@ -120,11 +120,11 @@ def evaluateActivities(activitiesList):
         date=activitiesList[i][0]
         activities=activitiesList[i][1]
         if(activities>70*min and activities<=2*hour):
-            activitiesEvaluation.append(0)
+            activitiesEvaluation.append([date, 0])
                 
         elif(activities>60*min and activities<=70*min):
             activitiesEvaluation.append([date, -10])
-        elif(activities>50*min and activities<=60):
+        elif(activities>50*min and activities<=60*min):
             activitiesEvaluation.append([date, -20])
         elif(activities>40*min and activities<=50*min):
             activitiesEvaluation.append([date, -30])

@@ -75,31 +75,34 @@ def makeRecommendations(index, score, list, evalue):
             if score[MONOTINIC] == 0:
                 recom["recommendation"] = template[index]["normal_template"]
             elif score[MONOTONIC] == 1:
-                recom["recommendation"] = template[index]["increasing_template"] % (score[PEROID],getMin(index, list),getMax(index, list))
+                temptup = getMin(index, list)
+                
+                recom["recommendation"] = template[index]["increasing_template"] % makeTuple(score[PEROID],getMin(index, list),getMax(index, list))
             else :
-                recom["recommendation"] = template[index]["decreasing_template"] % (score[PEROID],getMax(index, list),getMin(index, list))
+                recom["recommendation"] = template[index]["decreasing_template"] % makeTuple(score[PEROID],getMax(index, list),getMin(index, list))
     elif score[DIRECTION] == 2:      
         recom["recommendation"] = template[index]["fluctuating_template"] % (score[PEROID])
     elif score[DIRECTION] == 1:
-        maxEval = getMax(0, evalue)
-        minEval = getMin(0, evalue)
+        maxEval = getMax(0, evalue)[0]
+        minEval = getMin(0, evalue)[0]
+        print score[FLUCTUATION] 
         if maxEval - minEval > 40 and score[FLUCTUATION]:
             recom["recommendation"] = template[index]["fluctuating_template"] % (score[PEROID])
         else:
             if minEval > 40:
-                recom["recommendation"] = template[index]["consecutive_positive_template"] % (score[PEROID], getMin(index, list))
+                recom["recommendation"] = template[index]["consecutive_positive_template"] % makeTuple(score[PEROID], getMin(index, list))
             else:
-                recom["recommendation"] = template[index]["consecutive_positive_avg_template"] % (score[PEROID], getAvg(index, list))
+                recom["recommendation"] = template[index]["consecutive_positive_avg_template"] % makeTuple(score[PEROID], getAvg(index, list))
     else: 
-        maxEval = getMax(0, evalue)
-        minEval = getMin(0, evalue)
+        maxEval = getMax(0, evalue)[0]
+        minEval = getMin(0, evalue)[0]
         if maxEval - minEval > 40 and score[FLUCTUATION]:
             recom["recommendation"] = template[index]["fluctuating_template"] % (score[PEROID])
         else:
             if maxEval < -40:
-                recom["recommendation"] = template[index]["consecutive_negative_template"] % (score[PEROID], getMax(index, list))
+                recom["recommendation"] = template[index]["consecutive_negative_template"] % makeTuple(score[PEROID], getMax(index, list))
             else:
-                recom["recommendation"] = template[index]["consecutive_negative_avg_template"] % (score[PEROID], getAvg(index, list))        
+                recom["recommendation"] = template[index]["consecutive_negative_avg_template"] % makeTuple(score[PEROID], getAvg(index, list))        
                                             
     recom["url"] = template[index]["url_template"]      
     
@@ -110,25 +113,38 @@ def makeRecommendations(index, score, list, evalue):
 def getMin(index, list):
     if index == BLOODPRESSURE_INDEX:
         data_list = [[x[1:2]] for x in list] 
-        return min(data_list)[0], min(data_list)[1]
+        return [min(data_list)[0], min(data_list)[1]]
     else:
         data_list = [x[1] for x in list]
-        return min(data_list)            
+        return [min(data_list)]            
             
             
 def getMax(index, list):
     if index == BLOODPRESSURE_INDEX:
         data_list = [[x[1:2]] for x in list] 
-        return max(data_list)[0], max(data_list)[1]
+        return [max(data_list)[0], max(data_list)[1]]
     else:
         data_list = [x[1] for x in list]
-        return max(data_list)
+        return [max(data_list)]
     
 def getAvg(index, list):
     if index == BLOODPRESSURE_INDEX:
-        data_list1 = [[x[1]] for x in list] 
-        data_list2 = [[x[2]] for x in list] 
-        return float(sum(data_list1))/len(data_list1), float(sum(data_list2))/len(data_list2)
+        data_list1 = [x[1] for x in list] 
+        data_list2 = [x[2] for x in list] 
+        
+        return [int(float(sum(data_list1))/len(data_list1)), int(float(sum(data_list2))/len(data_list2))]
     else:
         data_list = [x[1] for x in list]
-        return float(sum(data_list))/len(data_list)   
+        return [float(sum(data_list))/len(data_list)]
+    
+    
+def makeTuple(period, list1, list2=None):
+    temp = list1
+    temp.insert(0, period)
+    if list2 == None:
+        return tuple(temp)
+    else:
+        for x in list2:
+            temp.append(x)
+        return tuple(temp)
+    
