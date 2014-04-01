@@ -28,10 +28,10 @@ import json
 def getRecommendations(inputs):
     activitiesList, bloodPressuresList, heartBeatsList, sleepList, activitiesEvaluation, bloodPressuresEvaluation, heartBeatsEvaluation, sleepEvaluation = preprocessor.getAllLists(inputs)
 
-    activitiesScores = consecutive_analysis.main_analysis(activitiesEvaluation)
-    bloodPressuresScores = consecutive_analysis.main_analysis(bloodPressuresEvaluation)
-    heartBeatScores = consecutive_analysis.main_analysis(heartBeatsEvaluation)
-    sleepScores = consecutive_analysis.main_analysis(sleepEvaluation)
+    activitiesScores = consecutive_analysis.main_analysis(activitiesEvaluation, activitiesList)
+    bloodPressuresScores = consecutive_analysis.main_analysis(bloodPressuresEvaluation, bloodPressuresList)
+    heartBeatScores = consecutive_analysis.main_analysis(heartBeatsEvaluation, heartBeatsList)
+    sleepScores = consecutive_analysis.main_analysis(sleepEvaluation, sleepList)
 
     print [x[1] for x in activitiesList]
     print [(x[1],x[2]) for x in bloodPressuresList]
