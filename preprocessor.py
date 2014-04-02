@@ -135,7 +135,7 @@ def evaluateActivities(activitiesList):
         elif(activities>10*min and activities<=20*min):
             activitiesEvaluation.append([date, -80])
         elif(activities<=10*min):
-            activitiesEvaluation.append([date, -100])
+            activitiesEvaluation.append([date, -99])
               
 
         elif(activities>2*hour and activities<=4*hour):
@@ -157,7 +157,7 @@ def evaluateActivities(activitiesList):
         elif(activities>20*hour and activities<=22*hour):
             activitiesEvaluation.append([date, 90])
         elif(activities>22*hour):
-            activitiesEvaluation.append([date, 100])
+            activitiesEvaluation.append([date, 99])
             
 #     print activitiesEvaluation
     return activitiesEvaluation
@@ -188,7 +188,7 @@ def evaluateSleep(sleepList):
         elif(sleepTime>0.5*hour and sleepTime<=1*hour):
             sleepEvaluation.append([date, -90])
         elif(sleepTime>0*hour and sleepTime<=0.5*hour):
-            sleepEvaluation.append([date, -100])
+            sleepEvaluation.append([date, -99])
             
         elif(sleepTime>8*hour and sleepTime<=10*hour):
             sleepEvaluation.append([date, 10])
@@ -205,7 +205,7 @@ def evaluateSleep(sleepList):
         elif(sleepTime>20*hour and sleepTime<=22*hour):
             sleepEvaluation.append([date, 75])
         elif(sleepTime>22*hour and sleepTime<=24*hour):
-            sleepEvaluation.append([date, 100])
+            sleepEvaluation.append([date, 99])
              
 #     print sleepEvaluation
 
@@ -233,7 +233,7 @@ def evaluateHeartBeats(heartBeatsList):
         elif(heartBeats>10 and heartBeats<=20):
             heartBeatsEvaluation.append([date, -90])
         elif(heartBeats<10):
-            heartBeatsEvaluation.append([date, -100])
+            heartBeatsEvaluation.append([date, -99])
          
         
         elif(heartBeats>100 and heartBeats<=110):
@@ -253,7 +253,7 @@ def evaluateHeartBeats(heartBeatsList):
         elif(heartBeats>170 and heartBeats<=180):
             heartBeatsEvaluation.append([date, 90])
         elif(heartBeats>180):
-            heartBeatsEvaluation.append([date, 100])
+            heartBeatsEvaluation.append([date, 99])
             
 #     print heartBeatsEvaluation
     return heartBeatsEvaluation
@@ -270,7 +270,7 @@ def evaluateBloodPressures(bloodPressuresList):
             systolicEvaluation.append([date, 0])
             
         elif(systolic<=10):
-            systolicEvaluation.append([date, -100])
+            systolicEvaluation.append([date, -99])
             
         elif(systolic>120 and systolic<=130):
             systolicEvaluation.append([date, 5])
@@ -285,7 +285,7 @@ def evaluateBloodPressures(bloodPressuresList):
         elif(systolic>170 and systolic<=180):
             systolicEvaluation.append([date, 80])
         elif(systolic>180):
-            systolicEvaluation.append([date, 100])
+            systolicEvaluation.append([date, 99])
         
         
     for i in range(len(bloodPressuresList)):
@@ -295,7 +295,7 @@ def evaluateBloodPressures(bloodPressuresList):
             diastolicEvaluation.append([date, 0])
             
         elif(systolic<=10):
-            diastolicEvaluation.append([date, -100])
+            diastolicEvaluation.append([date, -99])
             
         elif(diastolic>120 and diastolic<=130):
             diastolicEvaluation.append([date, 5])
@@ -310,7 +310,7 @@ def evaluateBloodPressures(bloodPressuresList):
         elif(diastolic>170 and diastolic<=180):
             diastolicEvaluation.append([date, 80])
         elif(diastolic>180):
-            diastolicEvaluation.append([date, 100])
+            diastolicEvaluation.append([date, 99])
             
     for i in range(len(diastolicEvaluation)):
         overallEvaluation.append([diastolicEvaluation[i][0], (diastolicEvaluation[i][1]+systolicEvaluation[i][1])/2])
