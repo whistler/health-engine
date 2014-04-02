@@ -54,11 +54,8 @@ def getRecommendations(inputs):
     recoms.append(makeRecommendations(HEARTBEAT_INDEX, heartBeatScores, heartBeatsList, heartBeatsEvaluation))
     recoms.append(makeRecommendations(SLEEP_INDEX, sleepScores, sleepList, sleepEvaluation))
     
-    for recom in recoms:
-        if int(recom["id"]) % 100 == 0:
-            recoms.remove(recom)
-    
-    return recoms 
+#     return [recom for recom in recoms if (int(recom["id"]) % 100 != 0)]
+    return recoms
     
 def makeRecommendations(index, score, list, evalue):
     fobj = file("db/recommendationTemplates.json")
@@ -75,40 +72,45 @@ def makeRecommendations(index, score, list, evalue):
             if score[MONOTINIC] == 0:
                 recom["recommendation"] = template[index]["normal_template"]
             elif score[MONOTONIC] == 1:
-                temptup = getMin(index, list)
-                
                 recom["recommendation"] = template[index]["increasing_template"] % makeTuple(score[PEROID],getMin(index, list),getMax(index, list))
+                recom["id"] += 10;
             else :
                 recom["recommendation"] = template[index]["decreasing_template"] % makeTuple(score[PEROID],getMax(index, list),getMin(index, list))
+                recom["id"] += 10;
     elif score[DIRECTION] == 2:      
         recom["recommendation"] = template[index]["fluctuating_template"] % (score[PEROID])
+        recom["id"] += int(abs(score[RESULT]));
+
     elif score[DIRECTION] == 1:
         maxEval = getMax(0, evalue)[0]
         minEval = getMin(0, evalue)[0]
-        print score[FLUCTUATION] 
         if maxEval - minEval > 40 and score[FLUCTUATION]:
             recom["recommendation"] = template[index]["fluctuating_template"] % (score[PEROID])
+            recom["id"] += int(abs(score[RESULT]));
         else:
             if minEval > 40:
                 recom["recommendation"] = template[index]["consecutive_positive_template"] % makeTuple(score[PEROID], getMin(index, list))
+                recom["id"] += int(abs(score[RESULT]));
             else:
                 recom["recommendation"] = template[index]["consecutive_positive_avg_template"] % makeTuple(score[PEROID], getAvg(index, list))
+                recom["id"] += int(abs(score[RESULT]));
     else: 
         maxEval = getMax(0, evalue)[0]
         minEval = getMin(0, evalue)[0]
         if maxEval - minEval > 40 and score[FLUCTUATION]:
             recom["recommendation"] = template[index]["fluctuating_template"] % (score[PEROID])
+            recom["id"] += int(abs(score[RESULT]));
+
         else:
             if maxEval < -40:
                 recom["recommendation"] = template[index]["consecutive_negative_template"] % makeTuple(score[PEROID], getMax(index, list))
+                recom["id"] += int(abs(score[RESULT]));
             else:
                 recom["recommendation"] = template[index]["consecutive_negative_avg_template"] % makeTuple(score[PEROID], getAvg(index, list))        
+                recom["id"] += int(abs(score[RESULT]));
                                             
     recom["url"] = template[index]["url_template"]      
-    
     return recom        
-            
-            
             
 def getMin(index, list):
     if index == BLOODPRESSURE_INDEX:
@@ -117,7 +119,6 @@ def getMin(index, list):
     else:
         data_list = [x[1] for x in list]
         return [min(data_list)]            
-            
             
 def getMax(index, list):
     if index == BLOODPRESSURE_INDEX:
