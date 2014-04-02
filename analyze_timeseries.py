@@ -110,7 +110,7 @@ def makeRecommendations(index, score, list, evalue):
                 recom["id"] += int(abs(score[RESULT]));
                                             
     recom["url"] = template[index]["url_template"]      
-    return recom        
+    return recom    
             
 def getMin(index, list):
     if index == BLOODPRESSURE_INDEX:
