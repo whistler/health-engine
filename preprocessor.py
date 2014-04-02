@@ -113,8 +113,8 @@ def getBloodPressuresList(feature):
  
       
 def evaluateActivities(activitiesList):
-    min=60
-    hour=60*60
+    min=1
+    hour=60
     activitiesEvaluation=[]
     for i in range(len(activitiesList)):
         date=activitiesList[i][0]
