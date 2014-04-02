@@ -6,16 +6,16 @@ Created on Mar 29, 2014
 import json
      
 #Return: UserInfo Json
-def generate_user_info():
+def generate_user_info(age, gender, height, weight=[], hypertension=True, diabetes=True, insomnia=True, cardio=True):
     user_info ={
-        "age": 45,
-        "gender": "male",
-        "height": 168,
-        "weight": [],
-        "hypertension" : True,
-        "diabetes" : True,
-        "insomnia" : True,
-        "cardio" : True
+        "age": age,
+        "gender": gender,
+        "height": height,
+        "weight": weight,
+        "hypertension" : hypertension,
+        "diabetes" : diabetes,
+        "insomnia" : insomnia,
+        "cardio" : cardio
     }
     return user_info
 
@@ -60,7 +60,16 @@ def generate_daily_sleep(date, minutes):
         daily_activity = { 'date': date, 'minutesAsleep': int(minutes)}
         return daily_activity 
 
-
+#Read daily sleep template
+#Return: daily sleep json
+def generate_daily_weight(date, weight):
+    daily_weight = {}
+    if(date == "" or weight == ""):
+        return daily_weight
+    else:
+        daily_weight = { 'date': date, 'weight': int(weight)}
+        return daily_weight 
+    
 def get_input_json():
     
     data_table = None
@@ -68,6 +77,7 @@ def get_input_json():
     hb_json = []
     activity_json = []
     sleep_json = []
+    weight_json = []
     input_json = {}
     
     import csv
@@ -88,7 +98,7 @@ def get_input_json():
                 activity_json.append(generate_daily_activity(row[1], row[2]))
                 sleep_json.append(generate_daily_sleep(row[1],row[3]))
     
-            input_json ={"userinfo":generate_user_info(), "activities":activity_json, "sleep":sleep_json, "heartBeats":hb_json, "bloodPressures":bp_json}  
+            input_json ={"userinfo":generate_user_info(45,"male",175), "activities":activity_json, "sleep":sleep_json, "heartBeats":hb_json, "bloodPressures":bp_json}  
             return input_json;       
     except IOError as e:
         print "I/O error({0}): {1}".format(e.errno, e.strerror)

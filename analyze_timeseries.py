@@ -54,8 +54,8 @@ def getRecommendations(inputs):
     recoms.append(makeRecommendations(HEARTBEAT_INDEX, heartBeatScores, heartBeatsList, heartBeatsEvaluation))
     recoms.append(makeRecommendations(SLEEP_INDEX, sleepScores, sleepList, sleepEvaluation))
     
-#     return [recom for recom in recoms if (int(recom["id"]) % 100 != 0)]
-    return recoms
+    return [recom for recom in recoms if (int(recom["id"]) % 100 != 0)]
+#     return recoms
     
 def makeRecommendations(index, score, list, evalue):
     fobj = file("db/recommendationTemplates.json")
