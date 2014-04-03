@@ -8,14 +8,14 @@ import json
 #Return: UserInfo Json
 def generate_user_info(age, gender, height, weight=[], hypertension=True, diabetes=True, insomnia=True, cardio=True):
     user_info ={
-        "age": age,
+        "age": int(age),
         "gender": gender,
-        "height": height,
+        "height": int(height),
         "weight": weight,
-        "hypertension" : hypertension,
-        "diabetes" : diabetes,
-        "insomnia" : insomnia,
-        "cardio" : cardio
+        "hypertension" : True if(hypertension.lower() == 'true') else False,
+        "diabetes" : True if(diabetes.lower() == 'true') else False,
+        "insomnia" : True if(insomnia.lower() == 'true') else False,
+        "cardio" : True if(cardio.lower() == 'true') else False
     }
     return user_info
 
@@ -80,25 +80,36 @@ def get_input_json():
     weight_json = []
     input_json = {}
     
+    info_type = ''
+    user_row = None
+    user_info_json = {}
+    
     import csv
     import sys
     try:
         with open('../db/Medical Research - SimulationData.csv', 'rb') as inf:
-            #skip the header of csv file
-            #http://stackoverflow.com/questions/11349333/using-python-to-analyze-csv-data-how-do-i-ignore-the-first-line-of-data
-            has_header = csv.Sniffer().has_header(inf.read(1024))
-            inf.seek(0)
             data_table = csv.reader(inf)
-            if has_header:
-                next(data_table)  # skip header row
             for row in data_table:
-        
-                bp_json.append(generate_daily_BP(row[1], row[5], row[6]))
-                hb_json.append(generate_daily_HB(row[1], row[4]))
-                activity_json.append(generate_daily_activity(row[1], row[2]))
-                sleep_json.append(generate_daily_sleep(row[1],row[3]))
-    
-            input_json ={"userinfo":generate_user_info(45,"male",175), "activities":activity_json, "sleep":sleep_json, "heartBeats":hb_json, "bloodPressures":bp_json}  
+                if(row != [] and row[0] != ''):
+                    if(row[0] == 'User_Info'):
+                        info_type = row[0]
+                        continue
+                    elif(row[0] == 'Device_Info'):
+                        info_type = row[0]
+                        continue
+                    
+                    if(info_type == 'User_Info'):
+                        user_row = row
+                    elif(info_type == 'Device_Info'):
+                        bp_json.append(generate_daily_BP(row[1], row[5], row[6]))
+                        hb_json.append(generate_daily_HB(row[1], row[4]))
+                        activity_json.append(generate_daily_activity(row[1], row[2]))
+                        sleep_json.append(generate_daily_sleep(row[1],row[3]))
+                        weight_json.append(generate_daily_weight(row[1],row[7]))
+                else:
+                    continue
+            user_info_json =generate_user_info(user_row[1], user_row[2], user_row[3], weight_json, user_row[4], user_row[5], user_row[6], user_row[7])     
+            input_json ={"userinfo":user_info_json, "activities":activity_json, "sleep":sleep_json, "heartBeats":hb_json, "bloodPressures":bp_json}  
             return input_json;       
     except IOError as e:
         print "I/O error({0}): {1}".format(e.errno, e.strerror)
