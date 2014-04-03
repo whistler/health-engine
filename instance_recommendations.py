@@ -1,8 +1,8 @@
 import datetime
-# import pandas
+import pandas
 
 
-# table = pandas.read_csv("db/instance_recommendations.csv")
+table = pandas.read_csv("db/instance_recommendations.csv")
 
 def process(input):
     
