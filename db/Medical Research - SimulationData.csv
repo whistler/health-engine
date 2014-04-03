@@ -1,12 +1,14 @@
-#,Date,Activity(min),Sleep(min),HeartBeat,Systolic BP(mph),Diatolic BP
-1,2012-04-24,30,480,70,120,80
-2,2012-04-23,30,480,70,120,80
-
-3,2012-04-22,30,480,70,120,80
-4,2012-04-21,30,480,70,120,80
-5,2012-04-20,30,480,70,120,80
-6,2012-04-19,30,480,70,120,80
-7,2012-04-18,30,480,70,120,80
+User_Info,Age,Gender (male or female),height (inch),hypertension (true or false),diabetes  (true or false),insomnia  (true or false),cardio  (true or false)
+1,45,male,175,true,true,true,true
+,,,,,,,
+Device_Info,Date,Activity(min),Sleep (min),HeartBeat,Systolic BP(mm Hg),Diatolic BP (mm Hg),Weight (pound)
+1,2012-04-24,30,480,,120,80,
+2,2012-04-23,30,480,156,120,80,40
+3,2012-04-22,30,480,156,120,80,
+4,2012-04-21,30,480,156,120,80,50
+5,2012-04-20,30,480,156,120,80,
+6,2012-04-19,30,480,156,120,80,60
+7,2012-04-18,30,480,156,120,80,
 8,2012-04-17,30,480,70,120,80
 9,2012-04-16,30,480,70,120,80
 10,2012-04-15,30,480,70,120,80
