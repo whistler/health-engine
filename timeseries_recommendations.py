@@ -2,37 +2,36 @@
 by the engine team on Apr 3rd 2014 """
 
 import datetime
+import math
 import pandas
 import preprocessor
 
-table = pandas.read_csv("db/timeseries_recommendations.py")
+table = pandas.read_csv("db/timeseries_recommendations.csv")
 
 def process(input):
     """ Takes a python structure containing the input data from the REST API and
     returns a list of conditions based on the lookup table"""
     recommendations = []
     
-    inputs = {
-        'bloodpressure': preprocessor.getBloodPressuresList(inputs)
-        'pulse': preprocessor.getHeartBeatsList(inputs)
-        'activity': preprocessor.getActivitiesList(inputs)
-        'sleep': preprocessor.getSleepList(inputs)
-    }
+    features = _build_features(input)
     
     for _recommendation in table.iterrows():
         recommendation = _recommendation[1]
-        days = recommedation['days']
-        input = recommendation['input'][-days:] # use only the last n days
-        input_values = inputs[input]
+        days = int(recommendation['days'])
+        feature = recommendation['input'] # use only the last n days
+        values = features[feature][-days:]
         
-        if _satisfiesAge(inputs, recommendation['age']) and
-            _satisfiesFluctuation(input, recommendation['fluctuation']) and
-            _satisfiesGradient(input, recommendation['gradient']) and
-            _satisfiesAllLess(input, recommendation['all less']) and
-            _satisfiesAllMore(input, recommendation['all more']) and
-            _satisfiesAvgLess(input, recommendation['avg less']) and
-            _satisfiesAvgMore(input, recommendation['avg more']):
-                recommendations.append(_recommendation_output(recommendation))
+        conditions = [_satisfiesAge(input, recommendation['age']),
+            _satisfiesFluctuation(values, recommendation['fluctuation']),
+            _satisfiesGradient(values, recommendation['gradient']),
+            _satisfiesAllLess(values, recommendation['all less']),
+            _satisfiesAllMore(values, recommendation['all more']),
+            _satisfiesAvgLess(values, recommendation['avg less']),
+            _satisfiesAvgMore(values, recommendation['avg more'])
+        ]
+        
+        if all(conditions):
+            recommendations.append(_recommendation_output(recommendation))
                 
     return recommendations
     
@@ -46,22 +45,76 @@ def _recommendation_output(recommendation):
         }
 
 def _satisfiesAge(inputs, age):
-    return True
+    if math.isnan(age): return True
+    if inputs["userinfo"] and inputs["userinfo"]["age"]:
+        return _in_range(age, inputs["userinfo"]["age"])
+    else:
+        return True
     
 def _satisfiesFluctuation(input, fluctuation):
+    if math.isnan(fluctuation): return True
+    #TODO: figure out how to integrate scoring into this(maybe pass the kind of
+    # in aswell)
+    #return _count_fluctuations(input) >= fluctuation
     return True
     
 def _satisfiesGradient(input, gradient):
+    if math.isnan(gradient): return True
+    #TODO: we are not using this right now but use padas or numpy to find
+    # gradient using linear regression
     return True
     
 def _satisfiesAllLess(input, all_less):
-    return True
+    if math.isnan(all_less): return True
+    return all([value < all_less for value in input])
     
 def _satisfiesAllMore(input, all_more):
-    return True
+    if math.isnan(all_more): return True
+    return all([value > all_more for value in input])
     
 def _satisfiesAvgLess(input, avg_less):
-    return True
+    if math.isnan(avg_less): return True
+    avg = sum(input)/len(input)
+    return avg < avg_less
     
 def _satisfiesAvgMore(input, avg_more):
+    if math.isnan(avg_more): return True
+    avg = sum(input)/len(input)
+    return avg > avg_more
+    
+def _in_range(value, range):
+    """ Checks if value is in range
+    value - numeric value
+    range - string in the format 'start_number-end_number'
+    """
+    # TODO: Implement this
     return True
+    
+def _build_features(input):
+    """ Generate dictionary containing a list of data sorted by date for each 
+    time series input being used"""
+    # Note the preprocessor was not used becuase it also returns dates
+    
+    #TODO: Lists should be sorted by date
+    bp_systolic = bp_diastolic = pulse = sleep = activity = []
+
+    if input["bloodPressures"]:
+        bp_systolic = [bp["systolic"] for bp in input["bloodPressures"]]
+        bp_disastolic = [bp["diastolic"] for bp in input["bloodPressures"]]
+
+    if input["heartBeats"]:
+        pulse = [value["pulse"] for value in input["heartBeats"]]
+        
+    if input["activities"]:
+        activity = [value["duration"] for value in input["activities"]]
+        
+    if input["sleep"]:
+        sleep = [value["minutesAsleep"] for value in input["sleep"]]
+    
+    features = {
+        'bloodpressure': bp_systolic,
+        'pulse': pulse,
+        'activity': activity,
+        'sleep': sleep
+    }
+    return features

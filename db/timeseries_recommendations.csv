@@ -79,4 +79,3 @@ id,input,age,days,fluctuation,gradient,all less,all more,avg less,avg more,condi
 78,sleep,,14,,,,,,10,too much sleep in the last 14 days,3,1
 79,sleep,,30,,,,,6,,not enough sleep in the last month,4,-1
 80,sleep,,30,,,,,,9,too much sleep in the last month,5,1
-81,sleep,,,,,,,,,,,
