@@ -1,0 +1,82 @@
+id,input,age,days,fluctuation,gradient,all less,all more,avg less,avg more,condition,severity,direction
+1,bloodpressure,,3,2,,,,,,blood pressure fluctuates in the last 3 days,1,0
+2,bloodpressure,,5,3,,,,,,blood pressure fluctuates in the last 5 days,2,0
+3,bloodpressure,,7,5,,,,,,blood pressure fluctuates in the last the last week,3,0
+4,bloodpressure,,14,9,,,,,,blood pressure fluctuates in the last two weeks,4,0
+5,bloodpressure,,30,16,,,,,,blood pressure fluctuates in the last month,5,0
+6,bloodpressure,,3,,,,130,,,blood pressure kept higher than 130 in the last 3 days,1,1
+7,bloodpressure,,5,,,,130,,,blood pressure kept higher than 130 in the last 5 days,2,1
+8,bloodpressure,,7,,,,130,,,blood pressure kept higher than 130 in the last week,3,1
+9,bloodpressure,,14,,,,130,,,blood pressure kept higher than 130 in the last two weeks,4,1
+10,bloodpressure,,30,,,,130,,,blood pressure kept higher than 130 in the last month,5,1
+11,bloodpressure,,3,,,80,,,,blood pressure kept lower than 80 in the last 3 days,1,-1
+12,bloodpressure,,5,,,80,,,,blood pressure kept lower than 80 in the last 5 days,2,-1
+13,bloodpressure,,7,,,80,,,,blood pressure kept lower than 80 in the last week,3,-1
+14,bloodpressure,,14,,,80,,,,blood pressure kept lower than 80 in the last two weeks,4,-1
+15,bloodpressure,,30,,,80,,,,blood pressure kept lower than 80 in the last month,5,-1
+16,bloodpressure,,3,,,,,,130,average blood pressure was higher than 130 in the last 3 days,1,1
+17,bloodpressure,,5,,,,,,130,average blood pressure was higher than 130 in the last 5 days,2,1
+18,bloodpressure,,7,,,,,,130,average blood pressure was higher than 130 in the last week,3,1
+19,bloodpressure,,14,,,,,,130,average blood pressure was higher than 130 in the last two weeks,4,1
+20,bloodpressure,,30,,,,,,130,average blood pressure was higher than 130 in the last month,5,1
+21,bloodpressure,,3,,,,,80,,average blood pressure was lower than 80 in the last 3 days,1,-1
+22,bloodpressure,,5,,,,,80,,average blood pressure was lower than 80 in the last 5 days,2,-1
+23,bloodpressure,,7,,,,,80,,average blood pressure was lower than 80 in the last week,3,-1
+24,bloodpressure,,14,,,,,80,,average blood pressure was lower than 80 in the last two weeks,4,-1
+25,bloodpressure,,30,,,,,80,,average blood pressure was lower than 80 in the last month,5,-1
+26,pulse,,3,,,55,,,,heart beat rate was lower than 55 in the last 3 days,1,-1
+27,pulse,,5,,,55,,,,heart beat rate was lower than 55 in the last 5 days,2,-1
+28,pulse,,7,,,55,,,,heart beat rate was lower than 55 in the last weeks,3,-1
+29,pulse,,14,,,55,,,,heart beat rate was lower than 55 in the last two weeks,4,-1
+30,pulse,,30,,,55,,,,heart beat rate was lower than 55 in the last month,5,-1
+31,pulse,,3,,,,135,,,heart beat rate was higher than 135 in the last 3 days,1,1
+32,pulse,,5,,,,135,,,heart beat rate was higher than 135 in the last 5 days,2,1
+33,pulse,,7,,,,135,,,heart beat rate was higher than 135 in the last weeks,3,1
+34,pulse,,14,,,,135,,,heart beat rate was higher than 135 in the last two weeks,4,1
+35,pulse,,30,,,,135,,,heart beat rate was higher than 135 in the last month,5,1
+36,pulse,,3,2,,,,,,heart beat rate fluctuates in the last 3 days,1,0
+37,pulse,,5,3,,,,,,heart beat rate fluctuates in the last 5 days,2,0
+38,pulse,,7,5,,,,,,heart beat rate fluctuates in the last the last week,3,0
+39,pulse,,14,9,,,,,,heart beat rate fluctuates in the last two weeks,4,0
+40,pulse,,30,16,,,,,,heart beat rate fluctuates in the last month,5,0
+41,activity,,3,2,,,,,,activities fluctuates in the last 3 days,1,0
+42,activity,,5,3,,,,,,activities fluctuates in the last 5 days,2,0
+43,activity,,7,5,,,,,,activities fluctuates in the last week,3,0
+44,activity,,14,9,,,,,,activities fluctuates in the last two weeks,4,0
+45,activity,,30,16,,,,,,activities fluctuates in the last month,5,0
+46,activity,,3,,,,180,,,activities kept higher than 180 in the last 3 days,1,1
+47,activity,,5,,,,180,,,activities kept higher than 180 in the last 5 days,2,1
+48,activity,,7,,,,180,,,activities kept higher than 180 in the last week,3,1
+49,activity,,14,,,,180,,,activities kept higher than 180 in the last two weeks,4,1
+50,activity,,30,,,,180,,,activities kept higher than 180 in the last month,5,1
+51,activity,,3,,,30,,,,activities kept lower than 30 in the last 3 days,1,0
+52,activity,,5,,,30,,,,activities kept lower than 30 in the last 5 days,2,0
+53,activity,,7,,,30,,,,activities kept lower than 30 in the last week,3,0
+54,activity,,14,,,30,,,,activities kept lower than 30 in the last two weeks,4,0
+55,activity,,30,,,30,,,,activities kept lower than 30 in the last month,5,0
+56,activity,,3,,,,,,180,average activities was higher than 180 in the last 3 days,1,1
+57,activity,,5,,,,,,180,average activities was higher than 180 in the last 5 days,2,1
+58,activity,,7,,,,,,180,average activities was higher than 180 in the last week,3,1
+59,activity,,14,,,,,,180,average activities was higher than 180 in the last two weeks,4,1
+60,activity,,30,,,,,,180,average activities was higher than 180 in the last month,5,1
+61,activity,,3,,,,,30,,average activities was lower than 30 in the last 3 days,1,-1
+62,activity,,5,,,,,30,,average activities was lower than 30 in the last 5 days,2,-1
+63,activity,,7,,,,,30,,average activities was lower than 30 in the last week,3,-1
+64,activity,,14,,,,,30,,average activities was lower than 30 in the last two weeks,4,-1
+65,activity,,30,,,,,30,,average activities was lower than 30 in the last month,5,-1
+66,sleep,,3,2,,,,,,irregular sleep in the last 3 days,1,0
+67,sleep,,5,3,,,,,,irregular sleep in the last 5 days,2,0
+68,sleep,,7,5,,,,,,irregular sleep in the last week,3,0
+69,sleep,,14,9,,,,,,irregular sleep in the last 14 days,4,0
+70,sleep,,30,16,,,,,,irregular sleep in the last month,5,0
+71,sleep,,3,,,,,4,,not enough sleep in the last 3 days,1,-1
+72,sleep,,3,,,,,,12,too much sleep in the last 3 days,2,1
+73,sleep,,5,,,,,4.5,,not enough sleep in the last 5 days,3,-1
+74,sleep,,5,,,,,,11,too much sleep in the last 5 days,4,1
+75,sleep,,7,,,,,5,,not enough sleep in the last 7 days,5,-1
+76,sleep,,7,,,,,,10.5,too much sleep in the last 7 days,1,1
+77,sleep,,14,,,,,6,,not enough sleep in the last 14 days,2,-1
+78,sleep,,14,,,,,,10,too much sleep in the last 14 days,3,1
+79,sleep,,30,,,,,6,,not enough sleep in the last month,4,-1
+80,sleep,,30,,,,,,9,too much sleep in the last month,5,1
+81,sleep,,,,,,,,,,,
