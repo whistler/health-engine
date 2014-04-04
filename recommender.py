@@ -7,14 +7,14 @@ temporily comment the instance_recommendations out for testing
 
 """
 
-# import instance_recommendations
-import analyze_timeseries
+import instance_recommendations
+import timeseries_recommendations
 
 def recommend(input):
-#     i_recommendations = instance_recommendations.process(input)
-#     ts_recommendations = analyze_timeseries.getRecommendations(input)
-#     recommendations = i_recommendations + ts_recommendations
-#     print recommendations
-#     return recommendations
-    recommendations = analyze_timeseries.getRecommendations(input)
+    i_recommendations = instance_recommendations.process(input)
+    ts_recommendations = timeseries_recommendations.process(input)
+    recommendations = i_recommendations + ts_recommendations
+    print recommendations
     return recommendations
+#     recommendations = analyze_timeseries.getRecommendations(input)
+#     return recommendations
