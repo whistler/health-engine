@@ -42,7 +42,8 @@ def _recommendation_output(recommendation):
         'id': recommendation['id'],
         'condition': recommendation['condition'],
         'direction': recommendation['direction'],
-        'severity' : recommendation['severity']
+        'severity' : recommendation['severity'],
+        'url' : recommendation['url']
         }
 
 def _satisfiesAge(inputs, age):

@@ -1,81 +1,81 @@
-id,input,age,days,fluctuation,gradient,all less,all more,avg less,avg more,condition,severity,direction
-250,bloodpressure,,3,2,,,,,,blood pressure fluctuates in the last 3 days,1,0
-251,bloodpressure,,5,3,,,,,,blood pressure fluctuates in the last 5 days,2,0
-252,bloodpressure,,7,5,,,,,,blood pressure fluctuates in the last the last week,3,0
-253,bloodpressure,,14,9,,,,,,blood pressure fluctuates in the last two weeks,4,0
-254,bloodpressure,,30,16,,,,,,blood pressure fluctuates in the last month,5,0
-260,bloodpressure,,3,,,,130,,,blood pressure kept higher than 130 in the last 3 days,1,1
-261,bloodpressure,,5,,,,130,,,blood pressure kept higher than 130 in the last 5 days,2,1
-262,bloodpressure,,7,,,,130,,,blood pressure kept higher than 130 in the last week,3,1
-263,bloodpressure,,14,,,,130,,,blood pressure kept higher than 130 in the last two weeks,4,1
-264,bloodpressure,,30,,,,130,,,blood pressure kept higher than 130 in the last month,5,1
-270,bloodpressure,,3,,,80,,,,blood pressure kept lower than 80 in the last 3 days,1,+AC0-1
-271,bloodpressure,,5,,,80,,,,blood pressure kept lower than 80 in the last 5 days,2,+AC0-1
-272,bloodpressure,,7,,,80,,,,blood pressure kept lower than 80 in the last week,3,+AC0-1
-273,bloodpressure,,14,,,80,,,,blood pressure kept lower than 80 in the last two weeks,4,+AC0-1
-274,bloodpressure,,30,,,80,,,,blood pressure kept lower than 80 in the last month,5,+AC0-1
-265,bloodpressure,,3,,,,,,130,average blood pressure was higher than 130 in the last 3 days,1,1
-266,bloodpressure,,5,,,,,,130,average blood pressure was higher than 130 in the last 5 days,2,1
-267,bloodpressure,,7,,,,,,130,average blood pressure was higher than 130 in the last week,3,1
-268,bloodpressure,,14,,,,,,130,average blood pressure was higher than 130 in the last two weeks,4,1
-269,bloodpressure,,30,,,,,,130,average blood pressure was higher than 130 in the last month,5,1
-275,bloodpressure,,3,,,,,80,,average blood pressure was lower than 80 in the last 3 days,1,+AC0-1
-276,bloodpressure,,5,,,,,80,,average blood pressure was lower than 80 in the last 5 days,2,+AC0-1
-277,bloodpressure,,7,,,,,80,,average blood pressure was lower than 80 in the last week,3,+AC0-1
-278,bloodpressure,,14,,,,,80,,average blood pressure was lower than 80 in the last two weeks,4,+AC0-1
-279,bloodpressure,,30,,,,,80,,average blood pressure was lower than 80 in the last month,5,+AC0-1
-370,pulse,,3,,,55,,,,heart beat rate was lower than 55 in the last 3 days,1,+AC0-1
-371,pulse,,5,,,55,,,,heart beat rate was lower than 55 in the last 5 days,2,+AC0-1
-372,pulse,,7,,,55,,,,heart beat rate was lower than 55 in the last weeks,3,+AC0-1
-373,pulse,,14,,,55,,,,heart beat rate was lower than 55 in the last two weeks,4,+AC0-1
-374,pulse,,30,,,55,,,,heart beat rate was lower than 55 in the last month,5,+AC0-1
-360,pulse,,3,,,,135,,,heart beat rate was higher than 135 in the last 3 days,1,1
-361,pulse,,5,,,,135,,,heart beat rate was higher than 135 in the last 5 days,2,1
-362,pulse,,7,,,,135,,,heart beat rate was higher than 135 in the last weeks,3,1
-363,pulse,,14,,,,135,,,heart beat rate was higher than 135 in the last two weeks,4,1
-364,pulse,,30,,,,135,,,heart beat rate was higher than 135 in the last month,5,1
-350,pulse,,3,2,,,,,,heart beat rate fluctuates in the last 3 days,1,0
-351,pulse,,5,3,,,,,,heart beat rate fluctuates in the last 5 days,2,0
-352,pulse,,7,5,,,,,,heart beat rate fluctuates in the last the last week,3,0
-353,pulse,,14,9,,,,,,heart beat rate fluctuates in the last two weeks,4,0
-354,pulse,,30,16,,,,,,heart beat rate fluctuates in the last month,5,0
-150,activity,,3,2,,,,,,activities fluctuates in the last 3 days,1,0
-151,activity,,5,3,,,,,,activities fluctuates in the last 5 days,2,0
-152,activity,,7,5,,,,,,activities fluctuates in the last week,3,0
-153,activity,,14,9,,,,,,activities fluctuates in the last two weeks,4,0
-154,activity,,30,16,,,,,,activities fluctuates in the last month,5,0
-160,activity,,3,,,,180,,,activities kept higher than 180 in the last 3 days,1,1
-161,activity,,5,,,,180,,,activities kept higher than 180 in the last 5 days,2,1
-162,activity,,7,,,,180,,,activities kept higher than 180 in the last week,3,1
-163,activity,,14,,,,180,,,activities kept higher than 180 in the last two weeks,4,1
-164,activity,,30,,,,180,,,activities kept higher than 180 in the last month,5,1
-170,activity,,3,,,30,,,,activities kept lower than 30 in the last 3 days,1,0
-171,activity,,5,,,30,,,,activities kept lower than 30 in the last 5 days,2,0
-172,activity,,7,,,30,,,,activities kept lower than 30 in the last week,3,0
-173,activity,,14,,,30,,,,activities kept lower than 30 in the last two weeks,4,0
-174,activity,,30,,,30,,,,activities kept lower than 30 in the last month,5,0
-165,activity,,3,,,,,,180,average activities was higher than 180 minutes in the last 3 days,1,1
-166,activity,,5,,,,,,180,average activities was higher than 180 minutes in the last 5 days,2,1
-167,activity,,7,,,,,,180,average activities was higher than 180 minutes in the last week,3,1
-168,activity,,14,,,,,,180,average activities was higher than 180 minutes in the last two weeks,4,1
-169,activity,,30,,,,,,180,average activities was higher than 180 minutes in the last month,5,1
-175,activity,,3,,,,,30,,average activities was lower than 30 minutes in the last 3 days,1,+AC0-1
-176,activity,,5,,,,,30,,average activities was lower than 30 minutes in the last 5 days,2,+AC0-1
-177,activity,,7,,,,,30,,average activities was lower than 30 minutes in the last week,3,+AC0-1
-178,activity,,14,,,,,30,,average activities was lower than 30 minutes in the last two weeks,4,+AC0-1
-179,activity,,30,,,,,30,,average activities was lower than 30 minutes in the last month,5,+AC0-1
-450,sleep,,3,2,,,,,,irregular sleep in the last 3 days,1,0
-451,sleep,,5,3,,,,,,irregular sleep in the last 5 days,2,0
-452,sleep,,7,5,,,,,,irregular sleep in the last week,3,0
-453,sleep,,14,9,,,,,,irregular sleep in the last 14 days,4,0
-454,sleep,,30,16,,,,,,irregular sleep in the last month,5,0
-470,sleep,,3,,,,,4,,not enough sleep in the last 3 days,1,+AC0-1
-471,sleep,,5,,,,,4.5,,not enough sleep in the last 5 days,3,+AC0-1
-472,sleep,,7,,,,,5,,not enough sleep in the last 7 days,5,+AC0-1
-473,sleep,,14,,,,,6,,not enough sleep in the last 14 days,2,+AC0-1
-474,sleep,,30,,,,,6,,not enough sleep in the last month,4,+AC0-1
-460,sleep,,3,,,,,,12,too much sleep in the last 3 days,2,1
-461,sleep,,5,,,,,,11,too much sleep in the last 5 days,4,1
-462,sleep,,7,,,,,,10.5,too much sleep in the last 7 days,1,1
-463,sleep,,14,,,,,,10,too much sleep in the last 14 days,3,1
-464,sleep,,30,,,,,,9,too much sleep in the last month,5,1
+id,input,age,days,fluctuation,gradient,all less,all more,avg less,avg more,condition,severity,direction,url
+250,bloodpressure,,3,2,,,,,,blood pressure fluctuates in the last 3 days,1,0,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+251,bloodpressure,,5,3,,,,,,blood pressure fluctuates in the last 5 days,2,0,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+252,bloodpressure,,7,5,,,,,,blood pressure fluctuates in the last the last week,3,0,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+253,bloodpressure,,14,9,,,,,,blood pressure fluctuates in the last two weeks,4,0,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+254,bloodpressure,,30,16,,,,,,blood pressure fluctuates in the last month,5,0,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+260,bloodpressure,,3,,,,130,,,blood pressure kept higher than 130 in the last 3 days,1,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+261,bloodpressure,,5,,,,130,,,blood pressure kept higher than 130 in the last 5 days,2,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+262,bloodpressure,,7,,,,130,,,blood pressure kept higher than 130 in the last week,3,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+263,bloodpressure,,14,,,,130,,,blood pressure kept higher than 130 in the last two weeks,4,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+264,bloodpressure,,30,,,,130,,,blood pressure kept higher than 130 in the last month,5,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+270,bloodpressure,,3,,,80,,,,blood pressure kept lower than 80 in the last 3 days,1,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+271,bloodpressure,,5,,,80,,,,blood pressure kept lower than 80 in the last 5 days,2,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+272,bloodpressure,,7,,,80,,,,blood pressure kept lower than 80 in the last week,3,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+273,bloodpressure,,14,,,80,,,,blood pressure kept lower than 80 in the last two weeks,4,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+274,bloodpressure,,30,,,80,,,,blood pressure kept lower than 80 in the last month,5,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+265,bloodpressure,,3,,,,,,130,average blood pressure was higher than 130 in the last 3 days,1,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+266,bloodpressure,,5,,,,,,130,average blood pressure was higher than 130 in the last 5 days,2,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+267,bloodpressure,,7,,,,,,130,average blood pressure was higher than 130 in the last week,3,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+268,bloodpressure,,14,,,,,,130,average blood pressure was higher than 130 in the last two weeks,4,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+269,bloodpressure,,30,,,,,,130,average blood pressure was higher than 130 in the last month,5,1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+275,bloodpressure,,3,,,,,80,,average blood pressure was lower than 80 in the last 3 days,1,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+276,bloodpressure,,5,,,,,80,,average blood pressure was lower than 80 in the last 5 days,2,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+277,bloodpressure,,7,,,,,80,,average blood pressure was lower than 80 in the last week,3,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+278,bloodpressure,,14,,,,,80,,average blood pressure was lower than 80 in the last two weeks,4,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+279,bloodpressure,,30,,,,,80,,average blood pressure was lower than 80 in the last month,5,+AC0-1,http://www.heart.org/HEARTORG/Conditions/HighBloodPressure/AboutHighBloodPressure/Understanding+AC0-Blood+AC0-Pressure+AC0-Readings+AF8-UCM+AF8-301764+AF8-Article.jsp
+370,pulse,,3,,,55,,,,heart beat rate was lower than 55 in the last 3 days,1,+AC0-1,http://www.medicalnewstoday.com/articles/235710.php
+371,pulse,,5,,,55,,,,heart beat rate was lower than 55 in the last 5 days,2,+AC0-1,http://www.medicalnewstoday.com/articles/235710.php
+372,pulse,,7,,,55,,,,heart beat rate was lower than 55 in the last weeks,3,+AC0-1,http://www.medicalnewstoday.com/articles/235710.php
+373,pulse,,14,,,55,,,,heart beat rate was lower than 55 in the last two weeks,4,+AC0-1,http://www.medicalnewstoday.com/articles/235710.php
+374,pulse,,30,,,55,,,,heart beat rate was lower than 55 in the last month,5,+AC0-1,http://www.medicalnewstoday.com/articles/235710.php
+360,pulse,,3,,,,135,,,heart beat rate was higher than 135 in the last 3 days,1,1,http://www.medicalnewstoday.com/articles/235710.php
+361,pulse,,5,,,,135,,,heart beat rate was higher than 135 in the last 5 days,2,1,http://www.medicalnewstoday.com/articles/235710.php
+362,pulse,,7,,,,135,,,heart beat rate was higher than 135 in the last weeks,3,1,http://www.medicalnewstoday.com/articles/235710.php
+363,pulse,,14,,,,135,,,heart beat rate was higher than 135 in the last two weeks,4,1,http://www.medicalnewstoday.com/articles/235710.php
+364,pulse,,30,,,,135,,,heart beat rate was higher than 135 in the last month,5,1,http://www.medicalnewstoday.com/articles/235710.php
+350,pulse,,3,2,,,,,,heart beat rate fluctuates in the last 3 days,1,0,http://www.medicalnewstoday.com/articles/235710.php
+351,pulse,,5,3,,,,,,heart beat rate fluctuates in the last 5 days,2,0,http://www.medicalnewstoday.com/articles/235710.php
+352,pulse,,7,5,,,,,,heart beat rate fluctuates in the last the last week,3,0,http://www.medicalnewstoday.com/articles/235710.php
+353,pulse,,14,9,,,,,,heart beat rate fluctuates in the last two weeks,4,0,http://www.medicalnewstoday.com/articles/235710.php
+354,pulse,,30,16,,,,,,heart beat rate fluctuates in the last month,5,0,http://www.medicalnewstoday.com/articles/235710.php
+150,activity,,3,2,,,,,,activities fluctuates in the last 3 days,1,0,http://csep.ca/english/view.asp?x+AD0-780
+151,activity,,5,3,,,,,,activities fluctuates in the last 5 days,2,0,http://csep.ca/english/view.asp?x+AD0-781
+152,activity,,7,5,,,,,,activities fluctuates in the last week,3,0,http://csep.ca/english/view.asp?x+AD0-782
+153,activity,,14,9,,,,,,activities fluctuates in the last two weeks,4,0,http://csep.ca/english/view.asp?x+AD0-783
+154,activity,,30,16,,,,,,activities fluctuates in the last month,5,0,http://csep.ca/english/view.asp?x+AD0-784
+160,activity,,3,,,,180,,,activities kept higher than 180 in the last 3 days,1,1,http://csep.ca/english/view.asp?x+AD0-785
+161,activity,,5,,,,180,,,activities kept higher than 180 in the last 5 days,2,1,http://csep.ca/english/view.asp?x+AD0-786
+162,activity,,7,,,,180,,,activities kept higher than 180 in the last week,3,1,http://csep.ca/english/view.asp?x+AD0-787
+163,activity,,14,,,,180,,,activities kept higher than 180 in the last two weeks,4,1,http://csep.ca/english/view.asp?x+AD0-788
+164,activity,,30,,,,180,,,activities kept higher than 180 in the last month,5,1,http://csep.ca/english/view.asp?x+AD0-789
+170,activity,,3,,,30,,,,activities kept lower than 30 in the last 3 days,1,0,http://csep.ca/english/view.asp?x+AD0-790
+171,activity,,5,,,30,,,,activities kept lower than 30 in the last 5 days,2,0,http://csep.ca/english/view.asp?x+AD0-791
+172,activity,,7,,,30,,,,activities kept lower than 30 in the last week,3,0,http://csep.ca/english/view.asp?x+AD0-792
+173,activity,,14,,,30,,,,activities kept lower than 30 in the last two weeks,4,0,http://csep.ca/english/view.asp?x+AD0-793
+174,activity,,30,,,30,,,,activities kept lower than 30 in the last month,5,0,http://csep.ca/english/view.asp?x+AD0-794
+165,activity,,3,,,,,,180,average activities was higher than 180 minutes in the last 3 days,1,1,http://csep.ca/english/view.asp?x+AD0-795
+166,activity,,5,,,,,,180,average activities was higher than 180 minutes in the last 5 days,2,1,http://csep.ca/english/view.asp?x+AD0-796
+167,activity,,7,,,,,,180,average activities was higher than 180 minutes in the last week,3,1,http://csep.ca/english/view.asp?x+AD0-797
+168,activity,,14,,,,,,180,average activities was higher than 180 minutes in the last two weeks,4,1,http://csep.ca/english/view.asp?x+AD0-798
+169,activity,,30,,,,,,180,average activities was higher than 180 minutes in the last month,5,1,http://csep.ca/english/view.asp?x+AD0-799
+175,activity,,3,,,,,30,,average activities was lower than 30 minutes in the last 3 days,1,+AC0-1,http://csep.ca/english/view.asp?x+AD0-800
+176,activity,,5,,,,,30,,average activities was lower than 30 minutes in the last 5 days,2,+AC0-1,http://csep.ca/english/view.asp?x+AD0-801
+177,activity,,7,,,,,30,,average activities was lower than 30 minutes in the last week,3,+AC0-1,http://csep.ca/english/view.asp?x+AD0-802
+178,activity,,14,,,,,30,,average activities was lower than 30 minutes in the last two weeks,4,+AC0-1,http://csep.ca/english/view.asp?x+AD0-803
+179,activity,,30,,,,,30,,average activities was lower than 30 minutes in the last month,5,+AC0-1,http://csep.ca/english/view.asp?x+AD0-804
+450,sleep,,3,2,,,,,,irregular sleep in the last 3 days,1,0, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+451,sleep,,5,3,,,,,,irregular sleep in the last 5 days,2,0, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+452,sleep,,7,5,,,,,,irregular sleep in the last week,3,0, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+453,sleep,,14,9,,,,,,irregular sleep in the last 14 days,4,0, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+454,sleep,,30,16,,,,,,irregular sleep in the last month,5,0, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+470,sleep,,3,,,,,4,,not enough sleep in the last 3 days,1,+AC0-1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+471,sleep,,5,,,,,4.5,,not enough sleep in the last 5 days,3,+AC0-1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+472,sleep,,7,,,,,5,,not enough sleep in the last 7 days,5,+AC0-1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+473,sleep,,14,,,,,6,,not enough sleep in the last 14 days,2,+AC0-1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+474,sleep,,30,,,,,6,,not enough sleep in the last month,4,+AC0-1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+460,sleep,,3,,,,,,12,too much sleep in the last 3 days,2,1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+461,sleep,,5,,,,,,11,too much sleep in the last 5 days,4,1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+462,sleep,,7,,,,,,10.5,too much sleep in the last 7 days,1,1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+463,sleep,,14,,,,,,10,too much sleep in the last 14 days,3,1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
+464,sleep,,30,,,,,,9,too much sleep in the last month,5,1, http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
