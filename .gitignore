@@ -4,3 +4,4 @@ env/*
 .pydevproject
 venv
 *.swp
+db/.~*
