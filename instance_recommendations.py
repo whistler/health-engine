@@ -48,7 +48,7 @@ def _append_recommendation(recommendation_row, recommendations):
     recommendation = {
         'id': recommendation_row[1]['ID'],
         'recommendation': recommendation_row[1]['recommendation'],
-        'source': recommendation_row[1]['source'],
+        'url': recommendation_row[1]['source'],
         'severity': recommendation_row[1]['severity']
     }
     recommendations = recommendations + [recommendation]

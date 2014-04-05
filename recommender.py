@@ -12,10 +12,10 @@ import timeseries_recommendations
 import append_tips
 
 def recommend(input):
-#     i_recommendations = instance_recommendations.process(input)
+    recommendations = instance_recommendations.process(input)
+    print recommendations
     ts_recommendations = timeseries_recommendations.process(input)
-    print ts_recommendations
     ts_recommendations = append_tips.addtips(ts_recommendations)
-    print ts_recommendations 
-#     recommendations = i_recommendations + ts_recommendations
-    return ts_recommendations
+    print ts_recommendations  
+    recommendations.extend(ts_recommendations)
+    return recommendations
