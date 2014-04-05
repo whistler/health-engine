@@ -87,7 +87,7 @@ def get_input_json():
     import csv
     import sys
     try:
-        with open('../db/Medical Research - SimulationData.csv', 'rb') as inf:
+        with open('Medical Research - SimulationData.csv', 'rb') as inf:
             data_table = csv.reader(inf)
             for row in data_table:
                 if(row != [] and row[0] != ''):
@@ -105,7 +105,7 @@ def get_input_json():
                         hb_json.append(generate_daily_HB(row[1], row[4]))
                         activity_json.append(generate_daily_activity(row[1], row[2]))
                         sleep_json.append(generate_daily_sleep(row[1],row[3]))
-                        weight_json.append(generate_daily_weight(row[1],row[7]))
+#                         weight_json.append(generate_daily_weight(row[1],row[7]))
                 else:
                     continue
             user_info_json =generate_user_info(user_row[1], user_row[2], user_row[3], weight_json, user_row[4], user_row[5], user_row[6], user_row[7])     

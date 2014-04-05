@@ -87,7 +87,7 @@ def extract_features(input):
         bp_diastolic = input["bloodPressures"][-1]["diastolic"]
         
     if input["heartBeats"]:
-        heartbeat = input["heartBeats"][-1]["pulse"]
+        heartbeat = input["heartBeats"][-1]["count"]
 
     if input["sleep"]:
         sleep = input["sleep"][-1]["minutesAsleep"]

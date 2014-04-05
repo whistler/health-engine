@@ -36,12 +36,13 @@ def process(input):
     return recommendations
     
 def _recommendation_output(recommendation):
-    """ Take in a padas row and return the format for the output recommendation 
+    """ Take in a pandas row and return the format for the output recommendation 
     """
     return {
         'id': recommendation['id'],
         'condition': recommendation['condition'],
-        'direction': recommendation['direction']
+        'direction': recommendation['direction'],
+        'severity' : recommendation['severity']
         }
 
 def _satisfiesAge(inputs, age):
@@ -56,7 +57,7 @@ def _satisfiesFluctuation(input, fluctuation):
     #TODO: figure out how to integrate scoring into this(maybe pass the kind of
     # in aswell)
     #return _count_fluctuations(input) >= fluctuation
-    return True
+    return False
     
 def _satisfiesGradient(input, gradient):
     if math.isnan(gradient): return True
@@ -103,7 +104,7 @@ def _build_features(input):
         bp_disastolic = [bp["diastolic"] for bp in input["bloodPressures"]]
 
     if input["heartBeats"]:
-        pulse = [value["pulse"] for value in input["heartBeats"]]
+        pulse = [value["count"] for value in input["heartBeats"]]
         
     if input["activities"]:
         activity = [value["duration"] for value in input["activities"]]
