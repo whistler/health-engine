@@ -2,6 +2,7 @@
 
 """ Takes inputs and extracts features that are useful for recommendations"""
 
+import datetime
 from features import Features
 import lookup_table
 from datetime import datetime
@@ -55,6 +56,10 @@ def checkAge(feature, eachLine):
     else:
         return False
 
+#Sort the list by time
+def sort_list_bytime(datalist):
+    return sorted(datalist, key=lambda data: data[0], reverse=True)
+
 #Get the array of Activities List
 def getActivitiesList(feature):
     
@@ -67,7 +72,8 @@ def getActivitiesList(feature):
         if (activitiesData[i].has_key("date") and activitiesData[i].has_key("duration")):
             activitiesList.append([datetime.strptime(activitiesData[i]["date"],"%Y-%m-%d"), activitiesData[i]["duration"]])
 #     print activitiesList
-    return activitiesList
+    return sort_list_bytime(activitiesList)
+    #return activitiesList
 
 #Get the array of Sleep List
 def getSleepList(feature):
@@ -81,7 +87,8 @@ def getSleepList(feature):
         if (sleepData[i].has_key("date") and sleepData[i].has_key("minutesAsleep")):
             sleepList.append([datetime.strptime(sleepData[i]["date"],"%Y-%m-%d"), sleepData[i]["minutesAsleep"]])
 #     print sleepList
-    return sleepList
+    return sort_list_bytime(sleepList)
+    #return sleepList
  
 #Get the array of HeartBeats List
 def getHeartBeatsList(feature):
@@ -95,7 +102,8 @@ def getHeartBeatsList(feature):
         if (heartBeatsData[i].has_key("date") and heartBeatsData[i].has_key("count")):
             heartBeatsList.append([datetime.strptime(heartBeatsData[i]["date"],"%Y-%m-%d"), heartBeatsData[i]["count"]])
 #     print heartBeatsList
-    return heartBeatsList
+    return sort_list_bytime(heartBeatsList)
+    #return heartBeatsList
  
 #Get the array of BloodPressures List
 def getBloodPressuresList(feature):
@@ -109,8 +117,8 @@ def getBloodPressuresList(feature):
         if (bloodPressuresData[i].has_key("date") and bloodPressuresData[i].has_key("systolic") and bloodPressuresData[i].has_key("diastolic")):
             bloodPressuresList.append([datetime.strptime(bloodPressuresData[i]["date"],"%Y-%m-%d"), bloodPressuresData[i]["systolic"], bloodPressuresData[i]["diastolic"]])
 #     print bloodPressuresList
-    return bloodPressuresList
- 
+    return sort_list_bytime(bloodPressuresList)
+    #return bloodPressuresList
       
 def evaluateActivities(activitiesList):
     min=1
