@@ -31,7 +31,7 @@
         }
     ],
     "heartBeats": [
-        {},
+        
         {
             "count": 140,
             "date": "2012-04-23"
@@ -64,12 +64,12 @@
         "hypertension": true,
         "insomnia": true,
         "weight": [
-            {},
+            
             {
                 "date": "2012-04-23",
-                "weight": 40
-            },
-            {}
+                "value": 40
+            }
+            
         ]
     }
 }

@@ -25,7 +25,7 @@ def generate_user_info(age, gender, height, weight=[], hypertension=True, diabet
 def generate_daily_BP(date, systolic_bp, diastolic_bp):
     daily_bp={}
     if(date == "" or systolic_bp == "" or diastolic_bp == ""):
-        return daily_bp;
+        return None
     else:
         daily_bp = { 'date': date, 'systolic':int(systolic_bp), "diastolic":int(diastolic_bp)}
         return daily_bp
@@ -35,7 +35,7 @@ def generate_daily_BP(date, systolic_bp, diastolic_bp):
 def generate_daily_HB(date, hb_count):
     daily_hb = {}
     if(date == "" or hb_count == ""):
-        return daily_hb;
+        return None
     else:
         daily_hb = { 'date': date, 'count': int(hb_count)}
         return daily_hb
@@ -45,7 +45,7 @@ def generate_daily_HB(date, hb_count):
 def generate_daily_activity(date, duration):
     daily_activity={}
     if(date == "" or duration == ""):
-        return daily_activity 
+        return None
     else:
         daily_activity = { 'date': date, 'duration': int(duration)}
         return daily_activity 
@@ -55,7 +55,7 @@ def generate_daily_activity(date, duration):
 def generate_daily_sleep(date, minutes):
     daily_activity = {}
     if(date == "" or minutes == ""):
-        return daily_activity
+        return None
     else:
         daily_activity = { 'date': date, 'minutesAsleep': int(minutes)}
         return daily_activity 
@@ -65,11 +65,14 @@ def generate_daily_sleep(date, minutes):
 def generate_daily_weight(date, weight):
     daily_weight = {}
     if(date == "" or weight == ""):
-        return daily_weight
+        return None
     else:
-        daily_weight = { 'date': date, 'weight': int(weight)}
+        daily_weight = { 'date': date, 'value': int(weight)}
         return daily_weight 
     
+#Read inputs from "/db/Medical Research - SimulationData.csv", use help functions
+#to assemble test json   
+#Return: input_json
 def get_input_json():
     
     data_table = None
@@ -101,11 +104,16 @@ def get_input_json():
                     if(info_type == 'User_Info'):
                         user_row = row
                     elif(info_type == 'Device_Info'):
-                        bp_json.append(generate_daily_BP(row[1], row[5], row[6]))
-                        hb_json.append(generate_daily_HB(row[1], row[4]))
-                        activity_json.append(generate_daily_activity(row[1], row[2]))
-                        sleep_json.append(generate_daily_sleep(row[1],row[3]))
-#                         weight_json.append(generate_daily_weight(row[1],row[7]))
+                        if (generate_daily_BP(row[1], row[5], row[6])!=None):
+                            bp_json.append(generate_daily_BP(row[1], row[5], row[6]))
+                        if (generate_daily_HB(row[1], row[4])!=None):
+                            hb_json.append(generate_daily_HB(row[1], row[4]))
+                        if (generate_daily_activity(row[1], row[2])!=None):
+                            activity_json.append(generate_daily_activity(row[1], row[2]))
+                        if (generate_daily_sleep(row[1],row[3])!=None):
+                            sleep_json.append(generate_daily_sleep(row[1],row[3]))
+                        if (generate_daily_weight(row[1],row[7])!=None):
+                            weight_json.append(generate_daily_weight(row[1],row[7]))
                 else:
                     continue
             user_info_json =generate_user_info(user_row[1], user_row[2], user_row[3], weight_json, user_row[4], user_row[5], user_row[6], user_row[7])     
