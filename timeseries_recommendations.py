@@ -5,6 +5,7 @@ import datetime
 import math
 import pandas
 import preprocessor
+import fluctuation_analysis
 
 table = pandas.read_csv("db/timeseries_recommendations.csv")
 
@@ -55,9 +56,8 @@ def _satisfiesAge(inputs, age):
     
 def _satisfiesFluctuation(input, fluctuation):
     if math.isnan(fluctuation): return True
-    #TODO: figure out how to integrate scoring into this(maybe pass the kind of
-    # in aswell)
-    #return _count_fluctuations(input) >= fluctuation
+    fluctuations = fluctuation_analysis.analyze_fluctuation(input)
+    return fluctuations >= fluctuation
     return False
     
 def _satisfiesGradient(input, gradient):

@@ -41,13 +41,13 @@
         "date": "2012-04-24"
     }],
     "heartBeats": [{
-        "pulse": 56,
+        "count": 56,
         "date": "2012-04-24"
     }, {
-        "pulse": 60,
+        "count": 60,
         "date": "2012-04-17"
     }, {
-        "pulse": 59,
+        "count": 59,
         "date": "2012-03-24"
     }],
     "bloodPressures": [{
