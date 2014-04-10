@@ -3,7 +3,7 @@ import pandas
 import json
 import math
 
-table = pandas.read_csv("/home/swami/Desktop/PostProcessor.csv")
+table = pandas.read_csv("db/PostProcessor.csv")
 
 def read_recomendations(ppfeatures):
     
