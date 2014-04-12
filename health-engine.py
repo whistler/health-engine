@@ -23,8 +23,12 @@ def recommend():
          return "Unable to parse input data", 400
           
      response = recommender.recommend(inputs)
-     return json.dumps(response)
+     headers = {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods' : 'POST' } 
+     return json.dumps(response), 201, headers
 
 if __name__ == "__main__":
     app.debug = True
     app.run()
+    
+def options (self):
+    return 
