@@ -8,10 +8,9 @@ BLOODPRESSURE_INDEX = 1
 HEARTBEAT_INDEX = 2
 SLEEP_INDEX = 3
 
-def process(input):
-    BpHigh = BpLow = SleepHigh = SleepLow = HbHigh = HbLow = ActHigh \
-            = ActLow = None
-    ppfeatures = {'BPHigh':0,'BPLow':0,'HBHigh':0,'HBLow':0,'SleepHigh':0,'SleepLow':0,'ActivityHigh':0,'ActivityLow':0}        
+def process(input,user_input):
+ 
+    ppfeatures = {'BPHigh':0,'BPFluct':0,'BPLow':0,'HBHigh':0,'HBFluct':0,'HBLow':0,'SleepHigh':0,'SleepFluct':0,'SleepLow':0,'ActivityHigh':0,'ActivityFluct':0,'ActivityLow':0,'Insomnia':0,'Hypertension':0,'Diabetes':0,'Cardio':0}        
     import pdb
     priority_list = _filter_priority(input)
     print priority_list
@@ -23,34 +22,47 @@ def process(input):
         max_BP_severity = _determine_max_severity(bpValues)
         if max_BP_severity.get('direction')==1:
             ppfeatures['BPHigh'] = max_BP_severity.get('max_severity')
-                
+        elif max_BP_severity.get('direction')==0:
+            ppfeatures['BPFluct']= max_BP_severity.get('max_severity')
         else:
             ppfeatures['BPLow'] = max_BP_severity.get('max_severity')
             
     if len(hbValues)>1:
         max_HB_severity = _determine_max_severity(hbValues)
         if max_HB_severity.get('direction')==1:
-            ppfeatures['HBHigh'] = max_HB_severity.get('max_severity')  
-              
+            ppfeatures['HBHigh'] = max_HB_severity.get('max_severity')
+        elif max_HB_severity.get('direction')==0:
+            ppfeatures['HBFluct'] = max_HB_severity.get('max_severity')  
         else:
             ppfeatures['HBLow'] = max_HB_severity.get('max_severity')
             
     if len(sleepValues)>1:    
         max_sleep_severity = _determine_max_severity(sleepValues)
         if max_sleep_severity.get('direction')==1:
-            ppfeatures['SleepHigh'] = max_sleep_severity.get('max_severity')    
+            ppfeatures['SleepHigh'] = max_sleep_severity.get('max_severity') 
+        elif max_sleep_severity.get('direction')==0:
+            ppfeatures['SleepFluct'] = max_sleep_severity.get('max_severity')   
         else:
             ppfeatures['SleepLow'] = max_sleep_severity.get('max_severity')  
     if len(activityValues)>1:    
         max_active_severity = _determine_max_severity(activityValues)
         if max_active_severity.get('direction')==1:
-            ppfeatures['ActivityHigh'] = max_active_severity.get('max_severity')    
+            ppfeatures['ActivityHigh'] = max_active_severity.get('max_severity') 
+        elif max_active_severity.get('direction')==0:
+            ppfeatures['ActivityFluct']= max_active_severity.get('max_severity')
         else:
             ppfeatures['ActivityLow'] = max_active_severity.get('max_severity') 
     
    # print 'maximum severity for BP is %d',max_BP_severity
  
-    
+    if user_input["userinfo"]["hypertension"]=='true': 
+            ppfeatures['Hypertension']=1
+    if user_input["userinfo"]["diabetes"]=='true':
+            ppfeatures['Diabetes']=1
+    if user_input["userinfo"]["insomnia"]=='true':
+            ppfeatures['Insomnia']=1
+    if user_input["userinfo"]["cardio"]=='true':
+            ppfeatures['Cardio']=1
     #print ppfeatures  
     return match_reco.read_recomendations(ppfeatures)     
     

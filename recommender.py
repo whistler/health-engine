@@ -17,7 +17,9 @@ def recommend(input):
     #print recommendations
     ts_recommendations = timeseries_recommendations.process(input)
     #print ts_recommendations
-    pp_recommendations = post_processor.process(ts_recommendations)
+    pp_recommendations = post_processor.process(ts_recommendations,input)
     ts_recommendations = append_tips.addtips(ts_recommendations)
+  
     recommendations.extend(ts_recommendations)
-    return pp_recommendations
+    recommendations.append(pp_recommendations)
+    return recommendations
