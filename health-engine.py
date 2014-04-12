@@ -11,13 +11,12 @@ import recommender
 import lookup_table
 
 app = Flask(__name__)
+app.debug = True
 
 @app.route('/', methods=['GET', 'POST'])
 def recommend():
 
      try:
-#          import pdb
-#          pdb.set_trace()
          inputs = json.loads(request.data)
      except ValueError:
          return "Unable to parse input data", 400
@@ -27,8 +26,4 @@ def recommend():
      return json.dumps(response), 201, headers
 
 if __name__ == "__main__":
-    app.debug = True
     app.run()
-    
-def options (self):
-    return 
