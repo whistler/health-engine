@@ -14,10 +14,8 @@ import append_tips
 
 def recommend(input):
     recommendations = instance_recommendations.process(input)
-    #print recommendations
     ts_recommendations = timeseries_recommendations.process(input)
-    #print ts_recommendations
-    pp_recommendations = post_processor.process(ts_recommendations,input)
+    pp_recommendations = post_processor.process(ts_recommendations, input)
     ts_recommendations = append_tips.addtips(ts_recommendations)
   
     recommendations.extend(ts_recommendations)

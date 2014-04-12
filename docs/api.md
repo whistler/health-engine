@@ -92,3 +92,9 @@ Content-Type: application/json
             "severity": 1
         }
     ]
+    
+#Testing
+
+To test out this endpoint with curl run:
+
+    curl -i -H "Content-Type: application/json" -X POST -d @input.json http://health-engine.herokuapp.com/
