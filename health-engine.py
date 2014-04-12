@@ -7,6 +7,7 @@ import json
 from StringIO import StringIO
 from flask import Flask
 from flask import request
+from flask.ext.cors import cross_origin
 import recommender
 import lookup_table
 
@@ -14,6 +15,7 @@ app = Flask(__name__)
 app.debug = True
 
 @app.route('/', methods=['GET', 'POST'])
+@cross_origin('*')
 def recommend():
 
      try:
