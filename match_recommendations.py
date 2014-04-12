@@ -6,8 +6,7 @@ import math
 table = pandas.read_csv("db/PostProcessor.csv")
 
 def read_recomendations(ppfeatures):
-    
-     recommendations = []
+     summary = []
      for recommendation in table.iterrows():
          #print "type of recommendation %s"%type(recommendation)
          print recommendation[1]['BPFluct']
