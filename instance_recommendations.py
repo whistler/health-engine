@@ -61,39 +61,73 @@ def extract_features(input):
     # TODO: sort before selecting the last item in list
     
     disease = gender = bmi = age = step = activity_week = activity_day \
-            = sleep = heartbeat = bp_diastolic = bp_systolic = None
+            = sleep = heartbeat = bp_diastolic = bp_systolic \
+            = weight = height = None
     
-    if input["userinfo"]:
-        age = input["userinfo"]["age"]
-        height = input["userinfo"]["height"]
-        if input["userinfo"]["weight"]:
-            weight = input["userinfo"]["weight"][-1]["value"]
+    if "userinfo" in input:
+        
+        userinfo = input["userinfo"]
+        
+        if "age" in userinfo:
+            age = userinfo["age"]
+        if "height" in userinfo:
+            height = userinfo["height"]
+        if "gender" in userinfo:
+            gender = userinfo["gender"]
+        if "weight" in userinfo:
+            if "weight" in userinfo:
+                weights = userinfo["weight"]
+                prev_date = None
+                for item in weights:
+                    if "date" in item and "value" in item:
+                        if prev_date is None or item["date"] > prev_date:
+                            weight = item["value"]
+        
+        if height and weight: bmi = height / weight
         
         disease = []
-        if input["userinfo"]["hypertension"]: 
+        if "hypertension" in userinfo and userinfo["hypertension"]: 
             disease = disease + ["hypertension"]
-        if input["userinfo"]["diabetes"]:
+        if "diabetes" in userinfo and userinfo["diabetes"]:
             disease = disease + ["diabetes"]
-        if input["userinfo"]["insomnia"]:
+        if "insomnia" in userinfo and userinfo["insomnia"]:
             disease = disease + ["insomnia"]
-        if input["userinfo"]["cardio"]:
+        if "cardio" in userinfo and userinfo["cardio"]:
             disease = disease + ["cardio"]
             
-        if height and weight: bmi = height / weight
-        gender = input["userinfo"]["gender"]
-    
-    if input["bloodPressures"]:
-        bp_systolic = input["bloodPressures"][-1]["systolic"]
-        bp_diastolic = input["bloodPressures"][-1]["diastolic"]
-        
-    if input["heartBeats"]:
-        heartbeat = input["heartBeats"][-1]["count"]
+    if "bloodPressures" in input:
+        bloodPressures = input["bloodPressures"]
+        prev_date = None
+        for item in bloodPressures:
+            if "date" in item and "systolic" in item and "diastolic" in item:
+                if prev_date is None or item["date"] > prev_date:
+                    bp_systolic = item["systolic"]
+                    bp_diastolic = item["diastolic"]
 
-    if input["sleep"]:
-        sleep = input["sleep"][-1]["minutesAsleep"]
+    if "heartBeats" in input:
+        heartBeats = input["heartBeats"]
+        prev_date = None
+        for item in heartBeats:
+            if "date" in item and "count" in item:
+                if prev_date is None or item["date"] > prev_date:
+                    heartbeat = item["count"]
+
+    if "sleep" in input:
+        sleeps = input["sleep"]
+        prev_date = None
+        for item in sleeps:
+            if "date" in item and "minutesAsleep" in item:
+                if prev_date is None or item["date"] > prev_date:
+                    sleep = item["minutesAsleep"]
     
-    if input["activities"]:
-        activity_day = input["activities"][-1]["duration"]
+    if "activities" in input:
+        activities = input["activities"]
+        prev_date = None
+        for item in activities:
+            if "date" in item and "duration" in item:
+                if prev_date is None or item["date"] > prev_date:
+                    activity_day = item["duration"]
+        
         # filter the week
         week_ago = datetime.datetime.today() - datetime.timedelta(7)
         activity_week = sum([activity["duration"] for activity in \

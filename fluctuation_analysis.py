@@ -4,8 +4,6 @@ def analyze_fluctuation(sorted_score_list):
     
     l = len(sorted_score_list)
     
-    today = sorted_score_list[0]
-    
     total = 0
     last_scope = 0
     

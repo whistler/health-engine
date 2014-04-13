@@ -80,6 +80,7 @@ def _satisfiesAvgLess(input, avg_less):
     return avg < avg_less
     
 def _satisfiesAvgMore(input, avg_more):
+    
     if math.isnan(avg_more): return True
     avg = sum(input)/len(input)
     return avg > avg_more
@@ -95,22 +96,22 @@ def _in_range(value, range):
 def _build_features(input):
     """ Generate dictionary containing a list of data sorted by date for each 
     time series input being used"""
-    # Note the preprocessor was not used becuase it also returns dates
+    # Note the preprocessor was not used because it also returns dates
     
     #TODO: Lists should be sorted by date
     bp_systolic = bp_diastolic = pulse = sleep = activity = []
 
-    if input["bloodPressures"]:
+    if "bloodPressures" in input:
         bp_systolic = [bp["systolic"] for bp in input["bloodPressures"]]
         bp_disastolic = [bp["diastolic"] for bp in input["bloodPressures"]]
 
-    if input["heartBeats"]:
+    if "heartBeats" in input:
         pulse = [value["count"] for value in input["heartBeats"]]
         
-    if input["activities"]:
+    if "activities" in input:
         activity = [value["duration"] for value in input["activities"]]
         
-    if input["sleep"]:
+    if "sleep" in input:
         sleep = [value["minutesAsleep"] for value in input["sleep"]]
     
     features = {

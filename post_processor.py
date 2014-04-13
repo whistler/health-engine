@@ -54,14 +54,16 @@ def process(input,user_input):
             ppfeatures['ActivityLow'] = max_active_severity.get('max_severity') 
     
    # print 'maximum severity for BP is %d',max_BP_severity
- 
-    if user_input["userinfo"]["hypertension"]=='true': 
+
+    if "userinfo" in user_input:
+        userinfo = user_input["userinfo"]    
+        if "hypertension" in userinfo and userinfo["hypertension"]: 
             ppfeatures['Hypertension']=1
-    if user_input["userinfo"]["diabetes"]=='true':
+        if "diabetes" in userinfo and userinfo["diabetes"]:
             ppfeatures['Diabetes']=1
-    if user_input["userinfo"]["insomnia"]=='true':
+        if "insomnia" in userinfo and userinfo["insomnia"]:
             ppfeatures['Insomnia']=1
-    if user_input["userinfo"]["cardio"]=='true':
+        if "cardio" in userinfo and userinfo["cardio"]:
             ppfeatures['Cardio']=1
     #print ppfeatures  
     return match_reco.read_recomendations(ppfeatures)     
