@@ -7,14 +7,22 @@ import pandas
 import preprocessor
 import fluctuation_analysis
 
-table = pandas.read_csv("db/timeseries_recommendations.csv")
+table = pandas.read_csv("db/timeseries_recommendations.csv", dtype={'age': object, 'gender': object})
+table[['age', 'gender']] = table[['age', 'gender']].astype(str)
 
-def process(input):
+def process(inputs):
     """ Takes a python structure containing the input data from the REST API and
     returns a list of conditions based on the lookup table"""
     recommendations = []
     
-    features = _build_features(input)
+    features = _build_features(inputs)
+
+    age = None
+    gender = None
+
+    if 'userinfo' in inputs:
+        age = inputs['userinfo']['age']
+        gender = inputs['userinfo']['gender']
     
     for _recommendation in table.iterrows():
         recommendation = _recommendation[1]
@@ -22,18 +30,19 @@ def process(input):
         feature = recommendation['input'] # use only the last n days
         values = features[feature][-days:]
         
-        conditions = [_satisfiesAge(input, recommendation['age']),
+        conditions = [
             _satisfiesFluctuation(values, recommendation['fluctuation']),
             _satisfiesGradient(values, recommendation['gradient']),
             _satisfiesAllLess(values, recommendation['all less']),
             _satisfiesAllMore(values, recommendation['all more']),
             _satisfiesAvgLess(values, recommendation['avg less']),
-            _satisfiesAvgMore(values, recommendation['avg more'])
+            _satisfiesAvgMore(values, recommendation['avg more']),
+            _satisfiesAge(age, recommendation['age']),
+            _satisfiesGender(gender, recommendation['gender'])
         ]
         
         if all(conditions):
             recommendations.append(_recommendation_output(recommendation))
-                
     return recommendations
     
 def _recommendation_output(recommendation):
@@ -46,54 +55,61 @@ def _recommendation_output(recommendation):
         'severity' : recommendation['severity'],
         'url' : recommendation['url']
         }
-
-def _satisfiesAge(inputs, age):
-    if math.isnan(age): return True
-    if inputs["userinfo"] and inputs["userinfo"]["age"]:
-        return _in_range(age, inputs["userinfo"]["age"])
-    else:
-        return True
     
-def _satisfiesFluctuation(input, fluctuation):
+def _satisfiesFluctuation(input_val, fluctuation):
     if math.isnan(fluctuation): return True
-    fluctuations = fluctuation_analysis.analyze_fluctuation(input)
+    fluctuations = fluctuation_analysis.analyze_fluctuation(input_val)
     return fluctuations >= fluctuation
     return False
     
-def _satisfiesGradient(input, gradient):
+def _satisfiesGradient(input_val, gradient):
     if math.isnan(gradient): return True
     #TODO: we are not using this right now but use padas or numpy to find
     # gradient using linear regression
     return True
     
-def _satisfiesAllLess(input, all_less):
+def _satisfiesAllLess(input_val, all_less):
     if math.isnan(all_less): return True
-    return all([value < all_less for value in input])
+    return all([value < all_less for value in input_val])
     
-def _satisfiesAllMore(input, all_more):
+def _satisfiesAllMore(input_val, all_more):
     if math.isnan(all_more): return True
-    return all([value > all_more for value in input])
+    return all([value > all_more for value in input_val])
     
-def _satisfiesAvgLess(input, avg_less):
+def _satisfiesAvgLess(input_val, avg_less):
     if math.isnan(avg_less): return True
-    avg = sum(input)/len(input)
+    avg = sum(input_val)/len(input_val)
     return avg < avg_less
     
+<<<<<<< HEAD
 def _satisfiesAvgMore(input, avg_more):
     
+=======
+def _satisfiesAvgMore(input_val, avg_more):
+>>>>>>> check age and gender
     if math.isnan(avg_more): return True
-    avg = sum(input)/len(input)
+    avg = sum(input_val)/len(input_val)
     return avg > avg_more
     
+def _satisfiesAge(userage, age):
+    if age == 'nan' or not age or not userage: return True
+    return _in_range(userage, age)
+
+def _satisfiesGender(usergender, gender):
+    if gender == 'nan' or not gender or not usergender: return True
+    inp = usergender.lower()[0] 
+    gen = gender.lower()[0]
+    return inp == gen
+
 def _in_range(value, range):
     """ Checks if value is in range
     value - numeric value
     range - string in the format 'start_number-end_number'
     """
-    # TODO: Implement this
-    return True
+    min_val, max_val = (int(x) for x in "10-40".split("-"))
+    return int(value) > min_val and int(value) < max_val
     
-def _build_features(input):
+def _build_features(inputs):
     """ Generate dictionary containing a list of data sorted by date for each 
     time series input being used"""
     # Note the preprocessor was not used because it also returns dates
@@ -102,17 +118,17 @@ def _build_features(input):
     bp_systolic = bp_diastolic = pulse = sleep = activity = []
 
     if "bloodPressures" in input:
-        bp_systolic = [bp["systolic"] for bp in input["bloodPressures"]]
-        bp_disastolic = [bp["diastolic"] for bp in input["bloodPressures"]]
+        bp_systolic = [bp["systolic"] for bp in inputs["bloodPressures"]]
+        bp_disastolic = [bp["diastolic"] for bp in inputs["bloodPressures"]]
 
     if "heartBeats" in input:
-        pulse = [value["count"] for value in input["heartBeats"]]
+        pulse = [value["count"] for value in inputs["heartBeats"]]
         
     if "activities" in input:
-        activity = [value["duration"] for value in input["activities"]]
+        activity = [value["duration"] for value in inputs["activities"]]
         
     if "sleep" in input:
-        sleep = [value["minutesAsleep"] for value in input["sleep"]]
+        sleep = [value["minutesAsleep"] for value in inputs["sleep"]]
     
     features = {
         'bloodpressure': bp_systolic,
