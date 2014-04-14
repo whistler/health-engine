@@ -81,12 +81,7 @@ def _satisfiesAvgLess(input_val, avg_less):
     avg = sum(input_val)/len(input_val)
     return avg < avg_less
     
-<<<<<<< HEAD
-def _satisfiesAvgMore(input, avg_more):
-    
-=======
 def _satisfiesAvgMore(input_val, avg_more):
->>>>>>> check age and gender
     if math.isnan(avg_more): return True
     avg = sum(input_val)/len(input_val)
     return avg > avg_more
@@ -117,17 +112,17 @@ def _build_features(inputs):
     #TODO: Lists should be sorted by date
     bp_systolic = bp_diastolic = pulse = sleep = activity = []
 
-    if "bloodPressures" in input:
+    if "bloodPressures" in inputs:
         bp_systolic = [bp["systolic"] for bp in inputs["bloodPressures"]]
         bp_disastolic = [bp["diastolic"] for bp in inputs["bloodPressures"]]
 
-    if "heartBeats" in input:
+    if "heartBeats" in inputs:
         pulse = [value["count"] for value in inputs["heartBeats"]]
         
-    if "activities" in input:
+    if "activities" in inputs:
         activity = [value["duration"] for value in inputs["activities"]]
         
-    if "sleep" in input:
+    if "sleep" in inputs:
         sleep = [value["minutesAsleep"] for value in inputs["sleep"]]
     
     features = {
