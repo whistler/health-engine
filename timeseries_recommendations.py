@@ -7,7 +7,7 @@ import pandas
 import preprocessor
 import fluctuation_analysis
 
-table = pandas.read_csv("db/timeseries_recommendations.csv", dtype={'age': object, 'gender': object})
+table = pandas.read_csv("db/timeseries_recommendations.csv")
 table[['age', 'gender']] = table[['age', 'gender']].astype(str)
 
 def process(inputs):
