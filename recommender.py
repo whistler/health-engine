@@ -17,7 +17,7 @@ def recommend(input):
     in_recommendations = instance_recommendations.process(input)
     ts_recommendations = timeseries_recommendations.process(input)
     pp_recommendations = post_processor.process(ts_recommendations, input)
-#     ts_recommendations = append_tips.addtips(ts_recommendations)
+    ts_recommendations = append_tips.addtips(ts_recommendations)
 
     if in_recommendations != []:
         recommendations.extend(in_recommendations)  

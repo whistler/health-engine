@@ -1,6 +1,6 @@
 import datetime
 import pandas
-
+import math
 
 table = pandas.read_csv("db/instance_recommendations.csv")
 
@@ -51,6 +51,8 @@ def _append_recommendation(recommendation_row, recommendations):
         'url': recommendation_row[1]['source'],
         'severity': recommendation_row[1]['severity']
     }
+    if math.isnan(float(recommendation['url'])):
+        recommendation['url'] = ''
     recommendations = recommendations + [recommendation]
     return recommendations
     

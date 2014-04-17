@@ -11,6 +11,7 @@ Created on Apr 4, 2014
 import csv
 import random
 import sys
+import math
 
 keys = {1:"AC", 2:"BP", 3:"HB", 4:"SL"}
 directions = {1:"High", -1:"Low", 0 : "Fluctuation"}
@@ -43,6 +44,8 @@ def addtips(conditions):
         recom=cond
         del recom["direction"]
         recom["recommendation"] = recom.pop("condition")
+        if math.isnan(float(recom['url'])):
+            recom['url'] = ''
         recommendations.append(recom)    
     return recommendations
     
