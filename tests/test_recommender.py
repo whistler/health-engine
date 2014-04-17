@@ -13,7 +13,7 @@ class TestRecommender(unittest.TestCase):
         for recommendation in recommender.recommend(fixtures.input):
             if recommendation['severity'] >= 5:
                 print recommendation['recommendation']
-
+    
     def test_condition9(self):
         print "============================="
         print "Recommendations for Bloodpressure high"
@@ -31,6 +31,15 @@ class TestRecommender(unittest.TestCase):
                 print recommendation['recommendation']
         
     def test_condition72(self):
+        print "============================="
+        print "Recommendations for Too much sleep"
+        print "============================="
+        
+        for recommendation in recommender.recommend(fixtures.input72):
+            if recommendation['severity'] >= 5:
+                print recommendation['recommendation']
+                
+    def test_no_sleep(self):
         print "============================="
         print "Recommendations for Too much sleep"
         print "============================="

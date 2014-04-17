@@ -79,12 +79,12 @@ def _satisfiesAllMore(input_val, all_more):
 def _satisfiesAvgLess(input_val, avg_less):
     if math.isnan(avg_less): return True
     avg = sum(input_val)/len(input_val)
-    return avg < avg_less
+    return avg > avg_less
     
 def _satisfiesAvgMore(input_val, avg_more):
     if math.isnan(avg_more): return True
     avg = sum(input_val)/len(input_val)
-    return avg > avg_more
+    return avg < avg_more
     
 def _satisfiesAge(userage, age):
     if age == 'nan' or not age or not userage: return True
