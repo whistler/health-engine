@@ -13,11 +13,19 @@ import post_processor
 import append_tips
 
 def recommend(input):
-    recommendations = instance_recommendations.process(input)
+    recommendations = []
+    in_recommendations = instance_recommendations.process(input)
     ts_recommendations = timeseries_recommendations.process(input)
     pp_recommendations = post_processor.process(ts_recommendations, input)
-    ts_recommendations = append_tips.addtips(ts_recommendations)
-  
-    recommendations.extend(ts_recommendations)
-    recommendations.append(pp_recommendations)
+#     ts_recommendations = append_tips.addtips(ts_recommendations)
+
+    if in_recommendations != []:
+        recommendations.extend(in_recommendations)  
+    
+    if ts_recommendations != []:
+        recommendations.extend(ts_recommendations)
+
+    if pp_recommendations != {}:
+        recommendations.append(pp_recommendations)
+        
     return recommendations

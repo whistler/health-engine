@@ -9,13 +9,13 @@ def read_recomendations(ppfeatures):
      summary = []
      for recommendation in table.iterrows():
          #print "type of recommendation %s"%type(recommendation)
-         print recommendation[1]['BPFluct']
+#          print recommendation[1]['BPFluct']
          #print recommendation[0]
          summary = {
-                    'id':900,
-                    'condition':'No post processor output',
-                    'severity':0,
-                    'url':'http:////'
+#                     'id':900,
+#                     'condition':'No post processor output',
+#                     'severity':0,
+#                     'url':'http:////'
                     }
          if ppfeatures.get('BPHigh') == recommendation[1]['BPHigh'] and \
          ppfeatures.get('BPFluct')== recommendation[1]['BPFluct'] and \
@@ -35,11 +35,11 @@ def read_recomendations(ppfeatures):
          ppfeatures.get('Cardio')== recommendation[1]['Cardio']:
             summary = {
                        'id':recommendation[1]['ID'],
-                       'condition': recommendation[1]['Recommendation'],
+                       'recommendation': recommendation[1]['Recommendation'],
                        'severity':5,
                        'url':recommendation[1]['URL']
                       }
-     print summary
+#      print summary
      return summary
          
          

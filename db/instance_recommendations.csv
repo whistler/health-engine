@@ -1,22 +1,16 @@
 ID,bp systolic min,bp systolic max,bp diastolic min,bp diastolic max,heartbeat min,heartbeat max,sleep min,sleep max,activity day min,activity day max,activity week min,activity week max,step min,step max,age min,age max,bmi min,bmi max,gender,disease,recommendation,source,severity
-102,,,,,,,,,,,,149,,,66,999,,,,,"After getting medical clearance, exercise more than 150 minutes / week.","www.cahealthcenter.net/‎",1
-103,,,,,,,,,,,,149,,,19,65,,,,,Exercise more than 150 minutes / week.,www.cahealthcenter.net/‎,1
-101,,,,,,,,,,59,,,,,,18,,,,,Exercise 60 minutes / day,www.cahealthcenter.net/‎,1
-201,120,139,80,89,,,,,,,,,,,,,,,,,Prehypertention Symptoms found! Please check your BP again after 6 hrs. Prehypertension,www.cahealthcenter.net/‎,2
-220,140,159,90,99,,,,,,,,,,,,,,,,,High Blood Pressure Symptoms found! You may have forgot to take your pills.;  (Hypertension) Stage 1,www.cahealthcenter.net/‎,2
-221,160,179,100,109,,,,,,,,,,,,,,,,,High Blood Pressure Symptoms found! Please see your doctor immediately! (Hypertension) Stage 2,www.cahealthcenter.net/‎,3
-223,180,,110,,,,,,,,,,,,,,,,,,Emergency! Get Hospitalized right now!,www.cahealthcenter.net/‎,3
-320,,,,,100,,,,,,,,,,,,,,,,Heart Rate abnormal! You may have not taken your pills.,www.cahealthcenter.net/‎,2
-223,130,159,90,99,,,,,,,,,,,,,,,,diabetic,High Blood Pressure Symptoms found!,www.cahealthcenter.net/‎,2
-321,,,,,90,,,,,,,,,,,,,,,,"Are you exersising? If yes, take rest, your bones and joints needs extra care that have arthiritis problem",www.cahealthcenter.net/‎,3
-401,,,,,,,,7.99,,,,,,,,,,,,,"Sleep at least 8 hrs, take rest, your bones and joints needs extra care that have arthiritis problem",www.cahealthcenter.net/‎,2
-105,,,,,,,,,31,,,,,,,,,,,asthma,Exercise < 30 minutes / day,www.cahealthcenter.net/‎,1
-310,,,,,,74,,,,,,,,,2,12,,,,,Your Heartbeat is below normal.,www.cahealthcenter.net/‎,2
-311,,,,,,59,,,,,,,,,18,,,,,,"Your Heartbeat is below normal. 
-If you are athletic then your resting heartbeat may be as low as 40.",www.cahealthcenter.net/‎,2
-322,,,,,121,,,,,,,,,,2,6,,,,,Your Heartbeat is above normal.,www.cahealthcenter.net/‎,2
-323,,,,,111,,,,,,,,,,7,12,,,,,Your Heartbeat is above normal.,www.cahealthcenter.net/‎,2
-324,,,,,111,,,,,,,,,,18,,,,,,Your Heartbeat is above normal.,www.cahealthcenter.net/‎,2
-106,,,,,,,,,,59,,,,,5,17,,,,,"Increase the levels of physical activity for the prevention of chronic diseases such as cardiovascular diseases, stroke and hypertension!",www.cahealthcenter.net/‎,1
-107,,,,,,,,,,,,149,,,18,,,,,,"Increase the levels of physical activity for the prevention of chronic diseases such as cardiovascular diseases, stroke and hypertension!",www.cahealthcenter.net/‎,1
-402,,,,,,,,3.99,,,,,,,23,48,,,,,Increase your sleep hours to reduce the chances of hypertention.,www.cahealthcenter.net/‎,1
+101,,,,,,,,,,59,,,,,,18,,,,,It is recommended to exercise 60 minutes a day,,1
+105,,,,,,,,,31,,,,,,,,,,,asthma,Exercise - 30 minutes a day with asthma,,1
+106,,,,,,,,,,59,,,,,5,17,,,,,"Increase the levels of physical activity for the prevention of chronic diseases such as cardiovascular diseases, stroke and hypertension",,1
+201,120,139,80,89,,,,,,,,,,,,,,,,,Blood pressure is higher than normal. ,,2
+220,140,159,90,99,,,,,,,,,,,,,,,,,Blood pressure is high. ,,3
+221,160,179,100,109,,,,,,,,,,,,,,,,,Blood pressure is very high. ,,4
+223,180,,110,,,,,,,,,,,,,,,,,,Extreme high blood pressure! Please seek medical attention ASAP,,5
+310,,,,,,74,,,,,,,,,2,12,,,,,Your Heartbeat is below normal.,,2
+311,,,,,,59,,,,,,,,,18,,,,,,Your Heartbeat is below normal.If you are athletic then your resting heartbeat may be as low as 40.,,2
+321,,,,,90,,,,,,,,,,,,,,,,"Are you exercising? If yes, take rest, your bones and joints needs extra care that have arthiritis problem",,3
+322,,,,,121,,,,,,,,,,2,6,,,,,Heartbeat is above normal.,,2
+323,,,,,111,,,,,,,,,,7,12,,,,,Heartbeat is above normal.,,2
+324,,,,,135,,,,,,,,,,18,,,,,,Heartbeat is above normal.,,4
+401,,,,,,,600,,,,,,,,,,,,,,Sleep is too much. ,,1
+402,,,,,,,,240,,,,,,,23,48,,,,,Sleep is too less. ,,1
