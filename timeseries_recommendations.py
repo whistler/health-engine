@@ -21,8 +21,11 @@ def process(inputs):
     gender = None
 
     if 'userinfo' in inputs:
-        age = inputs['userinfo']['age']
-        gender = inputs['userinfo']['gender']
+        userinfo = inputs['userinfo']
+        if 'age' in userinfo:
+            age = userinfo['age']
+        if 'gender' in userinfo:
+            gender = userinfo['gender']
     
     for _recommendation in table.iterrows():
         recommendation = _recommendation[1]
