@@ -1,9 +1,9 @@
 ID,SleepLow,SleepFluct,SleepHigh,BPLow,BPFluct,BPHigh,HBLow,HBFluct,HBHigh,ActivityLow,ActivityFluct,ActivityHigh,Insomnia,Hypertension,Diabetes,Cardio,Recommendation,URL
 901,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,Your BP is increasing to dangerous levels,
 902,4,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,Your dummy recommendation,
-903,3,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,"Your BP is steadily increasing, perhaps increasing your sleep time can reduce BP.",
+903,5,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,"Your BP is steadily increasing, perhaps increasing your sleep time can reduce BP.",
 904,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,Your BP level is alarmingly higher than normal,
-905,4,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,Your BP trend has reached alarmingly higher levels.Please consider reorganising your sleep patterns as lower sleep time can increase BP,
+905,3,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,Your BP trend has reached alarmingly higher levels.Please consider reorganising your sleep patterns as lower sleep time can increase BP,
 906,4,0,0,0,0,0,0,0,4,4,0,0,0,0,0,0,Lack of sleep and decreased activity might have increased your heart beat rates,
 907,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,increase in your heart rate is improportional to very low activity levels.,
 908,4,0,0,0,0,5,0,0,0,5,0,0,0,0,0,0,increase in your heart rate is improportional to low activity levels. Please increase your sleep and activity,

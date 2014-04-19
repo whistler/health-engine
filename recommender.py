@@ -16,24 +16,28 @@ def recommend(input):
     recommendations = []
     in_recommendations = instance_recommendations.process(input)
     ts_recommendations = timeseries_recommendations.process(input)
-    ts_recommendations = append_tips.addtips(ts_recommendations)
-#     pp_recommendations = post_processor.process(ts_recommendations, input)
+#     ts_recommendations = append_tips.addtips(ts_recommendations)
 
     if in_recommendations != []:
         recommendations.extend(in_recommendations)  
     
     if ts_recommendations != []:
         recommendations.extend(ts_recommendations)
-# 
-#     if pp_recommendations != {}:
-#         recommendations.append(pp_recommendations)
+
+    pp_recommendations = post_processor.process(recommendations, input)
+#     print pp_recommendations
+ 
+    if pp_recommendations != {}:
+        recommendations.append(pp_recommendations)
         
-    return recommendations
-#     return _filter_off_low_severity_recommendation(recommendations)
+    recommendations = append_tips.addtips(recommendations)
+    return _filter_off_low_severity_recommendation(recommendations)
 
 def _filter_off_low_severity_recommendation(recommendations):
     filtered_recommendations = []
     for recom in recommendations:
-        if recom['severity'] >= 3:
+        if recom['severity'] >= 2:
+#             if "direction" in recom:
+#                 del recom["direction"]
             filtered_recommendations.append(recom)
     return filtered_recommendations

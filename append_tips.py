@@ -40,12 +40,14 @@ def addtips(conditions):
     recommendations = []
     for cond in conditions:
         recom = {}
-#         cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]])
+        if cond['id'] < 500:
+            cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]])
         recom=cond
-        del recom["direction"]
+        if "direction" in recom:
+            del recom["direction"]
         recom["recommendation"] = recom.pop("condition")
-        if math.isnan(float(recom['url'])):
-            recom['url'] = ''
+#         if math.isnan(float(recom['url'])):
+#             recom['url'] = ''
         recommendations.append(recom)    
     return recommendations
     

@@ -1,10 +1,10 @@
-ID,bp systolic min,bp systolic max,bp diastolic min,bp diastolic max,heartbeat min,heartbeat max,sleep min,sleep max,activity day min,activity day max,activity week min,activity week max,step min,step max,age min,age max,bmi min,bmi max,gender,disease,recommendation,source,severity
-101,,,,,,,,,0,30,,,,,,,,,,,It is recommended to exercise 60 minutes a day.,,1
-220,135,159,80,99,,,,,,,,,,,,,,,,,Blood pressure is high. ,,4
-221,160,179,100,109,,,,,,,,,,,,,,,,,Blood pressure is very high. ,,4
-223,180,200,110,130,,,,,,,,,,,,,,,,,Blood pressure is extremely high.,,5
-311,,,,,0,55,,,,,,,,,,,,,,,Your Heartbeat rate is below the normal range.,,4
-322,,,,,130,160,,,,,,,,,,,,,,,Heartbeat is beating too fast.,,4
-401,,,,,,,600,1440,,,,,,,,,,,,,Sleep over 10 hours is too much. ,,1
-402,,,,,,,0,240,,,,,,,,,,,,,Sleep less than 4 hours is too little.,,1
-403,,,,,,,241,360,,,,,,,,,,,,,Sleep less than 6 hours is not enough. ,,1
+ID,bp systolic min,bp systolic max,bp diastolic min,bp diastolic max,heartbeat min,heartbeat max,sleep min,sleep max,activity day min,activity day max,activity week min,activity week max,step min,step max,age min,age max,bmi min,bmi max,gender,disease,recommendation,source,severity,direction
+101,,,,,,,,,0,30,,,,,,,,,,,It is recommended to exercise 60 minutes a day.,,1,-1
+220,135,159,0,159,,,,,,,,,,,,,,,,,Blood pressure is high. ,,4,1
+221,160,179,0,179,,,,,,,,,,,,,,,,,Blood pressure is very high. ,,4,1
+223,180,200,0,200,,,,,,,,,,,,,,,,,Blood pressure is extremely high.,,5,1
+311,,,,,0,55,,,,,,,,,,,,,,,Your Heartbeat rate is below the normal range.,,4,-1
+322,,,,,130,160,,,,,,,,,,,,,,,Heartbeat is beating too fast.,,4,1
+401,,,,,,,600,1440,,,,,,,,,,,,,Sleep over 10 hours is too much. ,,1,1
+402,,,,,,,0,240,,,,,,,,,,,,,Sleep less than 4 hours is too little.,,1,-1
+403,,,,,,,241,360,,,,,,,,,,,,,Sleep less than 6 hours is not enough. ,,1,-1

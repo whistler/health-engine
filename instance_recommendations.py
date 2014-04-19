@@ -51,9 +51,10 @@ def _get_slug(str):
 def _append_recommendation(recommendation_row, recommendations):
     recommendation = {
         'id': recommendation_row[1]['ID'],
-        'recommendation': recommendation_row[1]['recommendation'],
+        'condition': recommendation_row[1]['recommendation'],
         'url': recommendation_row[1]['source'],
-        'severity': recommendation_row[1]['severity']
+        'severity': int(recommendation_row[1]['severity']),
+        'direction': recommendation_row[1]['direction'],
     }
     if math.isnan(float(recommendation['url'])):
         recommendation['url'] = ''

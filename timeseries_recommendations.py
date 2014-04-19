@@ -16,7 +16,7 @@ def process(inputs):
     recommendations = []
     
     features = _build_features(inputs)
-    print features['bloodpressure']
+
     age = None
     gender = None
 
@@ -56,8 +56,8 @@ def _recommendation_output(recommendation):
         'id': recommendation['id'],
         'condition': recommendation['condition'],
         'direction': recommendation['direction'],
-        'severity' : recommendation['severity'],
-        'url' : recommendation['url']
+        'severity' : int(round(recommendation['severity'])),
+        'url' : ''
         }
     
 def _satisfiesFluctuation(input_val, fluctuation):
