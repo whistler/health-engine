@@ -1,4 +1,5 @@
 import datetime
+from datetime import datetime
 import pandas
 import math
 
@@ -7,8 +8,10 @@ table = pandas.read_csv("db/instance_recommendations.csv")
 def process(input):
     
     recommendations = []
+#     print input 
+
     features = extract_features(input)
-    
+    print features
     for recommendation in table.iterrows():
         #TODO: Add disease and gender matching
         if _satisfies("bp systolic", features, recommendation) and \
@@ -84,6 +87,7 @@ def extract_features(input):
                     if "date" in item and "value" in item:
                         if prev_date is None or item["date"] > prev_date:
                             weight = item["value"]
+                            prev_date = item["date"]
         
         if height and weight: bmi = height / weight
         
@@ -102,38 +106,43 @@ def extract_features(input):
         prev_date = None
         for item in bloodPressures:
             if "date" in item and "systolic" in item and "diastolic" in item:
-                if prev_date is None or item["date"] > prev_date:
+                if prev_date is None or _datetime(item["date"]) > prev_date:
                     bp_systolic = item["systolic"]
                     bp_diastolic = item["diastolic"]
+                    prev_date = _datetime(item["date"])
+
 
     if "heartBeats" in input:
         heartBeats = input["heartBeats"]
         prev_date = None
         for item in heartBeats:
             if "date" in item and "count" in item:
-                if prev_date is None or item["date"] > prev_date:
+                if prev_date is None or _datetime(item["date"]) > prev_date:
                     heartbeat = item["count"]
-
+                    prev_date = _datetime(item["date"])
+                    
     if "sleep" in input:
         sleeps = input["sleep"]
         prev_date = None
         for item in sleeps:
             if "date" in item and "minutesAsleep" in item:
-                if prev_date is None or item["date"] > prev_date:
+                if prev_date is None or _datetime(item["date"]) > prev_date:
                     sleep = item["minutesAsleep"]
+                    prev_date = _datetime(item["date"])
     
     if "activities" in input:
         activities = input["activities"]
         prev_date = None
         for item in activities:
             if "date" in item and "duration" in item:
-                if prev_date is None or item["date"] > prev_date:
+                if prev_date is None or _datetime(item["date"]) > prev_date:
                     activity_day = item["duration"]
+                    prev_date = _datetime(item["date"])
         
         # filter the week
-        week_ago = datetime.datetime.today() - datetime.timedelta(7)
-        activity_week = sum([activity["duration"] for activity in \
-                input["activities"] if _datetime(activity["date"]) > week_ago])
+#         week_ago = datetime.today() - datetime.timedelta(7)
+#         activity_week = sum([activity["duration"] for activity in \
+#                 input["activities"] if _datetime(activity["date"]) > week_ago])
     
     features = {
         "bp systolic": bp_systolic,
@@ -151,4 +160,4 @@ def extract_features(input):
     return features
     
 def _datetime(str):
-    return datetime.datetime.strptime(str, "%Y-%m-%d")
+    return datetime.strptime(str, "%Y-%m-%d")

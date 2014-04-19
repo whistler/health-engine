@@ -13,7 +13,7 @@ def process(input,user_input):
     ppfeatures = {'BPHigh':0,'BPFluct':0,'BPLow':0,'HBHigh':0,'HBFluct':0,'HBLow':0,'SleepHigh':0,'SleepFluct':0,'SleepLow':0,'ActivityHigh':0,'ActivityFluct':0,'ActivityLow':0,'Insomnia':0,'Hypertension':0,'Diabetes':0,'Cardio':0}        
     import pdb
     priority_list = _filter_priority(input)
-    print priority_list
+#     print priority_list
     bpValues = _filter_BP_values(priority_list)
     hbValues = _filter_HB_values(priority_list)
     sleepValues = _filter_sleep_values(priority_list)

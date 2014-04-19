@@ -40,7 +40,7 @@ def addtips(conditions):
     recommendations = []
     for cond in conditions:
         recom = {}
-        cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]])
+#         cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]])
         recom=cond
         del recom["direction"]
         recom["recommendation"] = recom.pop("condition")
