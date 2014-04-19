@@ -28,7 +28,8 @@ def recommend(input):
 #     if pp_recommendations != {}:
 #         recommendations.append(pp_recommendations)
         
-    return _filter_off_low_severity_recommendation(recommendations)
+    return recommendations
+#     return _filter_off_low_severity_recommendation(recommendations)
 
 def _filter_off_low_severity_recommendation(recommendations):
     filtered_recommendations = []

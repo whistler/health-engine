@@ -16,7 +16,7 @@ def process(inputs):
     recommendations = []
     
     features = _build_features(inputs)
-
+    print features['bloodpressure']
     age = None
     gender = None
 
@@ -32,8 +32,8 @@ def process(inputs):
         days = int(recommendation['days'])
         feature = recommendation['input'] # use only the last n days
         values = features[feature][0:days]
-        print values
-        
+#         print values
+#         print _satisfiesAvgLess([80], recommendation['avg less'])
         conditions = [
             _satisfiesFluctuation(values, recommendation['fluctuation']),
             _satisfiesGradient(values, recommendation['gradient']),
@@ -83,12 +83,12 @@ def _satisfiesAllMore(input_val, all_more):
 def _satisfiesAvgLess(input_val, avg_less):
     if math.isnan(avg_less): return True
     avg = sum(input_val)/len(input_val)
-    return avg > avg_less
+    return avg < avg_less
     
 def _satisfiesAvgMore(input_val, avg_more):
     if math.isnan(avg_more): return True
     avg = sum(input_val)/len(input_val)
-    return avg < avg_more
+    return avg > avg_more
     
 def _satisfiesAge(userage, age):
     if age == 'nan' or not age or not userage: return True
@@ -105,7 +105,7 @@ def _in_range(value, range):
     value - numeric value
     range - string in the format 'start_number-end_number'
     """
-    min_val, max_val = (int(x) for x in "10-40".split("-"))
+    min_val, max_val = (int(x) for x in "16-60".split("-"))
     return int(value) > min_val and int(value) < max_val
     
 def _build_features(inputs):
