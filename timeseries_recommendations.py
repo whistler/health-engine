@@ -59,7 +59,7 @@ def _recommendation_output(recommendation):
         'severity' : int(round(recommendation['severity'])),
         'url' : ''
         }
-    
+
 def _satisfiesFluctuation(input_val, fluctuation):
     if math.isnan(fluctuation): return True
     fluctuations = fluctuation_analysis.analyze_fluctuation(input_val)

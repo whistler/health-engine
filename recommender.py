@@ -14,30 +14,60 @@ import append_tips
 
 def recommend(input):
     recommendations = []
+    """ instant and time series analysis """
     in_recommendations = instance_recommendations.process(input)
     ts_recommendations = timeseries_recommendations.process(input)
-#     ts_recommendations = append_tips.addtips(ts_recommendations)
+    recommendations.extend(in_recommendations)  
+    recommendations.extend(ts_recommendations)
 
-    if in_recommendations != []:
-        recommendations.extend(in_recommendations)  
+    """ processes and combine the recommendation list"""
+    recommendations = _sort_recommendations(recommendations)
+    recommendations = _combine_recommendations(recommendations, input)
     
-    if ts_recommendations != []:
-        recommendations.extend(ts_recommendations)
-
-    pp_recommendations = post_processor.process(recommendations, input)
-#     print pp_recommendations
- 
-    if pp_recommendations != {}:
-        recommendations.append(pp_recommendations)
-        
+    """ append tips to the recommendations"""
     recommendations = append_tips.addtips(recommendations)
-    return _filter_off_low_severity_recommendation(recommendations)
-
-def _filter_off_low_severity_recommendation(recommendations):
-    filtered_recommendations = []
+    
+    return recommendations
+    
+def _sort_recommendations(recommendations):
+    """ Only return the highest severity for one input
+    """
+    sorted_recoms = [{}]*4
     for recom in recommendations:
-        if recom['severity'] >= 2:
-#             if "direction" in recom:
-#                 del recom["direction"]
-            filtered_recommendations.append(recom)
-    return filtered_recommendations
+        if sorted_recoms[int(recom['id'])/100-1] == {}:
+            sorted_recoms[int(recom['id'])/100-1] = recom;
+        else:
+            if sorted_recoms[int(recom['id'])/100-1]['severity'] < recom['severity']:
+                sorted_recoms[int(recom['id'])/100-1] = recom
+            if sorted_recoms[int(recom['id'])/100-1]['severity'] == recom['severity']:
+                if sorted_recoms[int(recom['id'])/100-1]['id'] < recom['id']:
+                    sorted_recoms[int(recom['id'])/100-1] = recom
+    return [item for item in sorted_recoms if item != {}]
+
+def _combine_recommendations(recommendations, input):
+    """ When there is a combination recommendation, delete the original one with combined_id (sourceGroup in PostProcess.csv.
+    """
+    pp_recommendations, combined_id = post_processor.process(recommendations, input)
+    if pp_recommendations == {}:
+        return recommendations
+    else:
+        recoms = []
+        for recom in recommendations:
+            if int(recom['id'])/100 != int(combined_id):
+                recoms.append(recom)
+            else:
+                pp_recommendations['condition'] += ", probably because " +  recom['condition']
+        recoms.append(pp_recommendations)
+        return recoms
+     
+#     return _filter_off_low_severity_recommendation(recommendations)
+# 
+# def _filter_off_low_severity_recommendation(recommendations):
+#     filtered_recommendations = []
+#     for recom in recommendations:
+#         if recom['severity'] >= 2:
+# #             if "direction" in recom:
+# #                 del recom["direction"]
+#             filtered_recommendations.append(recom)
+#     return filtered_recommendations
+            

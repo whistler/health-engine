@@ -42,6 +42,8 @@ def addtips(conditions):
         recom = {}
         if cond['id'] < 500:
             cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]])
+        else:
+            cond["condition"] += random.choice(tips[keys[int(cond["id"])%100/10]][directions[int(cond["direction"])]])
         recom=cond
         if "direction" in recom:
             del recom["direction"]

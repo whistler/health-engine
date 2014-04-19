@@ -1,15 +1,12 @@
-SL,Low,+ACI-A quiet, dark, and cool environment can help promote sound slumber. To achieve such an environment, lower the volume of outside noise with earplugs or a +ACIAIg-white noise+ACIAIg- appliance. Use heavy curtains, blackout shades, or an eye mask to block light, a powerful cue that tells the brain that it's time to wake up. http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
-+ACI-,+ACI-Keep the temperature comfortably cool+//0A4v/9AID//QCU-between 60 and 75+//0Awv/9ALA-F+//0A4v/9AID//QCU-and the room well ventilated. And make sure your bedroom is equipped with a comfortable mattress and pillows. (Remember that most mattresses wear out after ten years.) http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips
-
-+ACI-,+ACI-Ease the transition from wake time to sleep time with a period of relaxing activities an hour or so before bed. Take a bath (the rise, then fall in body temperature promotes drowsiness), read a book, watch television, or practice relaxation exercises. http://healthysleep.med.harvard.edu/healthy/getting/overcoming/tips+ACI-,
-SL,High,Put an alarm to wake up in the morning.,Depression is a leading cause of oversleeping because it robs you of your will to get out of bed in the morning. You may feel fatigued and have a hard time waking up. http://www.livestrong.com/article/127972+AC0-causes+AC0-oversleeping/,+ACI-The use of certain substances, namely alcohol and prescription drugs, can make you feel more tired and oversleep, says the National Institute on Alcohol Abuse and Alcoholism. If you drink, make sure to do so responsibly and not directly before bed. Try alternating one drink with a bottle of water to pace yourself.+ACI-,
-SL,Fluctuation,,,,
-AC,Low,+ACI-Getting regular physical activity is arguably the best thing you can do for your health. Any amount of exercise is better than none. The more you get, though, the better+ACI-,,,
-AC,High,Don't skip essential nutrients. Low calorie diet and missing meals increases fatigue,Another1,Another2,Another3
+SL,Low,Keeping the bedroom dark and quite may help your sleep. ,Keeping the temperature comfortably cool and the bedroom well ventilated may help your sleep.,An hour of relaxing activities before bed may help your sleep., Taking a warm bath before bed may help your sleep.,
+SL,High,Set an alarm to wake up in the morning.,Depression might be a reason for oversleeping. Keep yourself optimistic. ,Overdosed alcohol may cause oversleeping. Drink under control.,
+SL,Fluctuation,Proper sleep pills (subject to physician's approval) may help your irregular sleep. ,,,
+AC,Low,Any amount of exercise is better than none.,,,
+AC,High,Enough nutrients are needed for more activities.,,,
 AC,Fluctuation,,,,
-BP,Low,+ACI-Drink plenty of water, low blood pressure is often caused by dehydration+ACI-,+ACI-Increasing salt intake increases blood volume, but check with your physician to ensure that it is safe to do for you+ACI-,,
-BP,High,+ACI-Eat dark chocolate, it helps lower blood pressure+ACI-,Drink tea instead of coffee.,+ACI-Add flaxseeds to your diet, 2 tablespoons in your yougurt and speghatti should do the job.+ACI-,Take a brisk 15 minutes walk every morning
+BP,Low,Drink plenty of water may help. Low blood pressure is often caused by dehydration,Increasing salt intake increases blood volume (subject to physician's approval),,
+BP,High,Dark chocolate may help lower blood pressure,Drink tea instead of coffee may help lower blood pressure.,Flaxseeds may help lower blood pressure,
 BP,Fluctuation,,,,
-HB,Low,Another1,Another2,Another3,Another4
-HB,High,Another1,Another2,Another3,Another4
+HB,Low,,,,
+HB,High,,,,
 HB,Fluctuation,,,,

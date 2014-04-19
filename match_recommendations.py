@@ -7,6 +7,7 @@ table = pandas.read_csv("db/PostProcessor.csv")
 
 def read_recomendations(ppfeatures):
     summary = {}
+    conditionGroup = 0
     for recommendation in table.iterrows():
         
     #          print "type of recommendation %s"%type(recommendation)
@@ -20,28 +21,30 @@ def read_recomendations(ppfeatures):
     #                     }
 
         if  ppfeatures.get('BPHigh') >= recommendation[1]['BPHigh'] and \
-            ppfeatures.get('BPFluct')== recommendation[1]['BPFluct'] and \
-            ppfeatures.get('BPLow')== recommendation[1]['BPLow'] and \
-            ppfeatures.get('HBHigh')== recommendation[1]['HBHigh'] and \
-            ppfeatures.get('HBFluct')== recommendation[1]['HBFluct'] and \
-            ppfeatures.get('HBLow')==recommendation[1]['HBLow'] and \
-            ppfeatures.get('SleepHigh')==recommendation[1]['SleepHigh'] and \
-            ppfeatures.get('SleepFluct')== recommendation[1]['SleepFluct'] and \
+            ppfeatures.get('BPFluct')>= recommendation[1]['BPFluct'] and \
+            ppfeatures.get('BPLow')>= recommendation[1]['BPLow'] and \
+            ppfeatures.get('HBHigh')>= recommendation[1]['HBHigh'] and \
+            ppfeatures.get('HBFluct')>= recommendation[1]['HBFluct'] and \
+            ppfeatures.get('HBLow')>=recommendation[1]['HBLow'] and \
+            ppfeatures.get('SleepHigh')>=recommendation[1]['SleepHigh'] and \
+            ppfeatures.get('SleepFluct')>= recommendation[1]['SleepFluct'] and \
             ppfeatures.get('SleepLow')>=recommendation[1]['SleepLow'] and \
-            ppfeatures.get('ActivityHigh')==recommendation[1]['ActivityHigh'] and \
-            ppfeatures.get('ActivityFluct')== recommendation[1]['ActivityFluct'] and \
-            ppfeatures.get('ActivityLow')==recommendation[1]['ActivityLow'] and \
-            ppfeatures.get('Insomnia')==recommendation[1]['Insomnia'] and \
-            ppfeatures.get('Hypertension')==recommendation[1]['Hypertension'] and \
-            ppfeatures.get('Diabetes')==recommendation[1]['Diabetes'] and \
-            ppfeatures.get('Cardio')== recommendation[1]['Cardio']:
+            ppfeatures.get('ActivityHigh')>=recommendation[1]['ActivityHigh'] and \
+            ppfeatures.get('ActivityFluct')>= recommendation[1]['ActivityFluct'] and \
+            ppfeatures.get('ActivityLow')>=recommendation[1]['ActivityLow'] and \
+            ppfeatures.get('Insomnia')>=recommendation[1]['Insomnia'] and \
+            ppfeatures.get('Hypertension')>=recommendation[1]['Hypertension'] and \
+            ppfeatures.get('Diabetes')>=recommendation[1]['Diabetes'] and \
+            ppfeatures.get('Cardio')>= recommendation[1]['Cardio']:
            summary = {
                       'id':recommendation[1]['ID'],
                       'condition': recommendation[1]['Recommendation'],
                       'severity':5,
-                      'url': ''
+                      'url': '',
+                      'direction': recommendation[1]['direction']
                      }
-    return summary
+           conditionGroup = recommendation[1]['conditionGroup']
+    return summary, conditionGroup
          
 def convert_to_dict(recommendation):
     return dict(recommendation)
