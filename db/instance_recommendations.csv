@@ -1,16 +1,10 @@
 ID,bp systolic min,bp systolic max,bp diastolic min,bp diastolic max,heartbeat min,heartbeat max,sleep min,sleep max,activity day min,activity day max,activity week min,activity week max,step min,step max,age min,age max,bmi min,bmi max,gender,disease,recommendation,source,severity
-101,,,,,,,,,,59,,,,,,18,,,,,It is recommended to exercise 60 minutes a day,,1
-105,,,,,,,,,31,,,,,,,,,,,asthma,Exercise - 30 minutes a day with asthma,,1
-106,,,,,,,,,,59,,,,,5,17,,,,,"Increase the levels of physical activity for the prevention of chronic diseases such as cardiovascular diseases, stroke and hypertension",,1
-201,120,139,80,89,,,,,,,,,,,,,,,,,Blood pressure is higher than normal. ,,2
-220,140,159,90,99,,,,,,,,,,,,,,,,,Blood pressure is high. ,,3
+101,,,,,,,,,0,30,,,,,,,,,,,It is recommended to exercise 60 minutes a day.,,1
+220,135,159,80,99,,,,,,,,,,,,,,,,,Blood pressure is high. ,,4
 221,160,179,100,109,,,,,,,,,,,,,,,,,Blood pressure is very high. ,,4
-223,180,,110,,,,,,,,,,,,,,,,,,Extreme high blood pressure! Please seek medical attention ASAP,,5
-310,,,,,,74,,,,,,,,,2,12,,,,,Your Heartbeat is below normal.,,2
-311,,,,,,59,,,,,,,,,18,,,,,,Your Heartbeat is below normal.If you are athletic then your resting heartbeat may be as low as 40.,,2
-321,,,,,90,,,,,,,,,,,,,,,,"Are you exercising? If yes, take rest, your bones and joints needs extra care that have arthiritis problem",,3
-322,,,,,121,,,,,,,,,,2,6,,,,,Heartbeat is above normal.,,2
-323,,,,,111,,,,,,,,,,7,12,,,,,Heartbeat is above normal.,,2
-324,,,,,135,,,,,,,,,,18,,,,,,Heartbeat is above normal.,,4
-401,,,,,,,600,,,,,,,,,,,,,,Sleep is too much. ,,1
-402,,,,,,,,240,,,,,,,23,48,,,,,Sleep is too less. ,,1
+223,180,200,110,130,,,,,,,,,,,,,,,,,Blood pressure is extremely high.,,5
+311,,,,,0,55,,,,,,,,,,,,,,,Your Heartbeat rate is below the normal range.,,4
+322,,,,,130,160,,,,,,,,,,,,,,,Heartbeat is beating too fast.,,4
+401,,,,,,,600,1440,,,,,,,,,,,,,Sleep over 10 hours is too much. ,,1
+402,,,,,,,0,240,,,,,,,,,,,,,Sleep less than 4 hours is too little.,,1
+403,,,,,,,241,360,,,,,,,,,,,,,Sleep less than 6 hours is not enough. ,,1

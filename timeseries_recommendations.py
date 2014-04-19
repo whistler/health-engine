@@ -32,7 +32,8 @@ def process(inputs):
         days = int(recommendation['days'])
         feature = recommendation['input'] # use only the last n days
         values = features[feature][0:days]
-
+        print values
+        
         conditions = [
             _satisfiesFluctuation(values, recommendation['fluctuation']),
             _satisfiesGradient(values, recommendation['gradient']),

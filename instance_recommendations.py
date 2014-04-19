@@ -8,10 +8,7 @@ table = pandas.read_csv("db/instance_recommendations.csv")
 def process(input):
     
     recommendations = []
-#     print input 
-
     features = extract_features(input)
-    print features
     for recommendation in table.iterrows():
         #TODO: Add disease and gender matching
         if _satisfies("bp systolic", features, recommendation) and \
@@ -38,9 +35,13 @@ def _satisfies(feature_name, features, recommendation_row):
     min_val = recommendation_row[1][min_key]
     max_val = recommendation_row[1][max_key]
     feature = features.get(feature_name)
-        
-    if feature and min_val and feature < min_val: return False
-    if feature and max_val and feature > max_val: return False
+
+    if not feature or (feature is None):
+        return True
+    if min_val and feature < min_val: 
+        return False
+    if max_val and feature > max_val: 
+        return False
     return True
 
 def _get_slug(str):
