@@ -1,0 +1,457 @@
+{
+    "activities": [
+        {
+            "date": "2012-04-24",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-23",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-22",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-21",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-20",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-19",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-18",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-17",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-16",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-15",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-14",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-13",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-12",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-11",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-10",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-9",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-8",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-7",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-6",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-5",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-4",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-3",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-2",
+            "duration": 10
+        },
+        {
+            "date": "2012-04-1",
+            "duration": 10
+        }
+    ],
+    "bloodPressures": [
+        {
+            "date": "2012-04-24",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-23",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-22",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-21",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-20",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-19",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-18",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-17",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-16",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-15",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-14",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-13",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-12",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-11",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-10",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-9",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-8",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-7",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-6",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-5",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-4",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-3",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-2",
+            "diastolic": 80,
+            "systolic": 120
+        },
+        {
+            "date": "2012-04-1",
+            "diastolic": 80,
+            "systolic": 120
+        }
+    ],
+    "heartBeats": [
+        {
+            "count": 92,
+            "date": "2012-04-24"
+        },
+        {
+            "count": 91,
+            "date": "2012-04-23"
+        },
+        {
+            "count": 92,
+            "date": "2012-04-22"
+        },
+        {
+            "count": 85,
+            "date": "2012-04-21"
+        },
+        {
+            "count": 81,
+            "date": "2012-04-20"
+        },
+        {
+            "count": 78,
+            "date": "2012-04-19"
+        },
+        {
+            "count": 76,
+            "date": "2012-04-18"
+        },
+        {
+            "count": 73,
+            "date": "2012-04-17"
+        },
+        {
+            "count": 71,
+            "date": "2012-04-16"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-15"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-14"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-13"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-12"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-11"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-10"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-9"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-8"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-7"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-6"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-5"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-4"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-3"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-2"
+        },
+        {
+            "count": 70,
+            "date": "2012-04-1"
+        }
+    ],
+    "sleep": [
+        {
+            "date": "2012-04-24",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-23",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-22",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-21",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-20",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-19",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-18",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-17",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-16",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-15",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-14",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-13",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-12",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-11",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-10",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-9",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-8",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-7",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-6",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-5",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-4",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-3",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-2",
+            "minutesAsleep": 480
+        },
+        {
+            "date": "2012-04-1",
+            "minutesAsleep": 480
+        }
+    ],
+    "userinfo": {
+      "age": 40,
+        "cardio": false,
+        "diabetes": false,
+        "gender": "",
+        "height": 170,
+        "hypertension": false,
+        "insomnia": false,
+        "weight": [
+                {
+            "value": 30,
+            "date": "2012-04-24"
+        },
+        {
+            "value": 65.3,
+            "date": "2012-04-23"
+        },
+        {
+            "value": 67.3,
+            "date": "2012-04-22"
+        },
+        {
+            "value": 65.3,
+            "date": "2012-04-21"
+        },
+        {
+            "value": 68.3,
+            "date": "2012-04-20"
+        },
+        {
+            "value": 69.3,
+            "date": "2012-04-19"
+        },
+        {
+            "value": 67.3,
+            "date": "2012-04-18"
+        }
+    ]
+    }
+}
