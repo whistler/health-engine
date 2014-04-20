@@ -56,7 +56,7 @@ def _combine_recommendations(recommendations, input):
             if int(recom['id'])/100 != int(combined_id):
                 recoms.append(recom)
             else:
-                pp_recommendations['condition'] += ", probably because " +  recom['condition']
+                pp_recommendations['condition'] += ", probably because your " +  recom['condition']
         recoms.append(pp_recommendations)
         return recoms
      

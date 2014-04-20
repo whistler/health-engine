@@ -25,6 +25,7 @@ def loadTips():
                 if row != []:
                     if row[0] in tips:
                         tips[row[0]][row[1]] = row[2:]
+#                         tips[row[0]]['url'] = 
                     else:
                         tips[row[0]] = {row[1]:row[2:]}
     except IOError as e:
@@ -32,7 +33,7 @@ def loadTips():
     except:
         print "Unexpected error:", sys.exc_info()[0]
         raise 
-    return tips
+    return tips 
 
 
 def addtips(conditions):
@@ -41,9 +42,11 @@ def addtips(conditions):
     for cond in conditions:
         recom = {}
         if cond['id'] < 500:
-            cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]])
+            cond["condition"] += random.choice(tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]][1:])
+            cond['url'] = tips[keys[int(cond["id"])/100]][directions[int(cond["direction"])]][0]
         else:
-            cond["condition"] += random.choice(tips[keys[int(cond["id"])%100/10]][directions[int(cond["direction"])]])
+            cond["condition"] += random.choice(tips[keys[int(cond["id"])%100/10]][directions[int(cond["direction"])]][1:])
+            cond['url'] = tips[keys[int(cond["id"])%100/10]][directions[int(cond["direction"])]][0]
         recom=cond
         if "direction" in recom:
             del recom["direction"]
