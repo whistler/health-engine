@@ -54,6 +54,7 @@ def _combine_recommendations(recommendations, input):
         recoms = []
         for recom in recommendations:
             if int(recom['id'])/100 != int(combined_id):
+                recom['condition'] = recom['condition'].capitalize()
                 recoms.append(recom)
             else:
                 pp_recommendations['condition'] += ", probably because your " +  recom['condition']
