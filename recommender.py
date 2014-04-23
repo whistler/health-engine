@@ -53,9 +53,9 @@ def _combine_recommendations(recommendations, input):
     else:
         recoms = []
         for recom in recommendations:
-            print recom['id']
-            print combined_id
-            print int(pp_recommendations['id'])%100/10
+#             print recom['id']
+#             print combined_id
+#             print int(pp_recommendations['id'])%100/10
             if int(recom['id'])/100 == int(combined_id):
                 continue
             if int(recom['id'])/100 == int(int(pp_recommendations['id'])%100/10):
